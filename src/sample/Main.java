@@ -8,8 +8,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.awt.*;
-
 public class Main extends Application {
 
     @Override
@@ -19,9 +17,9 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
-        Scene s = new Scene(root);
-        s.getStylesheets().add(getClass().getResource("font.css").toExternalForm());
-        primaryStage.setScene(s);
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("font.css").toExternalForm());
+        primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
     }
