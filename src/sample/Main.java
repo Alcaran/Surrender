@@ -15,11 +15,15 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
+        Font.loadFont(Main.class.getResource("JosefinSans-Regular.ttf").toExternalForm(), 10);
+
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setScene(new Scene(root));
+
+        Scene s = new Scene(root);
+        s.getStylesheets().add(getClass().getResource("font.css").toExternalForm());
+        primaryStage.setScene(s);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
-
     }
 
 

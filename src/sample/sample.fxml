@@ -11,6 +11,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -28,9 +29,9 @@
          <center>
             <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="410.0" BorderPane.alignment="CENTER">
                <children>
-              <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="110.0" prefWidth="437.0" text="surrender.gg" textFill="WHITE">
+              <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="110.0" prefWidth="437.0" stylesheets="@font.css" text="surrender.gg" textFill="WHITE">>
                 <font>
-                  <Font name="Symbol" size="72.0" />
+                  <Font name="Josefin Sans Regular" size="72.0" />
                 </font>
                      <VBox.margin>
                         <Insets bottom="40.0" />
@@ -38,7 +39,7 @@
               </Label>
                    <JFXTextField focusColor="WHITE" focusTraversable="false" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Username" style="-fx-prompt-text-fill: white; -fx-text-fill: white;" unFocusColor="#ffffff80">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="Josefin Sans Regular" size="24.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="40.0" />
@@ -46,7 +47,7 @@
                   </JFXTextField>
                   <JFXPasswordField focusColor="WHITE" focusTraversable="false" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Password" style="-fx-prompt-text-fill: white;  -fx-text-fill: white;" unFocusColor="#ffffff80">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="Josefin Sans Regular" size="24.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="35.0" />
@@ -54,9 +55,9 @@
                   </JFXPasswordField>
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="410.0">
                      <children>
-                        <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="148.0" ripplerFill="#ffffff00" text="Without login" textFill="WHITE" underline="true">
+                        <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="160.0" ripplerFill="#ffffff00" text="Without login" textFill="WHITE" underline="true">
                            <font>
-                              <Font name="Symbol" size="16.0" />
+                              <Font name="Josefin Sans Regular" size="16.0" />
                            </font>
                            <padding>
                               <Insets right="50.0" />
@@ -67,7 +68,7 @@
                         </JFXButton>
                         <JFXButton id="btnLogin" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #5e81ac;" text="Login" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                            <font>
-                              <Font name="Symbol" size="24.0" />
+                              <Font name="Josefin Sans Regular" size="24.0" />
                            </font>
                         </JFXButton>
                      </children>
