@@ -7,7 +7,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
   <children>
     <BorderPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
       <bottom>
@@ -47,7 +48,7 @@
                   </JFXPasswordField>
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="410.0">
                      <children>
-                        <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="160.0" ripplerFill="#ffffff00" text="Without login" textFill="WHITE" underline="true">
+                        <JFXButton fx:id="btnNoLogin" onAction="#closeButtonAction" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="160.0" ripplerFill="#ffffff00" text="Without login" textFill="WHITE" underline="true">
                            <font>
                               <Font name="Josefin Sans Regular" size="16.0" />
                            </font>
@@ -75,7 +76,7 @@
             <HBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
                <children>
                   <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="50.0" text="-" textFill="WHITE" />
-                  <JFXButton id="btnExit" alignment="CENTER" contentDisplay="CENTER" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" text="X" textFill="WHITE" />
+                  <JFXButton id="btnExit"  alignment="CENTER" contentDisplay="CENTER" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" text="X" textFill="WHITE" />
                </children>
             </HBox>
          </top>
