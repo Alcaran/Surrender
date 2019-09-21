@@ -28,9 +28,7 @@ public class LoginController {
 
         Stage s = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("Loading.fxml"));
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("font.css").toExternalForm());
-        s.setScene(scene);
+        s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
         s.show();
     }
