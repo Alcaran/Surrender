@@ -10,13 +10,16 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
+    public static Stage mainLoginScene;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Font.loadFont(Main.class.getResource("JosefinSans-Regular.ttf").toExternalForm(), 10);
+        Font.loadFont(Main.class.getResource("JosefinSans-Regular.ttf").toExternalForm(), 64);
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
+        mainLoginScene = primaryStage;
         primaryStage.show();
     }
 

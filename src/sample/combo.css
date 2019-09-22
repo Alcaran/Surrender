@@ -1,0 +1,20 @@
+.combo-box .list-cell:selected .text,
+.choice-box .list-cell:selected .text {
+    -fx-fill: white;
+}
+
+.combo-box .list-cell
+{
+    -fx-background: white;
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-padding: 3 0 2 7;
+    -fx-cell-size: 1.66667em;
+}
+
+.combo-box .arrow,
+.choice-box .arrow {
+    -fx-background-color: white;
+}
+
+

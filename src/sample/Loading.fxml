@@ -39,7 +39,7 @@
                               <Insets bottom="40.0" />
                           </padding>
                       </Label>
-                      <JFXProgressBar fx:id="jfxProgress" layoutX="10.0" layoutY="108.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="11.0" prefWidth="437.0" progress="0.5">
+                      <JFXProgressBar fx:id="jfxProgress" layoutX="10.0" layoutY="108.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="11.0" prefWidth="437.0" progress="0">
                      <padding>
                         <Insets top="10.0" />
                      </padding>

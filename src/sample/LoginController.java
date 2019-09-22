@@ -8,28 +8,27 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class LoginController {
 
     @FXML
-    private void handleButtonAction(){
+    private void handleButtonAction() {
         System.exit(0);
     }
 
-    @FXML
-    public Button btnNoLogin;
+    public static Stage stageLogin;
 
     @FXML
-    private void closeButtonAction()  throws Exception{
-
-        Stage stage = (Stage) btnNoLogin.getScene().getWindow();
-        stage.close();
-
+    private void closeButtonAction() throws IOException {
         Stage s = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("Loading.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
+        stageLogin = s;
         s.show();
+        Main.mainLoginScene.close();
     }
 }
+
+
