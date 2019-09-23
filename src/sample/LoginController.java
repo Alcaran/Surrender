@@ -17,7 +17,7 @@ public class LoginController {
         System.exit(0);
     }
 
-    public static Stage stageLogin;
+    public static Stage stageLoading;
 
     @FXML
     private void closeButtonAction() throws IOException {
@@ -25,7 +25,7 @@ public class LoginController {
         Parent root = FXMLLoader.load(getClass().getResource("Loading.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
-        stageLogin = s;
+        stageLoading = s;
         s.show();
         Main.mainLoginScene.close();
     }

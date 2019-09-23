@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuController">
+<GridPane alignment="CENTER" hgap="10.0" onKeyPressed="#keyPressed" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuController">
     <children>
         <BorderPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
             <bottom>

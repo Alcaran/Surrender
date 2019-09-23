@@ -10,12 +10,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoadingController implements Initializable {
 
+    public static Stage stageMenu;
     @FXML
     private JFXProgressBar jfxProgress;
 
@@ -41,20 +43,21 @@ public class LoadingController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
+        stageMenu = s;
         s.show();
-        LoginController.stageLogin.close();
+        LoginController.stageLoading.close();
     }
 
     private Task taskWorker(int seconds){
-         return new Task(){
-             @Override
-             protected Object call() throws Exception{
-                 for(int i =0; i<seconds ; i++){
-                     updateProgress(i+1, seconds);
-                     Thread.sleep(10);
-                 }
-                 return null;
-             }
-         };
+        return new Task(){
+            @Override
+            protected Object call() throws Exception{
+                for(int i =0; i<seconds ; i++){
+                    updateProgress(i+1, seconds);
+                    Thread.sleep(10);
+                }
+                return null;
+            }
+        };
     }
 }
