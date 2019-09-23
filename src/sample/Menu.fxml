@@ -13,7 +13,7 @@
 
 <GridPane alignment="CENTER" hgap="10.0" onKeyPressed="#keyPressed" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuController">
     <children>
-        <BorderPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
+        <BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
             <bottom>
                 <ImageView fitHeight="128.0" fitWidth="1130.0" BorderPane.alignment="CENTER">
                     <image>
@@ -42,7 +42,7 @@
                               <Insets left="30.0" />
                            </padding>
                               </JFXTextField>
-                        <JFXComboBox fx:id="comboBox" focusColor="WHITE" prefHeight="45.0" prefWidth="71.0" promptText="BR" stylesheets="@combo.css" unFocusColor="#ffffff00">
+                        <JFXComboBox fx:id="comboBox" focusColor="WHITE" pickOnBounds="false" prefHeight="45.0" prefWidth="71.0" promptText="BR" stylesheets="@combo.css" unFocusColor="#ffffff00">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin></JFXComboBox>
@@ -83,7 +83,7 @@
                         <Insets right="365.0" />
                      </HBox.margin>
                   </Pane>
-                        <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                        <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" onAction="#minimizeButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                     <image>

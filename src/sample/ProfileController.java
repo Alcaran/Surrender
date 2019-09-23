@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 
-
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,16 +24,39 @@ public class ProfileController implements Initializable {
         System.exit(0);
     }
 
-    public static Stage stageProfile;
+    @FXML
+    private void minimizeButtonAction() {
+        Stage stage  = (Stage) bp.getScene().getWindow();
+        stage.setIconified(true);
+    }
 
     @FXML
-    private ScrollPane scrollPane;
+    private BorderPane bp;
+
     @FXML
-    private BorderPane borderPane;
+    private void analysesButtonAction() throws IOException {
+        Stage s = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("Analyses.fxml"));
+        s.setScene(new Scene(root));
+        s.initStyle(StageStyle.TRANSPARENT);
 
-    public void initialize(URL url, ResourceBundle rb) {
+        s.show();
+        Stage stage  = (Stage) bp.getScene().getWindow();
+        stage.close();
+    }
 
+    public void initialize(URL url, ResourceBundle rb) {}
 
+    @FXML
+    private void backButtonAction() throws IOException{
 
+        Stage s = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        s.setScene(new Scene(root));
+        s.initStyle(StageStyle.TRANSPARENT);
+        s.show();
+
+        Stage stage  = (Stage) bp.getScene().getWindow();
+        stage.close();
     }
 }

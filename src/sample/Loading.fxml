@@ -13,7 +13,7 @@
 
 <GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoadingController">
     <children>
-        <BorderPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
+        <BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
             <bottom>
                 <ImageView fitHeight="128.0" fitWidth="1130.0" rotate="180.0" BorderPane.alignment="CENTER">
                     <image>

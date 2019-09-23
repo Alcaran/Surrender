@@ -18,7 +18,7 @@
          <children>
             <ScrollPane hbarPolicy="NEVER" prefHeight="720.0" prefWidth="1080.0" stylesheets="@pane.css">
                <content>
-                    <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1520.0" prefWidth="1070.0" style="-fx-background-color: #2E3440;">
+                    <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1520.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
                      <top>
                         <Pane prefHeight="558.0" prefWidth="1070.0" BorderPane.alignment="CENTER">
                            <children>
@@ -29,7 +29,7 @@
                               </ImageView>
                                   <HBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="1080.0">
                                       <children>
-                                    <JFXButton id="btnBack" alignment="CENTER" contentDisplay="CENTER" layoutX="1000.0" layoutY="10.0" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                                    <JFXButton id="btnBack" alignment="CENTER" onAction="#backButtonAction"  contentDisplay="CENTER" layoutX="1000.0" layoutY="10.0" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
                                        <graphic>
                                           <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -41,7 +41,7 @@
                                           <Insets right="935.0" />
                                        </HBox.margin>
                                     </JFXButton>
-                                          <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                                          <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" onAction="#minimizeButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
                                               <graphic>
                                                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                                       <image>
@@ -81,13 +81,13 @@
                               </Label>
                               <HBox alignment="CENTER" prefHeight="190.0" prefWidth="1080.0">
                                  <children>
-                                    <Circle fill="#aeaeae" onMousePressed="#handleButtonAction" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0">
+                                    <Circle fill="#aeaeae" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0">
                                        <HBox.margin>
                                           <Insets right="150.0" />
                                        </HBox.margin>
                                     </Circle>
-                                    <Circle fill="#aeaeae" onMousePressed="#handleButtonAction" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0" />
-                                    <Circle fill="#aeaeae" onMousePressed="#handleButtonAction" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0">
+                                    <Circle fill="#aeaeae" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0" />
+                                    <Circle fill="#aeaeae" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0">
                                        <HBox.margin>
                                           <Insets left="150.0" />
                                        </HBox.margin>
@@ -102,7 +102,7 @@
                                     <Insets top="40.0" />
                                  </VBox.margin>
                               </Line>
-                              <JFXButton onAction="#handleButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
+                              <JFXButton onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
                                  <VBox.margin>
                                     <Insets top="50.0" />
                                  </VBox.margin>
@@ -218,7 +218,7 @@
                                     </HBox>
                                  </graphic>
                               </JFXButton>
-                              <JFXButton layoutX="74.0" layoutY="376.0" onAction="#handleButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
+                              <JFXButton layoutX="74.0" layoutY="376.0" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
                                  <graphic>
                                     <HBox alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
                                        <children>

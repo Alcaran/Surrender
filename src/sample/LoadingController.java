@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -17,9 +18,10 @@ import java.util.ResourceBundle;
 
 public class LoadingController implements Initializable {
 
-    public static Stage stageMenu;
     @FXML
     private JFXProgressBar jfxProgress;
+    @FXML
+    private BorderPane bp;
 
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -43,9 +45,9 @@ public class LoadingController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
-        stageMenu = s;
         s.show();
-        LoginController.stageLoading.close();
+        Stage stage  = (Stage) bp.getScene().getWindow();
+        stage.close();
     }
 
     private Task taskWorker(int seconds){

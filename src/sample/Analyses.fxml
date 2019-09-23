@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -13,10 +14,22 @@
 
 <GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AnalysesController">
     <children>
-        <BorderPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
+        <BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
             <top>
                 <HBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
                     <children>
+                       <JFXButton id="btnBack" alignment="CENTER" contentDisplay="CENTER" layoutX="1000.0" layoutY="10.0" onAction="#backButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                          <graphic>
+                             <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                   <Image url="@../Assets/BackIcon.png" />
+                                </image>
+                             </ImageView>
+                          </graphic>
+                          <HBox.margin>
+                             <Insets right="950.0" />
+                          </HBox.margin>
+                       </JFXButton>
                         <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -42,15 +55,1080 @@
                 </HBox>
             </top>
          <center>
-            <JFXTabPane BorderPane.alignment="CENTER">
+            <JFXTabPane stylesheets="@tabPane.css" BorderPane.alignment="CENTER">
                <tabs>
                   <Tab closable="false" text="Overview">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ScrollPane prefHeight="636.0" prefWidth="1080.0">
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="636.0" prefWidth="1080.0" stylesheets="@pane.css">
                                  <content>
-                                    <BorderPane prefHeight="720.0" prefWidth="1070.0" style="-fx-background-color: #2E3440;" />
+                                    <BorderPane prefHeight="1000.0" prefWidth="1070.0" style="-fx-background-color: #2E3440;">
+                                       <top>
+                                          <HBox prefHeight="574.0" prefWidth="1070.0" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <VBox prefHeight="574.0" prefWidth="532.5">
+                                                   <children>
+                                                      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
+                                                         <VBox.margin>
+                                                            <Insets left="30.0" top="20.0" />
+                                                         </VBox.margin>
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                               <children>
+                                                                  <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Circle>
+                                                                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label text="Name" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Circle>
+                                                                              <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#ebcb8b">
+                                                                                  <font>
+                                                                                      <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                  </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#bf616a">
+                                                                                  <font>
+                                                                                      <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                  </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane layoutX="30.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                               <children>
+                                                                  <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Circle>
+                                                                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label text="Name" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Circle>
+                                                                              <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#ebcb8b">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#bf616a">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="30.0" top="20.0" />
+                                                         </VBox.margin>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                               <children>
+                                                                  <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Circle>
+                                                                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label text="Name" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Circle>
+                                                                              <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#ebcb8b">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#bf616a">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="30.0" top="20.0" />
+                                                         </VBox.margin>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="230.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                               <children>
+                                                                  <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Circle>
+                                                                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label text="Name" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Circle>
+                                                                              <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#ebcb8b">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#bf616a">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="30.0" top="20.0" />
+                                                         </VBox.margin>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="330.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                               <children>
+                                                                  <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Circle>
+                                                                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label text="Name" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Circle>
+                                                                              <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#ebcb8b">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#bf616a">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="30.0" top="20.0" />
+                                                         </VBox.margin>
+                                                      </Pane>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="574.0" prefWidth="532.5">
+                                                   <children>
+                                                      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                               <children>
+                                                                  <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Circle>
+                                                                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label text="Name" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Circle>
+                                                                              <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#ebcb8b">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#88c0d0">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" top="20.0" />
+                                                         </VBox.margin>
+                                                      </Pane>
+                                                      <Pane layoutX="20.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                               <children>
+                                                                  <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Circle>
+                                                                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label text="Name" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Circle>
+                                                                              <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#ebcb8b">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#88c0d0">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" top="20.0" />
+                                                         </VBox.margin>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                               <children>
+                                                                  <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Circle>
+                                                                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label text="Name" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Circle>
+                                                                              <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#ebcb8b">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#88c0d0">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" top="20.0" />
+                                                         </VBox.margin>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="230.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                               <children>
+                                                                  <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Circle>
+                                                                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label text="Name" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Circle>
+                                                                              <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#ebcb8b">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#88c0d0">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" top="20.0" />
+                                                         </VBox.margin>
+                                                      </Pane>
+                                                      <Pane layoutX="10.0" layoutY="330.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                               <children>
+                                                                  <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Circle>
+                                                                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label text="Name" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Circle>
+                                                                              <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#ebcb8b">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Label text="99.999" textFill="#88c0d0">
+                                                                                 <font>
+                                                                                    <Font name="Josefin Sans Regular" size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets right="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                                           <children>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" right="10.0" />
+                                                                                 </HBox.margin>
+                                                                              </Rectangle>
+                                                                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" top="20.0" />
+                                                         </VBox.margin>
+                                                      </Pane>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </top>
+                                       <bottom>
+                                          <ImageView fitHeight="870.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                             <BorderPane.margin>
+                                                <Insets top="30.0" />
+                                             </BorderPane.margin>
+                                             <image>
+                                                <Image url="@../Assets/Overview.png" />
+                                             </image>
+                                          </ImageView>
+                                       </bottom>
+                                    </BorderPane>
                                  </content></ScrollPane>
                            </children>
                         </AnchorPane>
@@ -60,11 +1138,175 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ScrollPane prefHeight="636.0" prefWidth="1080.0">
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="636.0" prefWidth="1080.0" stylesheets="@pane.css">
                                  <content>
-                                    <BorderPane prefHeight="720.0" prefWidth="1070.0" style="-fx-background-color: #2E3440;" />
-                                 </content>
-                              </ScrollPane>
+                                    <BorderPane prefHeight="720.0" prefWidth="1070.0" style="-fx-background-color: #2E3440;">
+                                       <top>
+                                          <HBox alignment="CENTER_RIGHT" prefHeight="584.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="511.0" fitWidth="473.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Assets/Graphic.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <VBox alignment="CENTER" prefHeight="306.0" prefWidth="549.0">
+                                                   <children>
+                                                      <Label text="Compare your performance with another player" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="21.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField focusColor="WHITE" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="440.0" promptText="Search a player..." style="-fx-prompt-text-fill: #4C566A; -fx-text-fill: white;" unFocusColor="WHITE">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="18.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="440.0" style="-fx-background-color: #4c566a;">
+                                                         <children>
+                                                            <HBox prefHeight="440.0" prefWidth="441.0">
+                                                               <children>
+                                                                  <VBox alignment="TOP_CENTER" prefHeight="440.0" prefWidth="181.0">
+                                                                     <children>
+                                                                        <Label text="You" textFill="#e8e8e8">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets top="30.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                        <Label layoutX="83.0" layoutY="215.0" text="203 CS" textFill="#bf616a">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets top="50.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                        <Label layoutX="83.0" layoutY="230.0" text="4.57 KDA" textFill="#a3be8c">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets top="30.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                        <Label layoutX="83.0" layoutY="245.0" text="420 gold/m" textFill="#bf616a">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets top="30.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                        <Label layoutX="83.0" layoutY="260.0" text="57% p/kill" textFill="#bf616a">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets top="30.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                        <Label layoutX="83.0" layoutY="275.0" text="9.3 score" textFill="#bf616a">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets top="30.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="440.0" prefWidth="74.0">
+                                                                     <children>
+                                                                        <Label text="Defeat" textFill="#bf616a">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets top="30.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                        <Line endY="150.0" startY="-219.0" stroke="#88c0d0">
+                                                                           <VBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Line>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="440.0" prefWidth="181.0">
+                                                                     <children>
+                                                                        <Label text="KomaedaSenpai" textFill="#393939">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets top="30.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                        <Label layoutX="83.0" layoutY="215.0" text="215 CS" textFill="#a3be8c">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets top="50.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                        <Label layoutX="83.0" layoutY="230.0" text="3.45 KDA" textFill="#bf616a">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets top="30.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                        <Label layoutX="83.0" layoutY="245.0" text="567 gold/m" textFill="#a3be8c">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets top="30.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                        <Label layoutX="83.0" layoutY="260.0" text="69% p/kill" textFill="#a3be8c">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets top="30.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                        <Label layoutX="83.0" layoutY="275.0" text="9.7 score" textFill="#a3be8c">
+                                                                           <font>
+                                                                              <Font name="Josefin Sans Regular" size="20.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets top="30.0" />
+                                                                           </VBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets top="20.0" />
+                                                         </VBox.margin>
+                                                      </Pane>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </top>
+                                       <bottom>
+                                          <ImageView fitHeight="617.0" fitWidth="1094.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                             <image>
+                                                <Image url="@../Assets/ChampionDown.png" />
+                                             </image>
+                                          </ImageView>
+                                       </bottom>
+                                    </BorderPane>
+                                 </content></ScrollPane>
                            </children></AnchorPane>
                     </content>
                   </Tab>
