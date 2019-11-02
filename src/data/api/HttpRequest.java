@@ -11,9 +11,9 @@ import java.net.URL;
 import java.util.List;
 
 public class HttpRequest {
-    private String developmentApiKey = "RGAPI-78d05d77-f970-4b24-b35f-5f96b7fb26c7";
+    private String developmentApiKey = "RGAPI-7a77ec4c-32f2-4829-8c46-9c8f1cb103ee";
 
-    public JSONObject sendGet(String apiPath, List<String[]> parameters, List<String[]> pathParameters) throws Exception {
+    public JSONObject sendGet(String apiPath, List<String[]> parameters) throws Exception {
 
         String url = "https://br1.api.riotgames.com/" + apiPath + "?api_key=" + this.developmentApiKey;
 
@@ -41,8 +41,12 @@ public class HttpRequest {
             while ((line = in.readLine()) != null) {
                 response.append(line);
             }
-            JSONObject obj = new JSONObject(response.toString());
-//            JSONParser parser = new JSONParser(response.toString(), new Global(NASHORN_CREATE_CONTEXT));
+            String parsedResponse = response.toString();
+            JSONObject obj;
+            if(parsedResponse.charAt(0) == '[')
+                obj = new JSONObject("{ array:" + parsedResponse + "}");
+            else
+                obj = new JSONObject(response.toString());
 
             return obj;
         }
