@@ -17,7 +17,7 @@
       <bottom>
         <ImageView fitHeight="128.0" fitWidth="1130.0" BorderPane.alignment="CENTER">
           <image>
-            <Image url="@../Assets/Border.png" />
+            <Image url="@../assets/Border.png" />
           </image>
         </ImageView>
       </bottom>
@@ -81,7 +81,7 @@
                       <graphic>
                           <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                               <image>
-                                  <Image url="@../Assets/Minimize.png" />
+                                  <Image url="@../assets/Minimize.png" />
                               </image>
                           </ImageView>
                       </graphic>
@@ -93,7 +93,7 @@
                       <graphic>
                           <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                               <image>
-                                  <Image url="@../Assets/Close.png" />
+                                  <Image url="@../assets/Close.png" />
                               </image>
                           </ImageView>
                       </graphic>

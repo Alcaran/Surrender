@@ -22,7 +22,7 @@
                           <graphic>
                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                   <Image url="@../Assets/BackIcon.png" />
+                                   <Image url="@../assets/BackIcon.png" />
                                 </image>
                              </ImageView>
                           </graphic>
@@ -34,7 +34,7 @@
                             <graphic>
                                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Assets/Minimize.png" />
+                                        <Image url="@../assets/Minimize.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -46,7 +46,7 @@
                             <graphic>
                                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Assets/Close.png" />
+                                        <Image url="@../assets/Close.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -1124,7 +1124,7 @@
                                                 <Insets top="30.0" />
                                              </BorderPane.margin>
                                              <image>
-                                                <Image url="@../Assets/Overview.png" />
+                                                <Image url="@../assets/Overview.png" />
                                              </image>
                                           </ImageView>
                                        </bottom>
@@ -1146,7 +1146,7 @@
                                              <children>
                                                 <ImageView fitHeight="511.0" fitWidth="473.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../Assets/Graphic.png" />
+                                                      <Image url="@../assets/Graphic.png" />
                                                    </image>
                                                 </ImageView>
                                                 <VBox alignment="CENTER" prefHeight="306.0" prefWidth="549.0">
@@ -1301,7 +1301,7 @@
                                        <bottom>
                                           <ImageView fitHeight="617.0" fitWidth="1094.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                                              <image>
-                                                <Image url="@../Assets/ChampionDown.png" />
+                                                <Image url="@../assets/ChampionDown.png" />
                                              </image>
                                           </ImageView>
                                        </bottom>

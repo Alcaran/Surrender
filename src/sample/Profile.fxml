@@ -29,7 +29,7 @@
                               </Label>
 <!--                              <ImageView fitHeight="540.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">-->
 <!--                                 <image>-->
-<!--                                    <Image url="@../Assets/ProfileInfo.png" />-->
+<!--                                    <Image url="@../assets/ProfileInfo.png" />-->
 <!--                                 </image>-->
 <!--                              </ImageView>-->
                                   <HBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="1080.0">
@@ -38,7 +38,7 @@
                                        <graphic>
                                           <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../Assets/BackIcon.png" />
+                                                <Image url="@../assets/BackIcon.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>
@@ -50,7 +50,7 @@
                                               <graphic>
                                                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                                       <image>
-                                                          <Image url="@../Assets/Minimize.png" />
+                                                          <Image url="@../assets/Minimize.png" />
                                                       </image>
                                                   </ImageView>
                                               </graphic>
@@ -62,7 +62,7 @@
                                               <graphic>
                                                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                                       <image>
-                                                          <Image url="@../Assets/Close.png" />
+                                                          <Image url="@../assets/Close.png" />
                                                       </image>
                                                   </ImageView>
                                               </graphic>
