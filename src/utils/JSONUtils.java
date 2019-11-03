@@ -14,4 +14,12 @@ public class JSONUtils {
         }
         return null;
     }
+
+    public static String[] getNElementsOfJSONArrayAsStringArray(int n, JSONArray in, String key) {
+        String[] out = new String[n];
+        for(int i = 0; i < n; i++) {
+            out[i] = String.valueOf(((JSONObject) in.get(i)).getInt(key));
+        }
+        return out;
+    }
 }

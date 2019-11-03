@@ -37,8 +37,13 @@
                <content>
                     <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1520.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
                      <top>
-                        <Pane prefHeight="392.0" prefWidth="1082.0" BorderPane.alignment="CENTER">
+                        <Pane prefHeight="443.0" prefWidth="1084.0" BorderPane.alignment="CENTER">
                            <children>
+                              <ImageView fx:id="tier1" fitHeight="112.0" fitWidth="1100.0" layoutX="-2.0" layoutY="-7.0" nodeOrientation="INHERIT" pickOnBounds="true" rotate="180.0">
+                                 <image>
+                                    <Image url="@../Assets/Border.png" />
+                                 </image>
+                              </ImageView>
 <!--                              <ImageView fitHeight="540.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">-->
 <!--                                 <image>-->
 <!--                                    <Image url="@../Assets/ProfileInfo.png" />-->
@@ -90,19 +95,34 @@
                                     <Image url="@../Assets/geometry-components/profile-flag.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="playerLevel" alignment="CENTER" contentDisplay="CENTER" layoutX="-10.0" layoutY="174.0" prefHeight="0.0" prefWidth="1100" textAlignment="CENTER" textFill="BLACK">
+                              <Label fx:id="playerLevel" alignment="CENTER" contentDisplay="CENTER" layoutX="433.0" layoutY="174.0" prefHeight="45.0" prefWidth="218.0" textAlignment="CENTER" textFill="BLACK">
                                  <font>
                                     <Font name="Josefin Sans Regular" size="30.0" />
                                  </font>
                               </Label>
                               <Circle fx:id="imageCircle" fill="#aeaeae" layoutX="543.0" layoutY="93.0" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0" />
-                              <Label fx:id="summonerName" alignment="CENTER" contentDisplay="CENTER" layoutX="-10.0" layoutY="262.0" prefHeight="44.0" prefWidth="1100" textAlignment="CENTER" textFill="BLACK">
+                              <Label fx:id="summonerName" alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="262.0" prefHeight="44.0" prefWidth="205.0" textAlignment="CENTER" textFill="BLACK">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <ImageView fx:id="tier" fitHeight="216.0" fitWidth="154.0" layoutX="140.0" layoutY="40.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="tier" fitHeight="216.0" fitWidth="154.0" layoutX="150.0" layoutY="75.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                               </ImageView>
+                              <Label fx:id="leaguePoints" alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" layoutY="245.0" prefHeight="54.0" prefWidth="228.0" textAlignment="CENTER" textFill="#d8dee9">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="rankedWins" alignment="CENTER" contentDisplay="CENTER" layoutX="103.0" layoutY="284.0" prefHeight="54.0" prefWidth="158.0" textAlignment="CENTER" textFill="#a3be8c">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="rankedLosses" alignment="CENTER" contentDisplay="CENTER" layoutX="195.0" layoutY="284.0" prefHeight="54.0" prefWidth="158.0" textAlignment="CENTER" textFill="#bf616a">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </Pane>
                      </top>
@@ -116,13 +136,13 @@
                               </Label>
                               <HBox alignment="CENTER" prefHeight="190.0" prefWidth="1080.0">
                                  <children>
-                                    <Circle fill="#aeaeae" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0">
+                                    <Circle fx:id="championTop1" fill="#aeaeae" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0">
                                        <HBox.margin>
                                           <Insets right="150.0" />
                                        </HBox.margin>
                                     </Circle>
-                                    <Circle fill="#aeaeae" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0" />
-                                    <Circle fill="#aeaeae" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0">
+                                    <Circle fx:id="championTop2" fill="#aeaeae" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0" />
+                                    <Circle fx:id="championTop3" fill="#aeaeae" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0">
                                        <HBox.margin>
                                           <Insets left="150.0" />
                                        </HBox.margin>
@@ -142,9 +162,9 @@
                                     <Insets top="50.0" />
                                  </VBox.margin>
                                  <graphic>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
+                                    <HBox fx:id="playedMatch1" alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
                                        <children>
-                                          <Circle fill="#979797" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                                          <Circle fx:id="playedMatchChampionIcon1" fill="#979797" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE">
                                              <HBox.margin>
                                                 <Insets left="20.0" />
                                              </HBox.margin>
@@ -176,7 +196,7 @@
                                           </VBox>
                                           <VBox alignment="TOP_CENTER" layoutX="250.0" layoutY="10.0" prefHeight="239.0" prefWidth="147.0">
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="TOP" prefHeight="46.0" prefWidth="99.0" text="0/0/0" textFill="WHITE">
+                                                <Label fx:id="kdaMatchistory1" alignment="CENTER" contentDisplay="TOP" prefHeight="54.0" prefWidth="183.0" text="0/0/0" textFill="WHITE">
                                                    <font>
                                                       <Font name="Josefin Sans Regular" size="37.0" />
                                                    </font>
