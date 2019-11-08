@@ -13,6 +13,11 @@ public enum EndpointEnum {
             new String[] {} ,
             new String[] {"encryptedAccountId"}
     ),
+    SummonerLeague(
+            "/lol/league/v4/entries/by-summoner/",
+            new String[] {},
+            new String[] {"encryptedAccountId"}
+    ),
     ChampionMasteries(
             "/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}",
             new String[] {} ,
@@ -38,9 +43,7 @@ public enum EndpointEnum {
         this.pathParameters = pathParameters;
     }
 
-    public String getPath() {
-        return path;
-    }
+    public String getPath() { return path; }
 
     public String[] getParameters() {
         return parameters;
