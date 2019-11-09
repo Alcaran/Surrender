@@ -23,11 +23,6 @@
                                     <Image url="@../assets/Border.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="540.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/ProfileInfo.png" />
-                                 </image>
-                              </ImageView>
                               <HBox alignment="TOP_RIGHT" prefHeight="62.0" prefWidth="1085.0">
                                  <children>
                                     <JFXButton id="btnBack" alignment="CENTER" contentDisplay="CENTER" layoutX="1000.0" layoutY="10.0" onAction="#backButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
@@ -70,7 +65,7 @@
                               </HBox>
                               <ImageView fitHeight="384.0" fitWidth="220.0" layoutX="433.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <!--<Image url="@../assets/Emblem_Platinum.png" />-->
+                                    <Image url="@../assets/Emblem_Platinum.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="playerLevel" alignment="CENTER" contentDisplay="CENTER" layoutX="433.0" layoutY="174.0" prefHeight="45.0" prefWidth="218.0" textAlignment="CENTER" textFill="BLACK">

@@ -200,7 +200,7 @@ public class ProfileController implements Initializable {
     private void backButtonAction() throws IOException{
 
         Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("MenuSearch.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
         s.show();

@@ -41,7 +41,7 @@ public class LoadingController implements Initializable {
 
     public void close() throws IOException {
         Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("MenuSearch.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
         s.show();
