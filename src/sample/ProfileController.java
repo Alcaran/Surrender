@@ -1,8 +1,8 @@
 package sample;
 
+import business.Ranked;
 import data.api.ApiHelper;
 import data.api.Enums.ImagesUrl;
-import data.api.Enums.QueueType;
 import data.api.Enums.Tiers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -99,14 +99,7 @@ public class ProfileController implements Initializable {
             JSONObject summonerInfo = apiHelper.getSumonerInfo("Alcarann");
 
             // Get summoner ranked data
-            JSONObject summonerLeagueInfo = apiHelper.getSumonerLeagueInfo(summonerInfo.getString("id"));
-            JSONObject soloDuoInfo = JSONUtils.findIObjectInArrayByKeyStringValue(
-                    "queueType",
-                    QueueType.SoloDuo.getType(),
-                    summonerLeagueInfo
-                            .getJSONArray("array")
-            );
-
+            Ranked rankedSummonerInfo = new Ranked(summonerInfo.getString("id"));
             // Get top played champions info of searched summoner
             JSONArray championsSummonerInfo =
                     apiHelper.getChampionsSummonerInfo(summonerInfo.getString("id"))
@@ -179,13 +172,13 @@ public class ProfileController implements Initializable {
             imageCircle.setFill(new ImagePattern(image));
 
             // Set league points text
-            leaguePoints.setText(String.valueOf(soloDuoInfo.getInt("leaguePoints")) + " LP");
+            leaguePoints.setText(String.valueOf(rankedSummonerInfo.getLeaguePoints()) + " LP");
 
             // Set league points text
-            rankedWins.setText(String.valueOf(soloDuoInfo.getInt("wins")) + " W");
+            rankedWins.setText(String.valueOf(rankedSummonerInfo.getWins()) + " W");
 
             // Set league points text
-            rankedLosses.setText(String.valueOf(soloDuoInfo.getInt("losses")) + " L");
+            rankedLosses.setText(String.valueOf(rankedSummonerInfo.getLosses()) + " L");
 
             // Set summoner level text
             playerLevel.setText(String.valueOf(summonerInfo.getInt("summonerLevel")));
@@ -195,7 +188,7 @@ public class ProfileController implements Initializable {
 
 
             // Set tier image
-            File file = new File(Tiers.valueOf(soloDuoInfo.getString("tier")).getImageEloPath());
+            File file = new File(Tiers.valueOf(rankedSummonerInfo.getTier()).getImageEloPath());
             tier.setImage(new Image(file.toURI().toString()));
         } catch (Exception e) {
 
@@ -207,7 +200,7 @@ public class ProfileController implements Initializable {
     private void backButtonAction() throws IOException{
 
         Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MenuSearch.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
         s.show();
