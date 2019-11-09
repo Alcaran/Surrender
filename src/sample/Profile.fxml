@@ -30,27 +30,27 @@
 <?import javafx.scene.shape.Rectangle?>
 
 <GridPane alignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ProfileController">
-    <children>
+   <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="1080.0">
          <children>
             <ScrollPane hbarPolicy="NEVER" prefHeight="720.0" prefWidth="1080.0" stylesheets="@pane.css">
                <content>
-                    <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1520.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
+                  <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1520.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
                      <top>
                         <Pane prefHeight="443.0" prefWidth="1084.0" BorderPane.alignment="CENTER">
                            <children>
                               <ImageView fx:id="tier1" fitHeight="112.0" fitWidth="1100.0" layoutX="-2.0" layoutY="-7.0" nodeOrientation="INHERIT" pickOnBounds="true" rotate="180.0">
                                  <image>
-                                    <Image url="@../Assets/Border.png" />
+                                    <Image url="@../assets/Border.png" />
                                  </image>
                               </ImageView>
-<!--                              <ImageView fitHeight="540.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">-->
-<!--                                 <image>-->
-<!--                                    <Image url="@../assets/ProfileInfo.png" />-->
-<!--                                 </image>-->
-<!--                              </ImageView>-->
-                                  <HBox alignment="TOP_RIGHT" layoutY="5.0" prefHeight="57.0" prefWidth="1085.0">
-                                      <children>
+                              <!--                              <ImageView fitHeight="540.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">-->
+                              <!--                                 <image>-->
+                              <!--                                    <Image url="@../assets/ProfileInfo.png" />-->
+                              <!--                                 </image>-->
+                              <!--                              </ImageView>-->
+                              <HBox alignment="TOP_RIGHT" prefHeight="62.0" prefWidth="1085.0">
+                                 <children>
                                     <JFXButton id="btnBack" alignment="CENTER" contentDisplay="CENTER" layoutX="1000.0" layoutY="10.0" onAction="#backButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
                                        <graphic>
                                           <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -60,39 +60,38 @@
                                           </ImageView>
                                        </graphic>
                                        <HBox.margin>
-                                          <Insets right="935.0" />
+                                          <Insets right="920.0" />
                                        </HBox.margin>
                                     </JFXButton>
-                                    <HBox prefHeight="560.0" prefWidth="1080.0" />
-                                          <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" onAction="#minimizeButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
-                                              <graphic>
-                                                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                                      <image>
-                                                          <Image url="@../assets/Minimize.png" />
-                                                      </image>
-                                                  </ImageView>
-                                              </graphic>
-                                              <HBox.margin>
-                                                  <Insets bottom="4.0" />
-                                              </HBox.margin>
-                                          </JFXButton>
-                                          <JFXButton id="btnExit" alignment="CENTER" contentDisplay="CENTER" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
-                                              <graphic>
-                                                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                                      <image>
-                                                          <Image url="@../assets/Close.png" />
-                                                      </image>
-                                                  </ImageView>
-                                              </graphic>
+                                    <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" onAction="#minimizeButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../assets/Minimize.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
                                        <HBox.margin>
-                                          <Insets right="15.0" />
+                                          <Insets bottom="4.0" />
                                        </HBox.margin>
-                                          </JFXButton>
-                                      </children>
-                                  </HBox>
+                                    </JFXButton>
+                                    <JFXButton id="btnExit" alignment="CENTER" contentDisplay="CENTER" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../assets/Close.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <HBox.margin>
+                                          <Insets right="25.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
                               <ImageView fitHeight="384.0" fitWidth="220.0" layoutX="433.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Assets/geometry-components/profile-flag.png" />
+                                    <!--<Image url="@../assets/Emblem_Platinum.png" />-->
                                  </image>
                               </ImageView>
                               <Label fx:id="playerLevel" alignment="CENTER" contentDisplay="CENTER" layoutX="433.0" layoutY="174.0" prefHeight="45.0" prefWidth="218.0" textAlignment="CENTER" textFill="BLACK">
@@ -392,17 +391,17 @@
                            </children>
                         </VBox>
                      </center>
-                    </BorderPane>
+                  </BorderPane>
                </content>
             </ScrollPane>
          </children>
       </AnchorPane>
-    </children>
-    <columnConstraints>
-        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints />
+   </children>
+   <columnConstraints>
+      <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
       <RowConstraints fillHeight="false" />
-    </rowConstraints>
+   </rowConstraints>
 </GridPane>
