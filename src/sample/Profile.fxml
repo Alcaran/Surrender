@@ -63,9 +63,9 @@
                                     </JFXButton>
                                  </children>
                               </HBox>
-                              <ImageView fitHeight="384.0" fitWidth="220.0" layoutX="433.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                              <ImageView  fitHeight="384.0" fitWidth="220.0" layoutX="433.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/Emblem_Platinum.png" />
+                                    <Image url="@../assets/geometry-components/profile-flag.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="playerLevel" alignment="CENTER" contentDisplay="CENTER" layoutX="433.0" layoutY="174.0" prefHeight="45.0" prefWidth="218.0" textAlignment="CENTER" textFill="BLACK">

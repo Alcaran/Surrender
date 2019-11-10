@@ -19,7 +19,7 @@ public class HttpRequest {
         if(setFullPathRequest)
             url = apiPath;
         else
-            url = "https://br1.api.riotgames.com/" + apiPath + "?api_key=" + this.developmentApiKey;
+            url = "https://br1.api.riotgames.com" + apiPath + "?api_key=" + this.developmentApiKey;
 
         for (String[] parameter : parameters) {
             url += "&" + parameter[0] + "=" + parameter[1];

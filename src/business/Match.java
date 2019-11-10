@@ -21,20 +21,30 @@ public class Match {
     }
 
     public JSONObject getStatsBySummonerAccountId(String accountId) throws Exception {
-        JSONObject fullMatchDetails = apiHelper
-                .getMatchDetails(this.matchId);
-        String participantId = RiotUtils
-                .getMatchParticipantId(
-                        accountId,
-                        this.participantIdentities
-                );
-        JSONObject matchPlayerParticipant = RiotUtils
-                .getParticipant(
-                        participantId,
-                        this.participants
-                );
+        String participantId = getMatchParticipantIdByAccountId(accountId);
+        JSONObject matchPlayerParticipant = getParticipantByParticipantId(participantId);
 
         return matchPlayerParticipant.getJSONObject("stats");
+    }
+
+    private JSONObject getParticipantByParticipantId(String participantId) {
+        for(Object participant : participants) {
+            JSONObject participantObj = (JSONObject) participant;
+            if(String.valueOf(participantObj.getInt("participantId")).equals(participantId)) {
+                return participantObj;
+            }
+        }
+        return null;
+    }
+
+    private String getMatchParticipantIdByAccountId (String accountId) {
+        for(Object participant : participantIdentities) {
+            JSONObject participantObj = (JSONObject) participant;
+            if(participantObj.getJSONObject("player").getString("accountId").equals(accountId)) {
+                return String.valueOf(participantObj.getInt("participantId"));
+            }
+        }
+        return null;
     }
 
 }

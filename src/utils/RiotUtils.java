@@ -27,20 +27,20 @@ public class RiotUtils {
     }
 
     static public ArrayList<JSONObject> getChampionsNameById(String[] championsId) throws Exception {
-        ApiHelper apiHelper = new ApiHelper();
-        ArrayList<JSONObject> championsName = new ArrayList<>();
+            ApiHelper apiHelper = new ApiHelper();
+            ArrayList<JSONObject> championsName = new ArrayList<>();
 
-        JSONObject championArrData = apiHelper.getChampionData().getJSONObject("data");
-        Iterator<String> keys = championArrData.keys();
-        while(keys.hasNext()) {
-            String key = keys.next();
-            if (championArrData.get(key) instanceof JSONObject) {
-                JSONObject obj = (JSONObject) championArrData.get(key);
-                if(Arrays.asList(championsId).contains(obj.getString("key"))) {
-                    championsName.add(obj);
+            JSONObject championArrData = apiHelper.getChampionData().getJSONObject("data");
+            Iterator<String> keys = championArrData.keys();
+            while(keys.hasNext()) {
+                String key = keys.next();
+                if (championArrData.get(key) instanceof JSONObject) {
+                    JSONObject obj = (JSONObject) championArrData.get(key);
+                    if(Arrays.asList(championsId).contains(obj.getString("key"))) {
+                        championsName.add(obj);
+                    }
                 }
             }
-        }
 
         return championsName;
     }

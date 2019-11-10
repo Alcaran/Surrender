@@ -1,6 +1,6 @@
 package sample;
 
-import business.Ranked;
+import business.*;
 import data.api.ApiHelper;
 import data.api.Enums.ImagesUrl;
 import data.api.Enums.Tiers;
@@ -96,44 +96,31 @@ public class ProfileController implements Initializable {
         try {
 
             // Get first details of searched summoner profile
-            JSONObject summonerInfo = apiHelper.getSumonerInfo("Alcarann");
+            Player summonerInfo = new Player("Alcarann");
 
             // Get summoner ranked data
-            Ranked rankedSummonerInfo = new Ranked(summonerInfo.getString("id"));
-            // Get top played champions info of searched summoner
-            JSONArray championsSummonerInfo =
-                    apiHelper.getChampionsSummonerInfo(summonerInfo.getString("id"))
-                    .getJSONArray("array");
+            Ranked rankedSummonerInfo = new Ranked(summonerInfo.getSummonerId());
 
-            ArrayList<JSONObject> topPlayedChampions = RiotUtils.getChampionsNameById(
-                    JSONUtils.getNElementsOfJSONArrayAsStringArray(3, championsSummonerInfo, "championId")
-            );
+            // Get top played champions info of searched summoner
+            SummonerChampions summonerChampions = new SummonerChampions(summonerInfo.getSummonerId());
+
 
             // Get match history of searched summoner
-            JSONArray matchHistory =
-                    apiHelper.getUserMatchHistory(summonerInfo.getString("accountId"), 5)
-                    .getJSONArray("matches");
-
-            ArrayList<JSONObject> MatchHistoryPlayedChampions = RiotUtils.getChampionsNameById(
-                    JSONUtils.getNElementsOfJSONArrayAsStringArray(5, matchHistory, "champion")
+            SummonerMatchList summonerMatchList = new SummonerMatchList(
+                    summonerInfo.getAccountId(),
+                    5
             );
 
-            JSONObject fullMatchDetails = apiHelper
-                    .getMatchDetails(
-                            String.valueOf(((JSONObject) matchHistory.get(0)).getInt("gameId"))
-                    );
-            String participantId = RiotUtils
-                    .getMatchParticipantId(
-                            summonerInfo.getString("accountId"),
-                            fullMatchDetails.getJSONArray("participantIdentities")
-                            );
-            JSONObject matchPlayerParticipant = RiotUtils
-                    .getParticipant(
-                            participantId,
-                            fullMatchDetails.getJSONArray("participants")
-                    );
+            // Get summoner match
 
-            JSONObject matchPlayerStats = matchPlayerParticipant.getJSONObject("stats");
+            Match summonerMatch = new Match(
+                    String.valueOf(
+                            ((JSONObject)summonerMatchList.getPureMatchHistory().get(0))
+                                    .getInt("gameId")
+                    )
+            );
+
+            JSONObject matchPlayerStats = summonerMatch.getStatsBySummonerAccountId(summonerInfo.getAccountId());
 
             // Display match stats
 
@@ -146,26 +133,34 @@ public class ProfileController implements Initializable {
             // Display top played champions image icon
             Image championTop1Image = new Image(
                     RiotUtils
-                            .getImageChampionBuiltUrl(topPlayedChampions.get(0), ImagesUrl.SQUARE));
+                            .getImageChampionBuiltUrl(
+                                    summonerChampions.getTopPlayedChampions().get(0), ImagesUrl.SQUARE
+                            )
+            );
             championTop1.setFill(new ImagePattern(championTop1Image));
 
             Image championTop2Image = new Image(
                     RiotUtils
-                            .getImageChampionBuiltUrl(topPlayedChampions.get(1), ImagesUrl.SQUARE));
+                            .getImageChampionBuiltUrl(
+                                    summonerChampions.getTopPlayedChampions().get(1), ImagesUrl.SQUARE
+                            )
+            );
             championTop2.setFill(new ImagePattern(championTop2Image));
 
             Image championTop3Image = new Image(
                     RiotUtils
-                            .getImageChampionBuiltUrl(topPlayedChampions.get(2), ImagesUrl.SQUARE));
+                            .getImageChampionBuiltUrl(summonerChampions.getTopPlayedChampions().get(2), ImagesUrl.SQUARE
+                            )
+            );
             championTop3.setFill(new ImagePattern(championTop3Image));
 
             Image championMatchHistory1 = new Image(
                     RiotUtils
-                            .getImageChampionBuiltUrl(MatchHistoryPlayedChampions.get(0), ImagesUrl.SQUARE));
+                            .getImageChampionBuiltUrl(summonerMatchList.getMatchHistoryPlayedChampions().get(0), ImagesUrl.SQUARE));
             playedMatchChampionIcon1.setFill(new ImagePattern(championMatchHistory1));
 
             // Set profile image icon
-            String profileIconId = String.valueOf(summonerInfo.getInt("profileIconId"));
+            String profileIconId = String.valueOf(summonerInfo.getIconId());
             Image image = new Image(
                     "http://ddragon.leagueoflegends.com/cdn/9.21.1/img/profileicon/"
                             + profileIconId + ".png", false);
@@ -181,10 +176,10 @@ public class ProfileController implements Initializable {
             rankedLosses.setText(String.valueOf(rankedSummonerInfo.getLosses()) + " L");
 
             // Set summoner level text
-            playerLevel.setText(String.valueOf(summonerInfo.getInt("summonerLevel")));
+            playerLevel.setText(String.valueOf(summonerInfo.getSummonerLevel()));
 
             // Set summoner name text
-            summonerName.setText(summonerInfo.getString("name"));
+            summonerName.setText(summonerInfo.getSummonerName());
 
 
             // Set tier image

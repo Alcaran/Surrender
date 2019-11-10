@@ -6,8 +6,8 @@ import org.json.JSONObject;
 public class Player {
     private String accountId;
     private String summonerId;
-    private String summonerLevel;
-    private String iconId;
+    private int summonerLevel;
+    private int iconId;
     private String summonerName;
 
     public Player(String summonerName) throws Exception {
@@ -15,8 +15,8 @@ public class Player {
         JSONObject summonerInfo = apiHelper.getSumonerInfo("Alcarann");
 
         this.accountId = summonerInfo.getString("accountId");
-        this.summonerLevel = summonerInfo.getString("summonerLevel");
-        this.iconId = summonerInfo.getString("profileIconId");
+        this.summonerLevel = summonerInfo.getInt("summonerLevel");
+        this.iconId = summonerInfo.getInt("profileIconId");
         this.summonerId = summonerInfo.getString("id");
         this.summonerName = summonerName;
     }
@@ -46,19 +46,19 @@ public class Player {
         this.summonerId = summonerId;
     }
 
-    public String getSummonerLevel() {
+    public int getSummonerLevel() {
         return summonerLevel;
     }
 
-    public void setSummonerLevel(String summonerLevel) {
+    public void setSummonerLevel(int summonerLevel) {
         this.summonerLevel = summonerLevel;
     }
 
-    public String getIconId() {
+    public int getIconId() {
         return iconId;
     }
 
-    public void setIconId(String iconId) {
+    public void setIconId(int iconId) {
         this.iconId = iconId;
     }
 
