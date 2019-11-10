@@ -17,15 +17,12 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import utils.JSONUtils;
 import utils.RiotUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ProfileController implements Initializable {
