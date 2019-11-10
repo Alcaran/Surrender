@@ -25,7 +25,7 @@
                               </ImageView>
                               <HBox alignment="TOP_RIGHT" prefHeight="62.0" prefWidth="1085.0">
                                  <children>
-                                    <JFXButton id="btnBack" alignment="CENTER" contentDisplay="CENTER" layoutX="1000.0" layoutY="10.0" onAction="#backButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                                    <JFXButton id="btnBack" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="1000.0" layoutY="10.0" onAction="#backButtonAction" prefHeight="50.0" prefWidth="51.0" ripplerFill="WHITE" textFill="WHITE">
                                        <graphic>
                                           <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -37,7 +37,7 @@
                                           <Insets right="920.0" />
                                        </HBox.margin>
                                     </JFXButton>
-                                    <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" onAction="#minimizeButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                                    <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" onAction="#minimizeButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
                                        <graphic>
                                           <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -49,7 +49,7 @@
                                           <Insets bottom="4.0" />
                                        </HBox.margin>
                                     </JFXButton>
-                                    <JFXButton id="btnExit" alignment="CENTER" contentDisplay="CENTER" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                                    <JFXButton id="btnExit" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
                                        <graphic>
                                           <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -130,7 +130,7 @@
                                     <Insets top="40.0" />
                                  </VBox.margin>
                               </Line>
-                              <JFXButton onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
+                              <JFXButton focusTraversable="false" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
                                  <VBox.margin>
                                     <Insets top="50.0" />
                                  </VBox.margin>
@@ -246,7 +246,7 @@
                                     </HBox>
                                  </graphic>
                               </JFXButton>
-                              <JFXButton layoutX="74.0" layoutY="376.0" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
+                              <JFXButton focusTraversable="false" layoutX="74.0" layoutY="376.0" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
                                  <graphic>
                                     <HBox alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
                                        <children>

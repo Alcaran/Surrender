@@ -50,7 +50,7 @@
                   </JFXPasswordField>
                   <HBox alignment="CENTER" prefHeight="31.0" prefWidth="410.0">
                      <children>
-                        <JFXButton fx:id="btnNoLogin" alignment="CENTER" contentDisplay="CENTER" onAction="#closeButtonAction" pickOnBounds="false" prefHeight="50.0" prefWidth="160.0" ripplerFill="#ffffff00" text="Without login" textFill="WHITE" underline="true">
+                        <JFXButton fx:id="btnNoLogin" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" onAction="#closeButtonAction" pickOnBounds="false" prefHeight="50.0" prefWidth="160.0" ripplerFill="#ffffff00" text="Without login" textFill="WHITE" underline="true">
                            <font>
                               <Font name="Josefin Sans Regular" size="16.0" />
                            </font>
