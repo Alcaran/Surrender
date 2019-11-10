@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -12,11 +13,11 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="1080.0">
          <children>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="720.0" prefWidth="1080.0" stylesheets="@pane.css">
+            <ScrollPane hbarPolicy="NEVER" prefHeight="720.0" prefWidth="1080.0" stylesheets="@pane.css" vmax="1.3">
                <content>
                   <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1520.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
                      <top>
-                        <Pane prefHeight="443.0" prefWidth="1084.0" BorderPane.alignment="CENTER">
+                        <Pane prefHeight="815.0" prefWidth="1083.0" BorderPane.alignment="CENTER">
                            <children>
                               <ImageView fx:id="tier1" fitHeight="112.0" fitWidth="1100.0" layoutX="-2.0" layoutY="-7.0" nodeOrientation="INHERIT" pickOnBounds="true" rotate="180.0">
                                  <image>
@@ -63,7 +64,7 @@
                                     </JFXButton>
                                  </children>
                               </HBox>
-                              <ImageView  fitHeight="384.0" fitWidth="220.0" layoutX="433.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="384.0" fitWidth="220.0" layoutX="433.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../assets/geometry-components/profile-flag.png" />
                                  </image>
@@ -248,7 +249,7 @@
                               </JFXButton>
                               <JFXButton focusTraversable="false" layoutX="74.0" layoutY="376.0" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
                                  <graphic>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
+                                    <HBox fx:id="playedMatch2" alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
                                        <children>
                                           <Circle fx:id="playedMatchChampionIcon2" fill="#979797" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE">
                                              <HBox.margin>
@@ -282,7 +283,7 @@
                                           </VBox>
                                           <VBox alignment="TOP_CENTER" layoutX="250.0" layoutY="10.0" prefHeight="239.0" prefWidth="147.0">
                                              <children>
-                                                <Label fx:id="kdaMatchHistory2" alignment="CENTER" contentDisplay="TOP" prefHeight="46.0" prefWidth="99.0" text="0/0/0" textFill="WHITE">
+                                                <Label fx:id="kdaMatchHistory2" alignment="CENTER" contentDisplay="TOP" prefHeight="54.0" prefWidth="161.0" text="0/0/0" textFill="WHITE">
                                                    <font>
                                                       <Font name="Josefin Sans Regular" size="37.0" />
                                                    </font>
@@ -364,7 +365,7 @@
                               </JFXButton>
                                  <JFXButton focusTraversable="false" layoutX="74.0" layoutY="376.0" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
                                     <graphic>
-                                       <HBox alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
+                                       <HBox fx:id="playedMatch3" alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
                                           <children>
                                              <Circle fx:id="playedMatchChampionIcon3" fill="#979797" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE">
                                                 <HBox.margin>
@@ -398,7 +399,7 @@
                                              </VBox>
                                              <VBox alignment="TOP_CENTER" layoutX="250.0" layoutY="10.0" prefHeight="239.0" prefWidth="147.0">
                                                 <children>
-                                                   <Label fx:id="kdaMatchHistory3" alignment="CENTER" contentDisplay="TOP" prefHeight="46.0" prefWidth="99.0" text="0/0/0" textFill="WHITE">
+                                                   <Label fx:id="kdaMatchHistory3" alignment="CENTER" contentDisplay="TOP" prefHeight="54.0" prefWidth="175.0" text="0/0/0" textFill="WHITE">
                                                       <font>
                                                          <Font name="Josefin Sans Regular" size="37.0" />
                                                       </font>
@@ -480,7 +481,7 @@
                                  </JFXButton>
                                  <JFXButton focusTraversable="false" layoutX="74.0" layoutY="376.0" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
                                     <graphic>
-                                       <HBox alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
+                                       <HBox fx:id="playedMatch4" alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
                                           <children>
                                              <Circle fx:id="playedMatchChampionIcon4" fill="#979797" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE">
                                                 <HBox.margin>
@@ -514,7 +515,7 @@
                                              </VBox>
                                              <VBox alignment="TOP_CENTER" layoutX="250.0" layoutY="10.0" prefHeight="239.0" prefWidth="147.0">
                                                 <children>
-                                                   <Label fx:id="kdaMatchHistory4" alignment="CENTER" contentDisplay="TOP" prefHeight="46.0" prefWidth="99.0" text="0/0/0" textFill="WHITE">
+                                                   <Label fx:id="kdaMatchHistory4" alignment="CENTER" contentDisplay="TOP" prefHeight="54.0" prefWidth="245.0" text="0/0/0" textFill="WHITE">
                                                       <font>
                                                          <Font name="Josefin Sans Regular" size="37.0" />
                                                       </font>
@@ -596,7 +597,7 @@
                                  </JFXButton>
                                  <JFXButton focusTraversable="false" layoutX="74.0" layoutY="376.0" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
                                     <graphic>
-                                       <HBox alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
+                                       <HBox fx:id="playedMatch5" alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
                                           <children>
                                              <Circle fx:id="playedMatchChampionIcon5" fill="#979797" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE">
                                                 <HBox.margin>
@@ -630,7 +631,7 @@
                                              </VBox>
                                              <VBox alignment="TOP_CENTER" layoutX="250.0" layoutY="10.0" prefHeight="239.0" prefWidth="147.0">
                                                 <children>
-                                                   <Label fx:id="kdaMatchHistory5" alignment="CENTER" contentDisplay="TOP" prefHeight="46.0" prefWidth="99.0" text="0/0/0" textFill="WHITE">
+                                                   <Label fx:id="kdaMatchHistory5" alignment="CENTER" contentDisplay="TOP" prefHeight="54.0" prefWidth="271.0" text="0/0/0" textFill="WHITE">
                                                       <font>
                                                          <Font name="Josefin Sans Regular" size="37.0" />
                                                       </font>
