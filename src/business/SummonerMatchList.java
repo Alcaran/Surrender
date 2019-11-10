@@ -13,6 +13,8 @@ import java.util.Iterator;
 public class SummonerMatchList {
 
     JSONArray pureMatchHistory;
+    ArrayList<JSONObject> matchHistoryPlayedChampions;
+    ApiHelper apiHelper = new ApiHelper();
 
     public JSONArray getPureMatchHistory() {
         return pureMatchHistory;
@@ -37,9 +39,6 @@ public class SummonerMatchList {
     public void setApiHelper(ApiHelper apiHelper) {
         this.apiHelper = apiHelper;
     }
-
-    ArrayList<JSONObject> matchHistoryPlayedChampions;
-    ApiHelper apiHelper = new ApiHelper();
 
 
     public SummonerMatchList(String accountId, int matchHistoryLength) throws Exception {

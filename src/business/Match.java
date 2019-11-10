@@ -47,4 +47,8 @@ public class Match {
         return null;
     }
 
+    public double setDeathToWhenItIsZero(double death) {
+        if(death > 1) return death;
+        else return 1;
+    }
 }

@@ -13,15 +13,18 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.json.JSONObject;
+import utils.NumberUtils;
 import utils.RiotUtils;
-
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -47,20 +50,64 @@ public class ProfileController implements Initializable {
     @FXML
     Label rankedLosses;
 
+    // Top played champions components
     @FXML
     Circle championTop1;
-
     @FXML
     Circle championTop2;
-
     @FXML
     Circle championTop3;
 
+    // Match history champion icons components
     @FXML
     Circle playedMatchChampionIcon1;
+    @FXML
+    Circle playedMatchChampionIcon2;
+    @FXML
+    Circle playedMatchChampionIcon3;
+    @FXML
+    Circle playedMatchChampionIcon4;
+    @FXML
+    Circle playedMatchChampionIcon5;
 
     @FXML
-    Label kdaMatchistory1;
+    Label kdaMatchHistory1;
+    @FXML
+    Label kdaMatchHistory2;
+    @FXML
+    Label kdaMatchHistory3;
+    @FXML
+    Label kdaMatchHistory4;
+    @FXML
+    Label kdaMatchHistory5;
+
+    @FXML
+    Label championName1;
+    @FXML
+    Label championName2;
+    @FXML
+    Label championName3;
+    @FXML
+    Label championName4;
+    @FXML
+    Label championName5;
+
+    @FXML
+    Label calculatedKDA1;
+    @FXML
+    Label calculatedKDA2;
+    @FXML
+    Label calculatedKDA3;
+    @FXML
+    Label calculatedKDA4;
+    @FXML
+    Label calculatedKDA5;
+
+    @FXML
+    HBox playedMatch1;
+
+    @FXML
+    VBox container;
 
     @FXML
     private void handleButtonAction() {
@@ -108,24 +155,60 @@ public class ProfileController implements Initializable {
                     5
             );
 
-            // Get summoner match
-
-            Match summonerMatch = new Match(
-                    String.valueOf(
-                            ((JSONObject)summonerMatchList.getPureMatchHistory().get(0))
-                                    .getInt("gameId")
-                    )
-            );
-
-            JSONObject matchPlayerStats = summonerMatch.getStatsBySummonerAccountId(summonerInfo.getAccountId());
-
+            int matchSize = summonerMatchList.getMatchHistoryPlayedChampions().size();
             // Display match stats
+            for (int i = 0 ; i < matchSize ; i++) {
 
-            kdaMatchistory1.setText(
-                    matchPlayerStats.getInt("kills") + "/" +
-                            matchPlayerStats.getInt("deaths") + "/" +
-                            matchPlayerStats.getInt("assists")
-            );
+                Match summonerMatch = new Match(
+                        String.valueOf(
+                                ((JSONObject)summonerMatchList.getPureMatchHistory().get(i))
+                                        .getInt("gameId")
+                        )
+                );
+
+                JSONObject matchPlayerStats = summonerMatch.getStatsBySummonerAccountId(summonerInfo.getAccountId());
+
+                JSONObject champion = summonerMatchList.getMatchHistoryPlayedChampions().get(i);
+
+                // Set champion name
+                Field championNameField = getClass().getDeclaredField("championName" + (i + 1));
+                Label championNameLabel = (Label) championNameField.get(this);
+                championNameLabel.setText(champion.getString("name"));
+
+                // Set icon played champion
+                Field championIconField = getClass().getDeclaredField("playedMatchChampionIcon" + (i + 1));
+                Circle circle = (Circle) championIconField.get(this);
+                Image championImage = new Image(
+                        summonerChampions.getImageChampionBuiltUrl
+                        (
+                                champion,
+                                ImagesUrl.SQUARE
+                        )
+                );
+                circle.setFill(new ImagePattern(championImage));
+
+                // Set kda match
+                Field kdaPlayerField = getClass().getDeclaredField("kdaMatchHistory" + (i + 1));
+                Label kdaLabel = (Label) kdaPlayerField.get(this);
+                kdaLabel.setText(
+                        matchPlayerStats.getInt("kills") + "/" +
+                                matchPlayerStats.getInt("deaths") + "/" +
+                                matchPlayerStats.getInt("assists")
+                );
+
+                Field calculatedKdaPlayerField = getClass().getDeclaredField("calculatedKDA" + (i + 1));
+                Label calculatedKdaLabel = (Label) calculatedKdaPlayerField.get(this);
+                double calculatedKDA =  NumberUtils.round(
+                        (
+                                (matchPlayerStats.getDouble("kills") + matchPlayerStats.getDouble("assists"))
+                                        / summonerMatch.setDeathToWhenItIsZero(matchPlayerStats.getDouble("deaths"))
+                        ),
+                        2
+                );
+                calculatedKdaLabel.setText("KDA " + calculatedKDA);
+                int a = 8;
+            }
+
 
             // Display top played champions image icon
             Image championTop1Image = new Image(
@@ -151,10 +234,6 @@ public class ProfileController implements Initializable {
             );
             championTop3.setFill(new ImagePattern(championTop3Image));
 
-            Image championMatchHistory1 = new Image(
-                    RiotUtils
-                            .getImageChampionBuiltUrl(summonerMatchList.getMatchHistoryPlayedChampions().get(0), ImagesUrl.SQUARE));
-            playedMatchChampionIcon1.setFill(new ImagePattern(championMatchHistory1));
 
             // Set profile image icon
             String profileIconId = String.valueOf(summonerInfo.getIconId());

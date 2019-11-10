@@ -1,6 +1,7 @@
 package business;
 
 import data.api.ApiHelper;
+import data.api.Enums.ImagesUrl;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import utils.JSONUtils;
@@ -31,5 +32,9 @@ public class SummonerChampions {
         );
 
         this.topPlayedChampions = topPlayedChampions;
+    }
+
+    static public  String getImageChampionBuiltUrl(JSONObject champion, ImagesUrl imageType) {
+        return imageType.getUrl() + champion.getJSONObject("image").getString("full");
     }
 }
