@@ -16,6 +16,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -111,6 +112,15 @@ public class ProfileController implements Initializable {
     Label gameDuration3;
 
     @FXML
+    Label result1;
+    @FXML
+    Label result2;
+    @FXML
+    Label result3;
+
+
+
+    @FXML
     HBox playedMatch1;
 
     @FXML
@@ -159,10 +169,13 @@ public class ProfileController implements Initializable {
             // Get match history of searched summoner
             SummonerMatchList summonerMatchList = new SummonerMatchList(
                     summonerInfo.getAccountId(),
-                    4
+                    3
             );
 
-            int matchSize = summonerMatchList.getMatchHistoryPlayedChampions().size();
+
+
+
+            int matchSize = summonerMatchList.getPureMatchHistory().length();
             // Display match stats
             for (int i = 0 ; i < matchSize ; i++) {
 
@@ -180,9 +193,22 @@ public class ProfileController implements Initializable {
                 JSONObject participantChampion = summonerMatch.
                         getParticipantDtoBySummonerAccountId(summonerInfo.getAccountId());
 
-                JSONObject champion = summonerMatchList.getChampionNameById(
+                Champion champion = new Champion(
                         String.valueOf(participantChampion.getInt("championId"))
                 );
+
+                String matchResult = summonerMatch.getMatchResultByParticipantId(
+                        String.valueOf(participantChampion.getInt("participantId")));
+
+                String resultLabelColor = matchResult.equals("Victory")
+                        ? "#31ab47"
+                        : "#bf616a";
+
+                // Set game result match label
+                Field resultField = getClass().getDeclaredField("result" + (i + 1));
+                Label resultLabel = (Label) resultField.get(this);
+                resultLabel.setText(matchResult);
+                resultLabel.setTextFill(Paint.valueOf(resultLabelColor));
 
                 // Set game duration label
                 Field gameDurationField = getClass().getDeclaredField("gameDuration" + (i + 1));
@@ -192,18 +218,14 @@ public class ProfileController implements Initializable {
                 // Set champion name
                 Field championNameField = getClass().getDeclaredField("championName" + (i + 1));
                 Label championNameLabel = (Label) championNameField.get(this);
-                championNameLabel.setText(champion.getString("name"));
+                championNameLabel.setText(
+                        champion.getChampionData().getString("name")
+                );
 
                 // Set icon played champion
                 Field championIconField = getClass().getDeclaredField("playedMatchChampionIcon" + (i + 1));
                 Circle circle = (Circle) championIconField.get(this);
-                Image championImage = new Image(
-                        summonerChampions.getImageChampionBuiltUrl
-                        (
-                                champion,
-                                ImagesUrl.SQUARE
-                        )
-                );
+                Image championImage = new Image(champion.getImageChampionBuiltUrl(ImagesUrl.SQUARE));
                 circle.setFill(new ImagePattern(championImage));
 
                 // Set kda match

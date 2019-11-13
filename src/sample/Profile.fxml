@@ -235,7 +235,7 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Label text="Victory" textFill="#31ab47">
+                                          <Label fx:id="result1" text="Victory" textFill="#31ab47">
                                              <font>
                                                 <Font name="Josefin Sans Regular" size="43.0" />
                                              </font>
@@ -348,7 +348,7 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Label text="Victory" textFill="#31ab47">
+                                          <Label fx:id="result2" text="Victory" textFill="#31ab47">
                                              <font>
                                                 <Font name="Josefin Sans Regular" size="43.0" />
                                              </font>
@@ -464,7 +464,7 @@
                                                    </HBox>
                                                 </children>
                                              </VBox>
-                                             <Label text="Victory" textFill="#31ab47">
+                                             <Label fx:id="result3" text="Victory" textFill="#31ab47">
                                                 <font>
                                                    <Font name="Josefin Sans Regular" size="43.0" />
                                                 </font>

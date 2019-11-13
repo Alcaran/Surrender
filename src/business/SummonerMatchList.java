@@ -7,8 +7,6 @@ import utils.JSONUtils;
 import utils.RiotUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 
 public class SummonerMatchList {
 
@@ -20,26 +18,9 @@ public class SummonerMatchList {
         return pureMatchHistory;
     }
 
-    public void setPureMatchHistory(JSONArray pureMatchHistory) {
-        this.pureMatchHistory = pureMatchHistory;
-    }
-
     public ArrayList<JSONObject> getMatchHistoryPlayedChampions() {
         return matchHistoryPlayedChampions;
     }
-
-    public void setMatchHistoryPlayedChampions(ArrayList<JSONObject> matchHistoryPlayedChampions) {
-        this.matchHistoryPlayedChampions = matchHistoryPlayedChampions;
-    }
-
-    public ApiHelper getApiHelper() {
-        return apiHelper;
-    }
-
-    public void setApiHelper(ApiHelper apiHelper) {
-        this.apiHelper = apiHelper;
-    }
-
 
     public SummonerMatchList(String accountId, int matchHistoryLength) throws Exception {
         JSONArray matchHistory =
@@ -51,22 +32,5 @@ public class SummonerMatchList {
 
         this.pureMatchHistory = matchHistory;
         this.matchHistoryPlayedChampions = matchHistoryPlayedChampions;
-    }
-
-
-
-    public JSONObject getChampionNameById(String championId) throws Exception {
-        JSONObject championArrData = apiHelper.getChampionData().getJSONObject("data");
-        Iterator<String> keys = championArrData.keys();
-        while(keys.hasNext()) {
-            String key = keys.next();
-            if (championArrData.get(key) instanceof JSONObject) {
-                JSONObject obj = (JSONObject) championArrData.get(key);
-                if(championId.equals(obj.getString("key"))) {
-                    return obj;
-                }
-            }
-        }
-        return null;
     }
 }

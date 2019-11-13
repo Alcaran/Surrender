@@ -18,7 +18,7 @@ public class Player {
         this.summonerLevel = summonerInfo.getInt("summonerLevel");
         this.iconId = summonerInfo.getInt("profileIconId");
         this.summonerId = summonerInfo.getString("id");
-        this.summonerName = summonerName;
+        this.summonerName = summonerInfo.getString("name");
     }
 
 
