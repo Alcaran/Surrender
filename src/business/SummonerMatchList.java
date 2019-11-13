@@ -43,7 +43,7 @@ public class SummonerMatchList {
 
     public SummonerMatchList(String accountId, int matchHistoryLength) throws Exception {
         JSONArray matchHistory =
-                apiHelper.getUserMatchHistory(accountId, 5)
+                apiHelper.getUserMatchHistory(accountId, matchHistoryLength)
                         .getJSONArray("matches");
         ArrayList<JSONObject> matchHistoryPlayedChampions = RiotUtils.getChampionsNameById(
                 JSONUtils.getNElementsOfJSONArrayAsStringArray(matchHistoryLength, matchHistory, "champion")
@@ -53,20 +53,20 @@ public class SummonerMatchList {
         this.matchHistoryPlayedChampions = matchHistoryPlayedChampions;
     }
 
-    public ArrayList<JSONObject> getChampionsNameById() throws Exception {
-        ArrayList<JSONObject> championsName = new ArrayList<>();
 
+
+    public JSONObject getChampionNameById(String championId) throws Exception {
         JSONObject championArrData = apiHelper.getChampionData().getJSONObject("data");
         Iterator<String> keys = championArrData.keys();
         while(keys.hasNext()) {
             String key = keys.next();
             if (championArrData.get(key) instanceof JSONObject) {
                 JSONObject obj = (JSONObject) championArrData.get(key);
-                if(Arrays.asList(matchHistoryPlayedChampions).contains(obj.getString("key"))) {
-                    championsName.add(obj);
+                if(championId.equals(obj.getString("key"))) {
+                    return obj;
                 }
             }
         }
-        return championsName;
+        return null;
     }
 }

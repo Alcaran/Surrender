@@ -24,7 +24,7 @@ public class ApiHelper {
     }
 
     public JSONObject getChampionData() throws Exception {
-        return request.sendGet("https://ddragon.leagueoflegends.com/cdn/9.21.1/data/en_US/champion.json", parameters, true);
+        return request.sendGet("https://ddragon.leagueoflegends.com/cdn/9.21.1/data/en_US/champion.json", new ArrayList<>(), true);
     }
 
     public JSONObject getUserMatchHistory(String summonerEncriptedId, int index) throws Exception {

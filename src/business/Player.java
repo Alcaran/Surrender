@@ -12,7 +12,7 @@ public class Player {
 
     public Player(String summonerName) throws Exception {
         ApiHelper apiHelper = new ApiHelper();
-        JSONObject summonerInfo = apiHelper.getSumonerInfo("Alcarann");
+        JSONObject summonerInfo = apiHelper.getSumonerInfo(summonerName);
 
         this.accountId = summonerInfo.getString("accountId");
         this.summonerLevel = summonerInfo.getInt("summonerLevel");

@@ -104,6 +104,13 @@ public class ProfileController implements Initializable {
     Label calculatedKDA5;
 
     @FXML
+    Label gameDuration1;
+    @FXML
+    Label gameDuration2;
+    @FXML
+    Label gameDuration3;
+
+    @FXML
     HBox playedMatch1;
 
     @FXML
@@ -140,7 +147,7 @@ public class ProfileController implements Initializable {
         try {
 
             // Get first details of searched summoner profile
-            Player summonerInfo = new Player("Alcarann");
+            Player summonerInfo = new Player("LeDragonNoir");
 
             // Get summoner ranked data
             Ranked rankedSummonerInfo = new Ranked(summonerInfo.getSummonerId());
@@ -152,7 +159,7 @@ public class ProfileController implements Initializable {
             // Get match history of searched summoner
             SummonerMatchList summonerMatchList = new SummonerMatchList(
                     summonerInfo.getAccountId(),
-                    5
+                    4
             );
 
             int matchSize = summonerMatchList.getMatchHistoryPlayedChampions().size();
@@ -166,9 +173,21 @@ public class ProfileController implements Initializable {
                         )
                 );
 
-                JSONObject matchPlayerStats = summonerMatch.getStatsBySummonerAccountId(summonerInfo.getAccountId());
+                JSONObject matchPlayerStats = summonerMatch.
+                        getParticipantDtoBySummonerAccountId(summonerInfo.getAccountId())
+                        .getJSONObject("stats");
 
-                JSONObject champion = summonerMatchList.getMatchHistoryPlayedChampions().get(i);
+                JSONObject participantChampion = summonerMatch.
+                        getParticipantDtoBySummonerAccountId(summonerInfo.getAccountId());
+
+                JSONObject champion = summonerMatchList.getChampionNameById(
+                        String.valueOf(participantChampion.getInt("championId"))
+                );
+
+                // Set game duration label
+                Field gameDurationField = getClass().getDeclaredField("gameDuration" + (i + 1));
+                Label gameDurationLabel = (Label) gameDurationField.get(this);
+                gameDurationLabel.setText(String.valueOf(summonerMatch.getGameDuration()));
 
                 // Set champion name
                 Field championNameField = getClass().getDeclaredField("championName" + (i + 1));

@@ -3,6 +3,7 @@ package business;
 import data.api.ApiHelper;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import utils.NumberUtils;
 import utils.RiotUtils;
 
 public class Match {
@@ -10,6 +11,12 @@ public class Match {
     private String matchId;
     private JSONArray participantIdentities;
     private JSONArray participants;
+
+    public String getGameDuration() {
+        return String.valueOf(NumberUtils.round(gameDuration / 60, 2)).replace(".", ":");
+    }
+
+    private double gameDuration;
     ApiHelper apiHelper = new ApiHelper();
 
     public Match(String matchId) throws Exception {
@@ -18,13 +25,14 @@ public class Match {
         this.matchId = matchId;
         this.participantIdentities = fullMatchDetails.getJSONArray("participantIdentities");
         this.participants =  fullMatchDetails.getJSONArray("participants");
+        this.gameDuration = fullMatchDetails.getLong("gameDuration");
     }
 
-    public JSONObject getStatsBySummonerAccountId(String accountId) throws Exception {
+    public JSONObject getParticipantDtoBySummonerAccountId(String accountId) throws Exception {
         String participantId = getMatchParticipantIdByAccountId(accountId);
         JSONObject matchPlayerParticipant = getParticipantByParticipantId(participantId);
 
-        return matchPlayerParticipant.getJSONObject("stats");
+        return matchPlayerParticipant;
     }
 
     private JSONObject getParticipantByParticipantId(String participantId) {
