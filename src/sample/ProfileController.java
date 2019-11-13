@@ -66,10 +66,6 @@ public class ProfileController implements Initializable {
     Circle playedMatchChampionIcon2;
     @FXML
     Circle playedMatchChampionIcon3;
-    @FXML
-    Circle playedMatchChampionIcon4;
-    @FXML
-    Circle playedMatchChampionIcon5;
 
     @FXML
     Label kdaMatchHistory1;
@@ -77,10 +73,6 @@ public class ProfileController implements Initializable {
     Label kdaMatchHistory2;
     @FXML
     Label kdaMatchHistory3;
-    @FXML
-    Label kdaMatchHistory4;
-    @FXML
-    Label kdaMatchHistory5;
 
     @FXML
     Label championName1;
@@ -88,10 +80,6 @@ public class ProfileController implements Initializable {
     Label championName2;
     @FXML
     Label championName3;
-    @FXML
-    Label championName4;
-    @FXML
-    Label championName5;
 
     @FXML
     Label calculatedKDA1;
@@ -99,10 +87,6 @@ public class ProfileController implements Initializable {
     Label calculatedKDA2;
     @FXML
     Label calculatedKDA3;
-    @FXML
-    Label calculatedKDA4;
-    @FXML
-    Label calculatedKDA5;
 
     @FXML
     Label gameDuration1;
@@ -119,12 +103,9 @@ public class ProfileController implements Initializable {
     Label result3;
 
 
-
     @FXML
     HBox playedMatch1;
 
-    @FXML
-    VBox container;
 
     @FXML
     private void handleButtonAction() {
