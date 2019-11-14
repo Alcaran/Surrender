@@ -4,7 +4,6 @@ import data.api.ApiHelper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import utils.NumberUtils;
-import utils.RiotUtils;
 
 public class Match {
 
@@ -18,7 +17,7 @@ public class Match {
     }
 
     private double gameDuration;
-    ApiHelper apiHelper = new ApiHelper();
+    private ApiHelper apiHelper = new ApiHelper();
 
     public Match(String matchId) throws Exception {
         JSONObject fullMatchDetails = apiHelper
@@ -53,6 +52,13 @@ public class Match {
             return "Defeat";
     }
 
+    public double setDeathToWhenItIsZero(double death) {
+        if (death > 1) return death;
+        else return 1;
+    }
+
+    // Private functions
+
     private int getParticipantTeamIndex(JSONObject participant) {
         return participant.getInt("teamId") == 100 ? 0 : 1;
     }
@@ -75,10 +81,5 @@ public class Match {
             }
         }
         return null;
-    }
-
-    public double setDeathToWhenItIsZero(double death) {
-        if (death > 1) return death;
-        else return 1;
     }
 }

@@ -18,15 +18,19 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.json.JSONObject;
+import utils.GraphicUtils;
 import utils.NumberUtils;
 import utils.RiotUtils;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ProfileController implements Initializable {
@@ -106,6 +110,22 @@ public class ProfileController implements Initializable {
     @FXML
     HBox playedMatch1;
 
+    @FXML
+    HBox playedMatchItems11;
+    @FXML
+    HBox playedMatchItems12;
+
+    @FXML
+    HBox playedMatchItems21;
+    @FXML
+    HBox playedMatchItems22;
+
+    @FXML
+    HBox playedMatchItems31;
+    @FXML
+    HBox playedMatchItems32;
+
+    private List<Rectangle> rectangles;
 
     @FXML
     private void handleButtonAction() {
@@ -184,6 +204,15 @@ public class ProfileController implements Initializable {
                 String resultLabelColor = matchResult.equals("Victory")
                         ? "#31ab47"
                         : "#bf616a";
+
+                // Create items rectangles
+                rectangles = new ArrayList<>();
+                for (int j = 1; j <= 2; j++) {
+                    rectangles = GraphicUtils.createRectangleItemsRow(3, 1);
+                    Field HBoxRectangleField = getClass().getDeclaredField("playedMatchItems" + (i + 1) + "" + j);
+                    HBox HBox = (HBox) HBoxRectangleField.get(this);
+                    HBox.getChildren().addAll(rectangles);
+                }
 
                 // Set game result match label
                 Field resultField = getClass().getDeclaredField("result" + (i + 1));

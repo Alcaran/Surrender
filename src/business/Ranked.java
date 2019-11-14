@@ -31,31 +31,15 @@ public class Ranked {
         return leaguePoints;
     }
 
-    public void setLeaguePoints(String leaguePoints) {
-        this.leaguePoints = leaguePoints;
-    }
-
     public String getWins() {
         return wins;
-    }
-
-    public void setWins(String wins) {
-        this.wins = wins;
     }
 
     public String getLosses() {
         return losses;
     }
 
-    public void setLosses(String losses) {
-        this.losses = losses;
-    }
-
     public String getTier() {
         return tier;
-    }
-
-    public void setTier(String tier) {
-        this.tier = tier;
     }
 }

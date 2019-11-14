@@ -3,7 +3,6 @@ package business;
 import data.api.ApiHelper;
 import data.api.Enums.ImagesUrl;
 import org.json.JSONObject;
-
 import java.util.Iterator;
 
 public class Champion {

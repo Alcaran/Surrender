@@ -17,10 +17,6 @@ public class SummonerChampions {
         return topPlayedChampions;
     }
 
-    public void setTopPlayedChampions(ArrayList<JSONObject> topPlayedChampions) {
-        this.topPlayedChampions = topPlayedChampions;
-    }
-
     public SummonerChampions(String summonerId) throws Exception {
         ApiHelper apiHelper = new ApiHelper();
         JSONArray championsSummonerInfo =
@@ -32,9 +28,5 @@ public class SummonerChampions {
         );
 
         this.topPlayedChampions = topPlayedChampions;
-    }
-
-    static public  String getImageChampionBuiltUrl(JSONObject champion, ImagesUrl imageType) {
-        return imageType.getUrl() + champion.getJSONObject("image").getString("full");
     }
 }
