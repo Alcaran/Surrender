@@ -1,6 +1,9 @@
 package utils;
 
+import data.api.Enums.ImagesUrl;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
@@ -10,7 +13,7 @@ import java.util.List;
 
 public class GraphicUtils {
 
-    public static List<Rectangle> createRectangleItemsRow(int iterate, int row) {
+    public static List<Rectangle> createRectangleItemsRow(ArrayList<Integer> images, int iterate, int row) {
         List<Rectangle> rectangles = new ArrayList<>();
         for (int j = 1; j <= iterate; j++) {
             Rectangle rectangle = new Rectangle();
@@ -21,6 +24,10 @@ public class GraphicUtils {
             rectangle.setHeight(50);
             rectangle.setWidth(50);
             rectangle.setStroke(Paint.valueOf("TRANSPARENT"));
+            if(images.size() >= j) {
+                Image itemImage = new Image(ImagesUrl.ITEMS.getUrl() + images.get(j - 1) + ".png");
+                rectangle.setFill(new ImagePattern(itemImage));
+            }
             rectangles.add(rectangle);
         }
 

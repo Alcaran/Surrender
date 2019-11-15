@@ -6,7 +6,8 @@ public enum ImagesUrl {
     PASSIVE("passive/"),
     SPLASH_ART("champion/splash/"),
     SQUARE("champion/"),
-    LOADING_SCREEN("champion/loading/")
+    LOADING_SCREEN("champion/loading/"),
+    ITEMS("item/")
     ;
 
     public String getUrl() {
@@ -14,7 +15,7 @@ public enum ImagesUrl {
     }
 
     private final String url;
-    private ImagesUrl(String url) {
+    ImagesUrl(String url) {
         this.url = "http://ddragon.leagueoflegends.com/cdn/9.21.1/img/" + url;
     }
 }

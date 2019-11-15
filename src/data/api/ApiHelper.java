@@ -27,6 +27,10 @@ public class ApiHelper {
         return request.sendGet("https://ddragon.leagueoflegends.com/cdn/9.21.1/data/en_US/champion.json", new ArrayList<>(), true);
     }
 
+    public JSONObject getItemData(int itemId ) throws Exception {
+        return request.sendGet("http://ddragon.leagueoflegends.com/cdn/9.22.1/img/item/" + itemId + ".png", new ArrayList<>(), true);
+    }
+
     public JSONObject getUserMatchHistory(String summonerEncriptedId, int index) throws Exception {
         parameters.add(new String[] {"endIndex", String.valueOf(index)});
         return request.sendGet(

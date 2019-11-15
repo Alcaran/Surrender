@@ -5,6 +5,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import utils.NumberUtils;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Match {
 
     private JSONObject fullMatchDetails;
@@ -52,12 +57,35 @@ public class Match {
             return "Defeat";
     }
 
+    public ArrayList<Integer> getItemsSlotsByParticipantId(String participantId, int row) {
+        JSONObject participant = getParticipantByParticipantId(participantId);
+        ArrayList<Integer> items = new ArrayList<>();
+
+        if(row == 1) {
+            items = addItemsToIterator(participant, 1, 3);
+        }
+        if(row == 2) {
+            items = addItemsToIterator(participant, 4, 6);
+        }
+        return items;
+    }
+
     public double setDeathToWhenItIsZero(double death) {
         if (death > 1) return death;
         else return 1;
     }
 
     // Private functions
+
+    private ArrayList<Integer> addItemsToIterator(JSONObject participant, int start, int end) {
+        ArrayList<Integer> items = new ArrayList<>();
+        for (int i = start; i <= end; i++) {
+            int item = participant.getJSONObject("stats").getInt("item" + i);
+            if(item != 0)
+                items.add(participant.getJSONObject("stats").getInt("item" + i));
+        }
+        return items;
+    }
 
     private int getParticipantTeamIndex(JSONObject participant) {
         return participant.getInt("teamId") == 100 ? 0 : 1;

@@ -208,7 +208,12 @@ public class ProfileController implements Initializable {
                 // Create items rectangles
                 rectangles = new ArrayList<>();
                 for (int j = 1; j <= 2; j++) {
-                    rectangles = GraphicUtils.createRectangleItemsRow(3, 1);
+                    rectangles = GraphicUtils.createRectangleItemsRow(
+                            summonerMatch.getItemsSlotsByParticipantId(
+                                    String.valueOf(participantChampion.getInt("participantId")), j),
+                            3,
+                            1
+                    );
                     Field HBoxRectangleField = getClass().getDeclaredField("playedMatchItems" + (i + 1) + "" + j);
                     HBox HBox = (HBox) HBoxRectangleField.get(this);
                     HBox.getChildren().addAll(rectangles);
