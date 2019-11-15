@@ -1,13 +1,15 @@
 package utils;
 
+import com.jfoenix.controls.JFXSnackbar;
+import com.jfoenix.controls.JFXSnackbarLayout;
 import data.api.Enums.ImagesUrl;
+import javafx.css.PseudoClass;
 import javafx.scene.image.Image;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-
-import java.lang.reflect.Field;
+import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,5 +34,16 @@ public class GraphicUtils {
         }
 
         return rectangles;
+    }
+
+    public static void callSnackbar(String message, Pane pane) {
+        JFXSnackbar snackbar = new JFXSnackbar(pane);
+        snackbar.setStyle("-fx-background-color: #BF616A");
+        snackbar.fireEvent(new JFXSnackbar.SnackbarEvent(
+                new JFXSnackbarLayout(message),
+                Duration.millis(3000),
+                null)
+        );
+
     }
 }

@@ -124,8 +124,11 @@ public class ProfileController implements Initializable {
     HBox playedMatchItems31;
     @FXML
     HBox playedMatchItems32;
+    @FXML
+    private BorderPane bp;
 
     private List<Rectangle> rectangles;
+    private String searchedSummoner;
 
     @FXML
     private void handleButtonAction() {
@@ -138,8 +141,6 @@ public class ProfileController implements Initializable {
         stage.setIconified(true);
     }
 
-    @FXML
-    private BorderPane bp;
 
     @FXML
     private void analysesButtonAction() throws IOException {
@@ -151,11 +152,27 @@ public class ProfileController implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle rb) {
-        ApiHelper apiHelper = new ApiHelper();
+
+    }
+
+    @FXML
+    private void backButtonAction() throws IOException{
+
+        Stage s = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        s.setScene(new Scene(root));
+        s.initStyle(StageStyle.TRANSPARENT);
+        s.show();
+
+        Stage stage  = (Stage) bp.getScene().getWindow();
+        stage.close();
+    }
+
+    void initData(Player searchedSummoner) {
         try {
 
             // Get first details of searched summoner profile
-            Player summonerInfo = new Player("LeDragonNoir");
+            Player summonerInfo = searchedSummoner;
 
             // Get summoner ranked data
             Ranked rankedSummonerInfo = new Ranked(summonerInfo.getSummonerId());
@@ -318,18 +335,5 @@ public class ProfileController implements Initializable {
 
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    private void backButtonAction() throws IOException{
-
-        Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-        s.setScene(new Scene(root));
-        s.initStyle(StageStyle.TRANSPARENT);
-        s.show();
-
-        Stage stage  = (Stage) bp.getScene().getWindow();
-        stage.close();
     }
 }

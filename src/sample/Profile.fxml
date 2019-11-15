@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -202,11 +201,6 @@
                                              <children>
                                                 <HBox fx:id="playedMatchItems11" alignment="CENTER" prefHeight="60.0" prefWidth="230.0">
                                                    <children>
-<!--                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0">-->
-<!--                                                      </Rectangle>-->
-<!--                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" layoutX="100.0" layoutY="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />-->
-<!--                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" layoutX="75.0" layoutY="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0">-->
-<!--                                                      </Rectangle>-->
                                                    </children>
                                                    <VBox.margin>
                                                       <Insets top="62.0" />
@@ -214,14 +208,6 @@
                                                 </HBox>
                                                 <HBox fx:id="playedMatchItems12" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="200.0">
                                                    <children>
-<!--                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0">-->
-<!--                                                      </Rectangle>-->
-<!--                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" layoutX="100.0" layoutY="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />-->
-<!--                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" layoutX="75.0" layoutY="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0">-->
-<!--                                                         <HBox.margin>-->
-<!--                                                            <Insets left="10.0" />-->
-<!--                                                         </HBox.margin>-->
-<!--                                                      </Rectangle>-->
                                                    </children>
                                                 </HBox>
                                              </children>
@@ -306,17 +292,6 @@
                                              <children>
                                                 <HBox fx:id="playedMatchItems21" alignment="CENTER" prefHeight="60.0" prefWidth="230.0">
                                                    <children>
-<!--                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0">-->
-<!--                                                         <HBox.margin>-->
-<!--                                                            <Insets right="10.0" />-->
-<!--                                                         </HBox.margin>-->
-<!--                                                      </Rectangle>-->
-<!--                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" layoutX="100.0" layoutY="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />-->
-<!--                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" layoutX="75.0" layoutY="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0">-->
-<!--                                                         <HBox.margin>-->
-<!--                                                            <Insets left="10.0" />-->
-<!--                                                         </HBox.margin>-->
-<!--                                                      </Rectangle>-->
                                                    </children>
                                                    <VBox.margin>
                                                       <Insets top="62.0" />
@@ -324,17 +299,6 @@
                                                 </HBox>
                                                 <HBox  fx:id="playedMatchItems22" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="200.0">
                                                    <children>
-<!--                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0">-->
-<!--                                                         <HBox.margin>-->
-<!--                                                            <Insets right="10.0" />-->
-<!--                                                         </HBox.margin>-->
-<!--                                                      </Rectangle>-->
-<!--                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" layoutX="100.0" layoutY="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />-->
-<!--                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" layoutX="75.0" layoutY="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0">-->
-<!--                                                         <HBox.margin>-->
-<!--                                                            <Insets left="10.0" />-->
-<!--                                                         </HBox.margin>-->
-<!--                                                      </Rectangle>-->
                                                    </children>
                                                 </HBox>
                                              </children>
@@ -422,17 +386,6 @@
                                                 <children>
                                                    <HBox fx:id="playedMatchItems31" alignment="CENTER" prefHeight="60.0" prefWidth="230.0">
                                                       <children>
-<!--                                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0">-->
-<!--                                                            <HBox.margin>-->
-<!--                                                               <Insets right="10.0" />-->
-<!--                                                            </HBox.margin>-->
-<!--                                                         </Rectangle>-->
-<!--                                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" layoutX="100.0" layoutY="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />-->
-<!--                                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" layoutX="75.0" layoutY="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0">-->
-<!--                                                            <HBox.margin>-->
-<!--                                                               <Insets left="10.0" />-->
-<!--                                                            </HBox.margin>-->
-<!--                                                         </Rectangle>-->
                                                       </children>
                                                       <VBox.margin>
                                                          <Insets top="62.0" />
@@ -440,17 +393,6 @@
                                                    </HBox>
                                                    <HBox fx:id="playedMatchItems32" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="200.0">
                                                       <children>
-<!--                                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0">-->
-<!--                                                            <HBox.margin>-->
-<!--                                                               <Insets right="10.0" />-->
-<!--                                                            </HBox.margin>-->
-<!--                                                         </Rectangle>-->
-<!--                                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" layoutX="100.0" layoutY="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />-->
-<!--                                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="50.0" layoutX="75.0" layoutY="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0">-->
-<!--                                                            <HBox.margin>-->
-<!--                                                               <Insets left="10.0" />-->
-<!--                                                            </HBox.margin>-->
-<!--                                                         </Rectangle>-->
                                                       </children>
                                                    </HBox>
                                                 </children>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import com.jfoenix.controls.*?>
@@ -9,9 +10,9 @@
 
 <GridPane alignment="CENTER" hgap="10.0" onKeyPressed="#keyPressed" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuController">
     <children>
-        <BorderPane fx:id="bp" prefHeight="727.0" prefWidth="1091.0" style="-fx-background-color: #2E3440;">
+        <BorderPane fx:id="bp" prefHeight="727.0" prefWidth="1091.0" style="-fx-background-color: #2E3440;" stylesheets="@snackbarStyles/errorSnackBar.css">
             <center>
-                <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="500.0" BorderPane.alignment="TOP_CENTER">
+                <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="500.0" BorderPane.alignment="TOP_CENTER">
                     <children>
                         <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="113.0" prefWidth="580.0" text="surrender.gg" textFill="WHITE">>
                             <font>
@@ -21,9 +22,17 @@
                                 <Insets bottom="20.0" top="40.0" />
                             </VBox.margin>
                         </Label>
-                        <HBox prefHeight="100.0" prefWidth="454.0">
+                        <HBox fx:id="searchArea" prefHeight="100.0" prefWidth="454.0">
                             <children>
-                                <JFXTextField focusColor="WHITE" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your name..." style="-fx-prompt-text-fill: #4C566A; -fx-text-fill: white;" unFocusColor="WHITE">
+                        <JFXSpinner fx:id="loaderSpinner" prefHeight="100.0" prefWidth="55.0" visible="false">
+                           <opaqueInsets>
+                              <Insets bottom="10.0" />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="50.0" />
+                           </padding>
+                        </JFXSpinner>
+                                <JFXTextField fx:id="summonerSearch" focusColor="WHITE" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your name..." style="-fx-prompt-text-fill: #4C566A; -fx-text-fill: white;" unFocusColor="WHITE">
                                     <font>
                                         <Font name="Josefin Sans Regular" size="18.0" />
                                     </font>
