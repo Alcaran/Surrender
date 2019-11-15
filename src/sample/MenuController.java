@@ -1,7 +1,8 @@
 package sample;
 
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDrawer;
+import business.Player;
+import com.jfoenix.controls.*;
+import com.jfoenix.controls.JFXSnackbar.SnackbarEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,13 +12,20 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
+import utils.GraphicUtils;
 
 
+import javax.management.Notification;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -29,6 +37,10 @@ public class MenuController implements Initializable {
     private BorderPane bp;
     @FXML
     private JFXDrawer drwMenu;
+    @FXML
+    private JFXTextField summonerSearch;
+    @FXML
+    private JFXSpinner loaderSpinner;
 
     public void initialize(URL url, ResourceBundle rb){
         try {
@@ -67,21 +79,44 @@ public class MenuController implements Initializable {
         comboBox.getItems().add("KR");
         comboBox.getItems().add("EU");
         comboBox.getItems().add("NA");
-        comboBox.setStyle("-fx-font: 12px \"Josefin Sans Regular\"; -fx-text-fill: WHITE; -fx-prompt-text-fill: WHITE;");
+        comboBox.setStyle(
+                "-fx-font: 12px \"Josefin Sans Regular\"; -fx-text-fill: WHITE; -fx-prompt-text-fill: WHITE;"
+        );
     }
 
     @FXML
-    private void keyPressed(KeyEvent k) throws IOException{
+    private void keyPressed(KeyEvent k)  {
         if(k.getCode() == KeyCode.ENTER) {
-             Stage s = new Stage();
-             Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-             s.setScene(new Scene(root));
-             s.initStyle(StageStyle.TRANSPARENT);
-             s.show();
+            try {
+                loaderSpinner.setVisible(true);
+//              Search player in riot api
+                Player searchedSummoner = new Player(
+                        summonerSearch.getText().replace(" ", "")
+                );
 
-             Stage stage  = (Stage) bp.getScene().getWindow();
-             stage.close();
-         }
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("Profile.fxml")
+                );
+
+                // Set profile page to load
+                Stage stage = new Stage(StageStyle.TRANSPARENT);
+                stage.setScene(new Scene(loader.load()));
+                ProfileController controller = loader.getController();
+
+
+                // Pass summoner to profile page as parameter
+                controller.initData(searchedSummoner);
+                loaderSpinner.setVisible(false);
+                // Open profile page and close menu page
+                stage.show();
+                Stage s  = (Stage) bp.getScene().getWindow();
+                s.close();
+
+            } catch (Exception e) {
+                GraphicUtils.callSnackbar("Player not found", bp);
+                loaderSpinner.setVisible(false);
+            }
+        }
     }
 
     @FXML
