@@ -10,23 +10,23 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-public class HttpRequest {
-    private String developmentApiKey = "RGAPI-5a37c3fd-543f-4f9f-a22d-1b35235ec8d3";
+class HttpRequest {
+    private String developmentApiKey = "RGAPI-a644217d-3dd1-44f3-a607-d5305d6ac2e0";
 
-    public JSONObject sendGet(String apiPath, List<String[]> parameters, boolean setFullPathRequest) throws Exception {
+    JSONObject sendGet(String apiPath, List<String[]> parameters, boolean setFullPathRequest) throws Exception {
 
-        String url;
+        StringBuilder url;
         if(setFullPathRequest)
-            url = apiPath;
+            url = new StringBuilder(apiPath);
         else
-            url = "https://br1.api.riotgames.com" + apiPath + "?api_key=" + this.developmentApiKey;
+            url = new StringBuilder("https://br1.api.riotgames.com" + apiPath + "?api_key=" + this.developmentApiKey);
 
         for (String[] parameter : parameters) {
-            url += "&" + parameter[0] + "=" + parameter[1];
+            url.append("&").append(parameter[0]).append("=").append(parameter[1]);
         }
 
         HttpURLConnection httpClient =
-                (HttpURLConnection) new URL(url).openConnection();
+                (HttpURLConnection) new URL(url.toString()).openConnection();
 
         httpClient.setRequestMethod("GET");
 

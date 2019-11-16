@@ -1,4 +1,4 @@
-package data.api.Enums;
+package data.enums;
 
 public enum Tiers {
     IRON("IRON", "Emblem_Iron"),
@@ -24,6 +24,6 @@ public enum Tiers {
     private final String imageEloPath;
     Tiers(String eloName, String imageEloPath) {
         this.eloName = eloName;
-        this.imageEloPath = "src/Assets/ranked-emblems/" + imageEloPath + ".png";
+        this.imageEloPath = "src/assets/ranked-emblems/" + imageEloPath + ".png";
     }
 }

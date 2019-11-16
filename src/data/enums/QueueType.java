@@ -1,4 +1,4 @@
-package data.api.Enums;
+package data.enums;
 
 public enum QueueType {
     SoloDuo("RANKED_SOLO_5x5"),

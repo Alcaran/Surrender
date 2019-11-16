@@ -1,9 +1,9 @@
-package sample;
+package screens;
 
 import business.*;
+import data.enums.ImagesUrl;
+import data.enums.Tiers;
 import data.api.ApiHelper;
-import data.api.Enums.ImagesUrl;
-import data.api.Enums.Tiers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,7 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
@@ -173,23 +172,27 @@ public class ProfileController implements Initializable {
 
     void initData(Player searchedSummoner) {
         try {
+            ApiHelper apiHelper = new ApiHelper();
+            JSONObject championArrData = apiHelper.getChampionData().getJSONObject("data");
 
             // Get first details of searched summoner profile
-            Player summonerInfo = searchedSummoner;
 
             // Get summoner ranked data
-            Ranked rankedSummonerInfo = new Ranked(summonerInfo.getSummonerId());
+            Ranked rankedSummonerInfo = new Ranked(searchedSummoner.getSummonerId());
 
             // Get top played champions info of searched summoner
-            SummonerChampions summonerChampions = new SummonerChampions(summonerInfo.getSummonerId());
+            SummonerChampions summonerChampions = new SummonerChampions(
+                    searchedSummoner.getSummonerId(),
+                    championArrData
+            );
 
 
             // Get match history of searched summoner
             SummonerMatchList summonerMatchList = new SummonerMatchList(
-                    summonerInfo.getAccountId(),
-                    3
+                    searchedSummoner.getAccountId(),
+                    3,
+                    championArrData
             );
-
 
 
 
@@ -205,14 +208,15 @@ public class ProfileController implements Initializable {
                 );
 
                 JSONObject matchPlayerStats = summonerMatch.
-                        getParticipantDtoBySummonerAccountId(summonerInfo.getAccountId())
+                        getParticipantDtoBySummonerAccountId(searchedSummoner.getAccountId())
                         .getJSONObject("stats");
 
                 JSONObject participantChampion = summonerMatch.
-                        getParticipantDtoBySummonerAccountId(summonerInfo.getAccountId());
+                        getParticipantDtoBySummonerAccountId(searchedSummoner.getAccountId());
 
                 Champion champion = new Champion(
-                        String.valueOf(participantChampion.getInt("championId"))
+                        String.valueOf(participantChampion.getInt("championId")),
+                        championArrData
                 );
 
                 String matchResult = summonerMatch.getMatchResultByParticipantId(
@@ -309,26 +313,26 @@ public class ProfileController implements Initializable {
 
 
             // Set profile image icon
-            String profileIconId = String.valueOf(summonerInfo.getIconId());
+            String profileIconId = String.valueOf(searchedSummoner.getIconId());
             Image image = new Image(
                     "http://ddragon.leagueoflegends.com/cdn/9.21.1/img/profileicon/"
                             + profileIconId + ".png", false);
             imageCircle.setFill(new ImagePattern(image));
 
             // Set league points text
-            leaguePoints.setText(String.valueOf(rankedSummonerInfo.getLeaguePoints()) + " LP");
+            leaguePoints.setText(rankedSummonerInfo.getLeaguePoints() + " LP");
 
             // Set league points text
-            rankedWins.setText(String.valueOf(rankedSummonerInfo.getWins()) + " W");
+            rankedWins.setText(rankedSummonerInfo.getWins() + " W");
 
             // Set league points text
-            rankedLosses.setText(String.valueOf(rankedSummonerInfo.getLosses()) + " L");
+            rankedLosses.setText(rankedSummonerInfo.getLosses() + " L");
 
             // Set summoner level text
-            playerLevel.setText(String.valueOf(summonerInfo.getSummonerLevel()));
+            playerLevel.setText(String.valueOf(searchedSummoner.getSummonerLevel()));
 
             // Set summoner name text
-            summonerName.setText(summonerInfo.getSummonerName());
+            summonerName.setText(searchedSummoner.getSummonerName());
 
 
             // Set tier image

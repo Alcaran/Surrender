@@ -5,10 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import utils.NumberUtils;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Match {
 
@@ -36,9 +33,7 @@ public class Match {
 
     public JSONObject getParticipantDtoBySummonerAccountId(String accountId) {
         String participantId = getMatchParticipantIdByAccountId(accountId);
-        JSONObject matchPlayerParticipant = getParticipantByParticipantId(participantId);
-
-        return matchPlayerParticipant;
+        return getParticipantByParticipantId(participantId);
     }
 
     public String getMatchResultByParticipantId(String participantId) {

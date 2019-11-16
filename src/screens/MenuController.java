@@ -1,8 +1,7 @@
-package sample;
+package screens;
 
 import business.Player;
 import com.jfoenix.controls.*;
-import com.jfoenix.controls.JFXSnackbar.SnackbarEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,19 +12,12 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
-import tray.animations.AnimationType;
-import tray.notification.NotificationType;
-import tray.notification.TrayNotification;
 import utils.GraphicUtils;
 
 
-import javax.management.Notification;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -89,7 +81,7 @@ public class MenuController implements Initializable {
         if(k.getCode() == KeyCode.ENTER) {
             try {
                 loaderSpinner.setVisible(true);
-//              Search player in riot api
+                // Search player in riot api
                 Player searchedSummoner = new Player(
                         summonerSearch.getText().replace(" ", "")
                 );

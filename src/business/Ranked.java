@@ -1,7 +1,7 @@
 package business;
 
 import data.api.ApiHelper;
-import data.api.Enums.QueueType;
+import data.enums.QueueType;
 import org.json.JSONObject;
 import utils.JSONUtils;
 
@@ -21,6 +21,7 @@ public class Ranked {
                         .getJSONArray("array")
         );
 
+        assert soloDuoInfo != null;
         this.leaguePoints = String.valueOf(soloDuoInfo.getInt("leaguePoints"));
         this.wins = String.valueOf(soloDuoInfo.getInt("wins"));
         this.losses = String.valueOf(soloDuoInfo.getInt("losses"));

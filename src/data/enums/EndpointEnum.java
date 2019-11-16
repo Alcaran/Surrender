@@ -1,6 +1,4 @@
-package data.api;
-
-import java.lang.reflect.Array;
+package data.enums;
 
 public enum EndpointEnum {
     SummonerByName(

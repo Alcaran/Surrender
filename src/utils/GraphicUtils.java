@@ -2,8 +2,7 @@ package utils;
 
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXSnackbarLayout;
-import data.api.Enums.ImagesUrl;
-import javafx.css.PseudoClass;
+import data.enums.ImagesUrl;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;

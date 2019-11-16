@@ -1,36 +1,19 @@
 package utils;
 
 import data.api.ApiHelper;
-import data.api.Enums.ImagesUrl;
+import data.enums.ImagesUrl;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
 
 public class RiotUtils {
 
-    static public String getChampionNameById(String championId) throws Exception {
-        ApiHelper apiHelper = new ApiHelper();
-
-        JSONArray championArrData = apiHelper.getChampionData().getJSONArray("array");
-        for (Object jsonObject : championArrData) {
-            JSONObject obj = (JSONObject) jsonObject;
-            if(obj.getString("key") == championId) {
-                return obj.getString("name");
-            }
-        }
-        return null;
-    }
-
-    static public ArrayList<JSONObject> getChampionsNameById(String[] championsId) throws Exception {
-            ApiHelper apiHelper = new ApiHelper();
+    static public ArrayList<JSONObject> getChampionsNameById(String[] championsId, JSONObject championArrData) {
             ArrayList<JSONObject> championsName = new ArrayList<>();
 
-            JSONObject championArrData = apiHelper.getChampionData().getJSONObject("data");
             Iterator<String> keys = championArrData.keys();
             while(keys.hasNext()) {
                 String key = keys.next();

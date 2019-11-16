@@ -10,6 +10,7 @@
     <orderEntry type="library" name="JavaFx_Support_8600" level="project" />
     <orderEntry type="library" name="jfoenix-8.0.8" level="project" />
     <orderEntry type="library" name="json-20190722" level="project" />
-    <orderEntry type="library" name="TrayTester" level="project" />
+    <orderEntry type="library" name="protobuf-java-3.6.1" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.17" level="project" />
   </component>
 </module>

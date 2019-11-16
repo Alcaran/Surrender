@@ -1,7 +1,11 @@
 package business;
 
 import data.api.ApiHelper;
+import data.database.UserDao;
 import org.json.JSONObject;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
     private String accountId;
@@ -9,6 +13,7 @@ public class Player {
     private int summonerLevel;
     private int iconId;
     private String summonerName;
+    private ArrayList<String> linkedAccounts;
 
     public Player(String summonerName) throws Exception {
         ApiHelper apiHelper = new ApiHelper();
@@ -21,45 +26,33 @@ public class Player {
         this.summonerName = summonerInfo.getString("name");
     }
 
+    public Player(String name, String password) throws SQLException, ClassNotFoundException {
+        UserDao userDao = new UserDao();
+        linkedAccounts = userDao.getUser(name, password);
+    }
+
 
     public String getSummonerName() {
         return summonerName;
-    }
-
-    public void setSummonerName(String summonerName) {
-        this.summonerName = summonerName;
     }
 
     public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
     public String getSummonerId() {
         return summonerId;
-    }
-
-    public void setSummonerId(String summonerId) {
-        this.summonerId = summonerId;
     }
 
     public int getSummonerLevel() {
         return summonerLevel;
     }
 
-    public void setSummonerLevel(int summonerLevel) {
-        this.summonerLevel = summonerLevel;
-    }
-
     public int getIconId() {
         return iconId;
     }
 
-    public void setIconId(int iconId) {
-        this.iconId = iconId;
+    public ArrayList<String> getLinkedAccounts() {
+        return linkedAccounts;
     }
-
 }

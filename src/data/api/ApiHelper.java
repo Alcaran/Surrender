@@ -1,10 +1,9 @@
 package data.api;
 
+import data.api.HttpRequest;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ApiHelper {
     private HttpRequest request = new HttpRequest();

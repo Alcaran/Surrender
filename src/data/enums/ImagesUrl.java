@@ -1,6 +1,4 @@
-package data.api.Enums;
-
-import javax.swing.text.html.ImageView;
+package data.enums;
 
 public enum ImagesUrl {
     PASSIVE("passive/"),

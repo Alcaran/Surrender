@@ -1,4 +1,4 @@
-package sample;
+package screens;
 
 import com.jfoenix.controls.JFXProgressBar;
 import javafx.concurrent.Task;
