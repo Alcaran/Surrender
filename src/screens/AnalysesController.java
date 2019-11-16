@@ -22,13 +22,6 @@ public class AnalysesController {
 
     @FXML
     private void backButtonAction() throws IOException {
-
-        Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-        s.setScene(new Scene(root));
-        s.initStyle(StageStyle.TRANSPARENT);
-        s.show();
-
         Stage stage  = (Stage) bp.getScene().getWindow();
         stage.close();
     }

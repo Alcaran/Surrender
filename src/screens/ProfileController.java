@@ -147,10 +147,7 @@ public class ProfileController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("Analyses.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
-
         s.show();
-        Stage stage  = (Stage) bp.getScene().getWindow();
-        stage.close();
     }
 
     public void initialize(URL url, ResourceBundle rb) {
