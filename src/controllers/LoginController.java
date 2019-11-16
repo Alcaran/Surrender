@@ -1,4 +1,4 @@
-package screens;
+package controllers;
 
 import business.Player;
 import com.jfoenix.controls.JFXPasswordField;
@@ -13,7 +13,6 @@ import javafx.stage.StageStyle;
 import utils.GraphicUtils;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class LoginController {
@@ -54,7 +53,7 @@ public class LoginController {
 
     private void goToLoadingScreen(ArrayList<String> linkedAccounts) throws IOException {
         Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Loading.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../screens/Loading.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
         s.show();

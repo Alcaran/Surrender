@@ -15,8 +15,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Font.loadFont(Main.class.getResource("JosefinSans-Regular.ttf").toExternalForm(), 64);
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Font.loadFont(Main.class.getResource("fonts/JosefinSans-Regular.ttf").toExternalForm(), 64);
+        Parent root = FXMLLoader.load(getClass().getResource("../screens/Login.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();

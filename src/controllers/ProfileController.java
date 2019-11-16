@@ -1,4 +1,4 @@
-package screens;
+package controllers;
 
 import business.*;
 import data.enums.ImagesUrl;
@@ -144,7 +144,7 @@ public class ProfileController implements Initializable {
     @FXML
     private void analysesButtonAction() throws IOException {
         Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Analyses.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../screens/Analyses.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
         s.show();
@@ -158,7 +158,7 @@ public class ProfileController implements Initializable {
     private void backButtonAction() throws IOException{
 
         Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../screens/Menu.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
         s.show();

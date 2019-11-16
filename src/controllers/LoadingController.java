@@ -1,4 +1,4 @@
-package screens;
+package controllers;
 
 import com.jfoenix.controls.JFXProgressBar;
 import javafx.concurrent.Task;
@@ -41,7 +41,7 @@ public class LoadingController implements Initializable {
 
     public void close() throws IOException {
         Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../screens/Menu.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
         s.show();

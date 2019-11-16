@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" hgap="10.0" onKeyPressed="#keyPressed" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screens.MenuController">
+<GridPane alignment="CENTER" hgap="10.0" onKeyPressed="#keyPressed" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuController">
     <children>
         <BorderPane fx:id="bp" prefHeight="727.0" prefWidth="1091.0" style="-fx-background-color: #2E3440;" stylesheets="@snackbarStyles/errorSnackBar.css">
             <center>
@@ -39,7 +39,7 @@
                                         <Insets left="30.0" />
                                     </padding>
                                 </JFXTextField>
-                                <JFXComboBox fx:id="comboBox" focusColor="WHITE" focusTraversable="false" pickOnBounds="false" prefHeight="45.0" prefWidth="71.0" promptText="BR" stylesheets="@combo.css" unFocusColor="#ffffff00">
+                                <JFXComboBox fx:id="comboBox" focusColor="WHITE" focusTraversable="false" pickOnBounds="false" prefHeight="45.0" prefWidth="71.0" promptText="BR" stylesheets="@css/combo.css" unFocusColor="#ffffff00">
                                     <HBox.margin>
                                         <Insets left="5.0" />
                                     </HBox.margin>

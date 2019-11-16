@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screens.AnalysesController">
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AnalysesController">
     <children>
         <BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
             <top>
@@ -51,13 +51,13 @@
                 </HBox>
             </top>
          <center>
-            <JFXTabPane stylesheets="@tabPane.css" BorderPane.alignment="CENTER">
+            <JFXTabPane stylesheets="@css/tabPane.css" BorderPane.alignment="CENTER">
                <tabs>
                   <Tab closable="false" text="Overview">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="636.0" prefWidth="1080.0" stylesheets="@pane.css">
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="636.0" prefWidth="1080.0" stylesheets="@css/pane.css">
                                  <content>
                                     <BorderPane prefHeight="1000.0" prefWidth="1070.0" style="-fx-background-color: #2E3440;">
                                        <top>
@@ -1134,7 +1134,7 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="636.0" prefWidth="1080.0" stylesheets="@pane.css">
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="636.0" prefWidth="1080.0" stylesheets="@css/pane.css">
                                  <content>
                                     <BorderPane prefHeight="720.0" prefWidth="1070.0" style="-fx-background-color: #2E3440;">
                                        <top>
