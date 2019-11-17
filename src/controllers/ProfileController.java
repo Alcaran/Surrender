@@ -15,7 +15,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
@@ -26,7 +25,6 @@ import org.json.JSONObject;
 import utils.GraphicUtils;
 import utils.NumberUtils;
 import utils.RiotUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -112,6 +110,13 @@ public class ProfileController implements Initializable {
     @FXML
     Label result3;
 
+    @FXML
+    Label score1;
+    @FXML
+    Label score2;
+    @FXML
+    Label score3;
+
 
     @FXML
     HBox playedMatch1;
@@ -178,216 +183,231 @@ public class ProfileController implements Initializable {
         stage.close();
     }
 
-    void initData(Player searchedSummoner, Pane menuBp) throws Exception {
-
-        ApiHelper apiHelper = new ApiHelper();
-        JSONObject championArrData = apiHelper.getChampionData().getJSONObject("data");
-
-        // Get summoner ranked data
-        Task<Ranked> rankedSummonerInfoTask = new Task<Ranked>() {
+    void initData(Player searchedSummoner) {
+        Task<JSONObject> championArrDataTask = new Task<JSONObject>() {
             @Override
-            protected Ranked call() throws Exception {
-                return new Ranked(searchedSummoner.getSummonerId());
+            protected JSONObject call() throws Exception {
+                ApiHelper apiHelper = new ApiHelper();
+                return apiHelper.getChampionData().getJSONObject("data");
             }
         };
 
-        rankedSummonerInfoTask.setOnFailed(eRanked -> {
-            rankedSummonerInfoTask.getException().printStackTrace();
-        });
+        championArrDataTask.setOnFailed(e -> championArrDataTask.getException().printStackTrace());
 
-        rankedSummonerInfoTask.setOnSucceeded(eRanked -> {
-            Ranked rankedSummonerInfo = rankedSummonerInfoTask.getValue();
+        championArrDataTask.setOnSucceeded(e -> {
+            JSONObject championArrData = championArrDataTask.getValue();
+            // Get summoner ranked data
+            Task<Ranked> rankedSummonerInfoTask = new Task<Ranked>() {
+                @Override
+                protected Ranked call() throws Exception {
+                    return new Ranked(searchedSummoner.getSummonerId());
+                }
+            };
 
-            // Set league points text
-            leaguePoints.setText(rankedSummonerInfo.getLeaguePoints() + " LP");
+            rankedSummonerInfoTask.setOnFailed(eRanked -> rankedSummonerInfoTask.getException().printStackTrace());
 
-            // Set league points text
-            rankedWins.setText(rankedSummonerInfo.getWins() + " W");
+            rankedSummonerInfoTask.setOnSucceeded(eRanked -> {
+                Ranked rankedSummonerInfo = rankedSummonerInfoTask.getValue();
 
-            // Set league points text
-            rankedLosses.setText(rankedSummonerInfo.getLosses() + " L");
+                // Set league points text
+                leaguePoints.setText(rankedSummonerInfo.getLeaguePoints() + " LP");
 
-            // Set tier image
-            File file = new File(Tiers.valueOf(rankedSummonerInfo.getTier()).getImageEloPath());
-            tier.setImage(new Image(file.toURI().toString()));
-        });
+                // Set league points text
+                rankedWins.setText(rankedSummonerInfo.getWins() + " W");
 
-        exec.execute(rankedSummonerInfoTask);
+                // Set league points text
+                rankedLosses.setText(rankedSummonerInfo.getLosses() + " L");
 
+                // Set tier image
+                File file = new File(Tiers.valueOf(rankedSummonerInfo.getTier()).getImageEloPath());
+                tier.setImage(new Image(file.toURI().toString()));
+            });
 
-        // Get top played champions info of searched summoner
-        Task<SummonerChampions> summonerChampionsTask = new Task<SummonerChampions>() {
-            @Override
-            protected SummonerChampions call() throws Exception {
-                return new SummonerChampions(
-                        searchedSummoner.getSummonerId(),
-                        championArrData
-                );
-            }
-        };
-
-        summonerChampionsTask.setOnFailed(eChampions -> {
-            summonerChampionsTask.getException().printStackTrace();
-        });
-
-        summonerChampionsTask.setOnSucceeded(eChampions -> {
-            SummonerChampions summonerChampions = summonerChampionsTask.getValue();
-            // Display top played champions image icon
-            Image championTop1Image = new Image(
-                    RiotUtils
-                            .getImageChampionBuiltUrl(
-                                    summonerChampions.getTopPlayedChampions().get(0), ImagesUrl.SQUARE
-                            )
-            );
-            championTop1.setFill(new ImagePattern(championTop1Image));
-
-            Image championTop2Image = new Image(
-                    RiotUtils
-                            .getImageChampionBuiltUrl(
-                                    summonerChampions.getTopPlayedChampions().get(1), ImagesUrl.SQUARE
-                            )
-            );
-            championTop2.setFill(new ImagePattern(championTop2Image));
-
-            Image championTop3Image = new Image(
-                    RiotUtils
-                            .getImageChampionBuiltUrl(summonerChampions.getTopPlayedChampions().get(2), ImagesUrl.SQUARE
-                            )
-            );
-            championTop3.setFill(new ImagePattern(championTop3Image));
-            Stage s = (Stage) menuBp.getScene().getWindow();
-            s.close();
-        });
-
-        exec.execute(summonerChampionsTask);
+            exec.execute(rankedSummonerInfoTask);
 
 
-        // Get match history of searched summoner
-        Task<SummonerMatchList> summonerMatchListTask = new Task<SummonerMatchList>() {
-            @Override
-            protected SummonerMatchList call() throws Exception {
-                return new SummonerMatchList(
-                        searchedSummoner.getAccountId(),
-                        3,
-                        championArrData
-                );
-            }
-        };
-
-        summonerMatchListTask.setOnFailed(eMatch -> {
-            summonerChampionsTask.getException().printStackTrace();
-        });
-
-        summonerMatchListTask.setOnSucceeded(eMatch -> {
-            try {
-                int matchSize = summonerMatchListTask.getValue().getPureMatchHistory().length();
-                // Display match stats
-                for (int i = 0; i < matchSize; i++) {
-
-                    Match summonerMatch = new Match(
-                            String.valueOf(
-                                    ((JSONObject) summonerMatchListTask.getValue().getPureMatchHistory().get(i))
-                                            .getInt("gameId")
-                            )
-                    );
-
-                    JSONObject matchPlayerStats = summonerMatch.
-                            getParticipantDtoBySummonerAccountId(searchedSummoner.getAccountId())
-                            .getJSONObject("stats");
-
-                    JSONObject participantChampion = summonerMatch.
-                            getParticipantDtoBySummonerAccountId(searchedSummoner.getAccountId());
-
-                    Champion champion = new Champion(
-                            String.valueOf(participantChampion.getInt("championId")),
+            // Get top played champions info of searched summoner
+            Task<SummonerChampions> summonerChampionsTask = new Task<SummonerChampions>() {
+                @Override
+                protected SummonerChampions call() throws Exception {
+                    return new SummonerChampions(
+                            searchedSummoner.getSummonerId(),
                             championArrData
                     );
-
-                    String matchResult = summonerMatch.getMatchResultByParticipantId(
-                            String.valueOf(participantChampion.getInt("participantId")));
-
-                    String resultLabelColor = matchResult.equals("Victory")
-                            ? "#31ab47"
-                            : "#bf616a";
-
-                    // Create items rectangles
-                    rectangles = new ArrayList<>();
-                    for (int j = 1; j <= 2; j++) {
-                        rectangles = GraphicUtils.createRectangleItemsRow(
-                                summonerMatch.getItemsSlotsByParticipantId(
-                                        String.valueOf(participantChampion.getInt("participantId")), j),
-                                3,
-                                1
-                        );
-                        Field HBoxRectangleField = getClass().getDeclaredField("playedMatchItems" + (i + 1) + "" + j);
-                        HBox HBox = (HBox) HBoxRectangleField.get(this);
-                        HBox.getChildren().addAll(rectangles);
-                    }
-
-                    // Set game result match label
-                    Field resultField = getClass().getDeclaredField("result" + (i + 1));
-                    Label resultLabel = (Label) resultField.get(this);
-                    resultLabel.setText(matchResult);
-                    resultLabel.setTextFill(Paint.valueOf(resultLabelColor));
-
-                    // Set game duration label
-                    Field gameDurationField = getClass().getDeclaredField("gameDuration" + (i + 1));
-                    Label gameDurationLabel = (Label) gameDurationField.get(this);
-                    gameDurationLabel.setText(String.valueOf(summonerMatch.getGameDuration()));
-
-                    // Set champion name
-                    Field championNameField = getClass().getDeclaredField("championName" + (i + 1));
-                    Label championNameLabel = (Label) championNameField.get(this);
-                    championNameLabel.setText(
-                            champion.getChampionData().getString("name")
-                    );
-
-                    // Set icon played champion
-                    Field championIconField = getClass().getDeclaredField("playedMatchChampionIcon" + (i + 1));
-                    Circle circle = (Circle) championIconField.get(this);
-                    Image championImage = new Image(champion.getImageChampionBuiltUrl(ImagesUrl.SQUARE));
-                    circle.setFill(new ImagePattern(championImage));
-
-                    // Set kda match
-                    Field kdaPlayerField = getClass().getDeclaredField("kdaMatchHistory" + (i + 1));
-                    Label kdaLabel = (Label) kdaPlayerField.get(this);
-                    kdaLabel.setText(
-                            matchPlayerStats.getInt("kills") + "/" +
-                                    matchPlayerStats.getInt("deaths") + "/" +
-                                    matchPlayerStats.getInt("assists")
-                    );
-
-                    Field calculatedKdaPlayerField = getClass().getDeclaredField("calculatedKDA" + (i + 1));
-                    Label calculatedKdaLabel = (Label) calculatedKdaPlayerField.get(this);
-                    double calculatedKDA = NumberUtils.round(
-                            (
-                                    (matchPlayerStats.getDouble("kills") + matchPlayerStats.getDouble("assists"))
-                                            / summonerMatch.setDeathToWhenItIsZero(matchPlayerStats.getDouble("deaths"))
-                            ),
-                            2
-                    );
-                    calculatedKdaLabel.setText("KDA " + calculatedKDA);
-                    int a = 8;
                 }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            };
+
+            summonerChampionsTask.setOnFailed(eChampions-> summonerChampionsTask.getException().printStackTrace());
+
+            summonerChampionsTask.setOnSucceeded(eChampions -> {
+                SummonerChampions summonerChampions = summonerChampionsTask.getValue();
+                // Display top played champions image icon
+                Image championTop1Image = new Image(
+                        RiotUtils
+                                .getImageChampionBuiltUrl(
+                                        summonerChampions.getTopPlayedChampions().get(0), ImagesUrl.SQUARE
+                                )
+                );
+                championTop1.setFill(new ImagePattern(championTop1Image));
+
+                Image championTop2Image = new Image(
+                        RiotUtils
+                                .getImageChampionBuiltUrl(
+                                        summonerChampions.getTopPlayedChampions().get(1), ImagesUrl.SQUARE
+                                )
+                );
+                championTop2.setFill(new ImagePattern(championTop2Image));
+
+                Image championTop3Image = new Image(
+                        RiotUtils
+                                .getImageChampionBuiltUrl(summonerChampions.getTopPlayedChampions().get(2), ImagesUrl.SQUARE
+                                )
+                );
+                championTop3.setFill(new ImagePattern(championTop3Image));
+
+            });
+
+            exec.execute(summonerChampionsTask);
+
+
+
+
+            // Get match history of searched summoner
+            Task<SummonerMatchList> summonerMatchListTask = new Task<SummonerMatchList>() {
+                @Override
+                protected SummonerMatchList call() throws Exception {
+                    return new SummonerMatchList(
+                            searchedSummoner.getAccountId(),
+                            3,
+                            championArrData
+                    );
+                }
+            };
+
+            summonerMatchListTask.setOnFailed(eMatch -> summonerChampionsTask.getException().printStackTrace());
+
+            summonerMatchListTask.setOnSucceeded(eMatch -> {
+                try {
+                    int matchSize = summonerMatchListTask.getValue().getPureMatchHistory().length();
+                    // Display match stats
+                    for (int i = 0; i < matchSize; i++) {
+
+                        Match summonerMatch = new Match(
+                                String.valueOf(
+                                        ((JSONObject) summonerMatchListTask.getValue().getPureMatchHistory().get(i))
+                                                .getInt("gameId")
+                                )
+                        );
+
+                        JSONObject matchPlayerStats = summonerMatch.
+                                getParticipantDtoBySummonerAccountId(searchedSummoner.getAccountId())
+                                .getJSONObject("stats");
+
+                        JSONObject participantChampion = summonerMatch.
+                                getParticipantDtoBySummonerAccountId(searchedSummoner.getAccountId());
+
+                        Champion champion = new Champion(
+                                String.valueOf(participantChampion.getInt("championId")),
+                                championArrData
+                        );
+
+                        Performance summonerPerformance = new Performance(
+                                champion,
+                                matchPlayerStats
+                        );
+
+                        String matchResult = summonerMatch.getMatchResultByParticipantId(
+                                String.valueOf(participantChampion.getInt("participantId")));
+
+                        String resultLabelColor = matchResult.equals("Victory")
+                                ? "#31ab47"
+                                : "#bf616a";
+
+                        // Create items rectangles
+                        rectangles = new ArrayList<>();
+                        for (int j = 1; j <= 2; j++) {
+                            rectangles = GraphicUtils.createRectangleItemsRow(
+                                    summonerMatch.getItemsSlotsByParticipantId(
+                                            String.valueOf(participantChampion.getInt("participantId")), j),
+                                    3,
+                                    1
+                            );
+                            Field HBoxRectangleField = getClass().getDeclaredField("playedMatchItems" + (i + 1) + "" + j);
+                            HBox HBox = (HBox) HBoxRectangleField.get(this);
+                            HBox.getChildren().addAll(rectangles);
+                        }
+
+                        // Set game score match label
+                        Field scoreField = getClass().getDeclaredField("score" + (i + 1));
+                        Label scoreLabel = (Label) scoreField.get(this);
+                        scoreLabel.setText(String.valueOf(summonerPerformance.getPerformanceScore()));
+
+                        // Set game result match label
+                        Field resultField = getClass().getDeclaredField("result" + (i + 1));
+                        Label resultLabel = (Label) resultField.get(this);
+                        resultLabel.setText(matchResult);
+                        resultLabel.setTextFill(Paint.valueOf(resultLabelColor));
+
+                        // Set game duration label
+                        Field gameDurationField = getClass().getDeclaredField("gameDuration" + (i + 1));
+                        Label gameDurationLabel = (Label) gameDurationField.get(this);
+                        gameDurationLabel.setText(String.valueOf(summonerMatch.getGameDuration()));
+
+                        // Set champion name
+                        Field championNameField = getClass().getDeclaredField("championName" + (i + 1));
+                        Label championNameLabel = (Label) championNameField.get(this);
+                        championNameLabel.setText(
+                                champion.getChampionData().getString("name")
+                        );
+
+                        // Set icon played champion
+                        Field championIconField = getClass().getDeclaredField("playedMatchChampionIcon" + (i + 1));
+                        Circle circle = (Circle) championIconField.get(this);
+                        Image championImage = new Image(champion.getImageChampionBuiltUrl(ImagesUrl.SQUARE));
+                        circle.setFill(new ImagePattern(championImage));
+
+                        // Set kda match
+                        Field kdaPlayerField = getClass().getDeclaredField("kdaMatchHistory" + (i + 1));
+                        Label kdaLabel = (Label) kdaPlayerField.get(this);
+                        kdaLabel.setText(
+                                matchPlayerStats.getInt("kills") + "/" +
+                                        matchPlayerStats.getInt("deaths") + "/" +
+                                        matchPlayerStats.getInt("assists")
+                        );
+
+                        Field calculatedKdaPlayerField = getClass().getDeclaredField("calculatedKDA" + (i + 1));
+                        Label calculatedKdaLabel = (Label) calculatedKdaPlayerField.get(this);
+                        double calculatedKDA = NumberUtils.round(
+                                (
+                                        (matchPlayerStats.getDouble("kills") + matchPlayerStats.getDouble("assists"))
+                                                / summonerMatch.setDeathToWhenItIsZero(matchPlayerStats.getDouble("deaths"))
+                                ),
+                                2
+                        );
+                        calculatedKdaLabel.setText("KDA " + calculatedKDA);
+                        int a = 8;
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+
+            exec.execute(summonerMatchListTask);
+
+            // Set profile image icon
+            String profileIconId = String.valueOf(searchedSummoner.getIconId());
+            Image image = new Image(
+                    "http://ddragon.leagueoflegends.com/cdn/9.21.1/img/profileicon/"
+                            + profileIconId + ".png", false);
+            imageCircle.setFill(new ImagePattern(image));
+
+            // Set summoner level text
+            playerLevel.setText(String.valueOf(searchedSummoner.getSummonerLevel()));
+
+            // Set summoner name text
+            summonerName.setText(searchedSummoner.getSummonerName());
 
         });
-
-        exec.execute(summonerMatchListTask);
-
-        // Set profile image icon
-        String profileIconId = String.valueOf(searchedSummoner.getIconId());
-        Image image = new Image(
-                "http://ddragon.leagueoflegends.com/cdn/9.21.1/img/profileicon/"
-                        + profileIconId + ".png", false);
-        imageCircle.setFill(new ImagePattern(image));
-
-        // Set summoner level text
-        playerLevel.setText(String.valueOf(searchedSummoner.getSummonerLevel()));
-
-        // Set summoner name text
-        summonerName.setText(searchedSummoner.getSummonerName());
+        exec.execute(championArrDataTask);
     }
 }

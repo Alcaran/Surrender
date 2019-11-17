@@ -95,11 +95,9 @@ public class MenuController implements Initializable {
                 protected Player call() throws Exception {
                     loaderSpinner.setVisible(true);
                     // Search player in riot api
-                    Player searchedSummoner = new Player(
+                    return new Player(
                             summonerSearch.getText().replace(" ", "")
                     );
-
-                    return searchedSummoner;
                 }
             };
 
@@ -119,15 +117,13 @@ public class MenuController implements Initializable {
                     stage.setScene(new Scene(loader.load()));
                     // Pass summoner to profile page as parameter
                     ProfileController controller = loader.getController();
-                    controller.initData(profileSummonerTask.getValue(), bp);
-
+                    controller.initData(profileSummonerTask.getValue());
 
                     loaderSpinner.setVisible(false);
 
-                    // Open profile page and close menu page
-                    stage.show();
-//                    Stage s = (Stage) bp.getScene().getWindow();
-//                    s.close();
+                    Stage s = (Stage) bp.getScene().getWindow();
+                    s.close();
+                    stage.showAndWait();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
