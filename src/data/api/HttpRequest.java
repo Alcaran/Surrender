@@ -1,19 +1,22 @@
 package data.api;
 
 import org.json.JSONObject;
+import sun.plugin.javascript.navig.Array;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 
 class HttpRequest {
-    private String developmentApiKey = "RGAPI-ead0922e-f0ca-4ab8-bbcb-c5e45130759d";
+    private String developmentApiKey = "RGAPI-956e01fc-fccb-4ce3-b9c1-52376f4d9c34";
 
-    JSONObject sendGet(String apiPath, List<String[]> parameters, boolean setFullPathRequest) throws Exception {
+    JSONObject sendGet(String apiPath, List<Object[]> parameters, boolean setFullPathRequest) throws Exception {
 
         StringBuilder url;
         if(setFullPathRequest)
@@ -21,8 +24,13 @@ class HttpRequest {
         else
             url = new StringBuilder("https://br1.api.riotgames.com" + apiPath + "?api_key=" + this.developmentApiKey);
 
-        for (String[] parameter : parameters) {
-            url.append("&").append(parameter[0]).append("=").append(parameter[1]);
+        for (Object[] parameter : parameters) {
+            if (parameter[1] instanceof int[])
+            {
+                for(int parameterObject : (int[]) parameter[1]) {
+                    url.append("&").append(parameter[0]).append("=").append(parameterObject);
+                }
+            } else url.append("&").append(parameter[0]).append("=").append(parameter[1]);
         }
 
         HttpURLConnection httpClient =
@@ -54,7 +62,6 @@ class HttpRequest {
 
             return obj;
         }
-
     }
 
     void sendPost() throws Exception {

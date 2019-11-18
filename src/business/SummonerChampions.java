@@ -15,6 +15,10 @@ public class SummonerChampions {
         return topPlayedChampions;
     }
 
+    public JSONObject getChampionByIndex (int index) {
+        return topPlayedChampions.get(index);
+    }
+
     public SummonerChampions(String summonerId, JSONObject championData) throws Exception {
         ApiHelper apiHelper = new ApiHelper();
         JSONArray championsSummonerInfo =

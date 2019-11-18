@@ -12,5 +12,6 @@
     <orderEntry type="library" name="json-20190722" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0.17" level="project" />
     <orderEntry type="library" name="protobuf-java-3.6.1" level="project" />
+    <orderEntry type="library" name="gradle-wrapper" level="project" />
   </component>
 </module>

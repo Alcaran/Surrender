@@ -28,7 +28,7 @@ import java.util.concurrent.Executors;
 public class MenuController implements Initializable {
 
     private Executor exec;
-    private Stage stage;
+    private Stage profileStage;
 
     @FXML
     private JFXComboBox<String> comboBox;
@@ -113,17 +113,18 @@ public class MenuController implements Initializable {
                     );
 
                     // Set profile page to load
-                    stage = new Stage(StageStyle.TRANSPARENT);
-                    stage.setScene(new Scene(loader.load()));
+                    profileStage = new Stage(StageStyle.TRANSPARENT);
+                    profileStage.setScene(new Scene(loader.load()));
+
                     // Pass summoner to profile page as parameter
                     ProfileController controller = loader.getController();
-                    controller.initData(profileSummonerTask.getValue());
 
-                    loaderSpinner.setVisible(false);
+                    // Set menu stage
+                    Stage menuStage = (Stage) bp.getScene().getWindow();
+                    profileStage.initStyle(StageStyle.TRANSPARENT);
 
-                    Stage s = (Stage) bp.getScene().getWindow();
-                    s.close();
-                    stage.showAndWait();
+                    // Call initialize data of profile screen
+                    controller.initData(profileSummonerTask.getValue(), menuStage, profileStage);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

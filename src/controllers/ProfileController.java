@@ -4,12 +4,14 @@ import business.*;
 import data.enums.ImagesUrl;
 import data.enums.Tiers;
 import data.api.ApiHelper;
+import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,6 +27,8 @@ import org.json.JSONObject;
 import utils.GraphicUtils;
 import utils.NumberUtils;
 import utils.RiotUtils;
+
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -139,7 +143,25 @@ public class ProfileController implements Initializable {
     private BorderPane bp;
 
     private List<Rectangle> rectangles;
-    private String searchedSummoner;
+    private SummonerChampions summonerChampions;
+    private Player summoner;
+    private JSONObject championJsonData;
+
+    private void callChampionScreen(Champion champion) throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("../screens/Champion.fxml")
+        );
+        Stage stage = new Stage(StageStyle.TRANSPARENT);
+        stage.setScene(new Scene(loader.load()));
+
+        ChampionController controller = loader.getController();
+        controller.initData(champion, summoner);
+
+        stage.show();
+
+        Stage s = (Stage) bp.getScene().getWindow();
+        s.close();
+    }
 
     @FXML
     private void handleButtonAction() {
@@ -147,11 +169,40 @@ public class ProfileController implements Initializable {
     }
 
     @FXML
+    private void handleTopPlayedChampionAction1() throws Exception {
+
+        callChampionScreen(
+                new Champion(
+                        summonerChampions.getChampionByIndex(0).getString("key"),
+                        championJsonData
+                )
+        );
+    }
+
+    @FXML
+    private void handleTopPlayedChampionAction2() throws Exception {
+        callChampionScreen(
+                new Champion(
+                        summonerChampions.getChampionByIndex(1).getString("key"),
+                        championJsonData
+                ));
+    }
+
+    @FXML
+    private void handleTopPlayedChampionAction3() throws Exception {
+        callChampionScreen(
+                new Champion(
+                        summonerChampions.getChampionByIndex(2).getString("key"),
+                        championJsonData
+                )
+        );
+    }
+
+    @FXML
     private void minimizeButtonAction() {
         Stage stage = (Stage) bp.getScene().getWindow();
         stage.setIconified(true);
     }
-
 
     @FXML
     private void analysesButtonAction() throws IOException {
@@ -183,7 +234,8 @@ public class ProfileController implements Initializable {
         stage.close();
     }
 
-    void initData(Player searchedSummoner) {
+    void initData(Player searchedSummoner, Stage menuStage, Stage profileStage) {
+        this.summoner = searchedSummoner;
         Task<JSONObject> championArrDataTask = new Task<JSONObject>() {
             @Override
             protected JSONObject call() throws Exception {
@@ -196,6 +248,7 @@ public class ProfileController implements Initializable {
 
         championArrDataTask.setOnSucceeded(e -> {
             JSONObject championArrData = championArrDataTask.getValue();
+            this.championJsonData = championArrData;
             // Get summoner ranked data
             Task<Ranked> rankedSummonerInfoTask = new Task<Ranked>() {
                 @Override
@@ -223,8 +276,6 @@ public class ProfileController implements Initializable {
                 tier.setImage(new Image(file.toURI().toString()));
             });
 
-            exec.execute(rankedSummonerInfoTask);
-
 
             // Get top played champions info of searched summoner
             Task<SummonerChampions> summonerChampionsTask = new Task<SummonerChampions>() {
@@ -237,10 +288,11 @@ public class ProfileController implements Initializable {
                 }
             };
 
-            summonerChampionsTask.setOnFailed(eChampions-> summonerChampionsTask.getException().printStackTrace());
+            summonerChampionsTask.setOnFailed(eChampions -> summonerChampionsTask.getException().printStackTrace());
 
             summonerChampionsTask.setOnSucceeded(eChampions -> {
                 SummonerChampions summonerChampions = summonerChampionsTask.getValue();
+                this.summonerChampions = summonerChampions;
                 // Display top played champions image icon
                 Image championTop1Image = new Image(
                         RiotUtils
@@ -264,12 +316,10 @@ public class ProfileController implements Initializable {
                                 )
                 );
                 championTop3.setFill(new ImagePattern(championTop3Image));
+                profileStage.show();
+                menuStage.close();
 
             });
-
-            exec.execute(summonerChampionsTask);
-
-
 
 
             // Get match history of searched summoner
@@ -279,14 +329,16 @@ public class ProfileController implements Initializable {
                     return new SummonerMatchList(
                             searchedSummoner.getAccountId(),
                             3,
-                            championArrData
+                            championArrData,
+                            new int[]{0},
+                            true
                     );
                 }
             };
 
-            summonerMatchListTask.setOnFailed(eMatch -> summonerChampionsTask.getException().printStackTrace());
+            summonerMatchListTask.setOnFailed(eMatchList -> summonerChampionsTask.getException().printStackTrace());
 
-            summonerMatchListTask.setOnSucceeded(eMatch -> {
+            summonerMatchListTask.setOnSucceeded(eMatchList -> {
                 try {
                     int matchSize = summonerMatchListTask.getValue().getPureMatchHistory().length();
                     // Display match stats
@@ -298,6 +350,7 @@ public class ProfileController implements Initializable {
                                                 .getInt("gameId")
                                 )
                         );
+                        System.out.println("MATCH RETURNED");
 
                         JSONObject matchPlayerStats = summonerMatch.
                                 getParticipantDtoBySummonerAccountId(searchedSummoner.getAccountId())
@@ -324,75 +377,86 @@ public class ProfileController implements Initializable {
                                 : "#bf616a";
 
                         // Create items rectangles
-                        rectangles = new ArrayList<>();
-                        for (int j = 1; j <= 2; j++) {
-                            rectangles = GraphicUtils.createRectangleItemsRow(
-                                    summonerMatch.getItemsSlotsByParticipantId(
-                                            String.valueOf(participantChampion.getInt("participantId")), j),
-                                    3,
-                                    1
-                            );
-                            Field HBoxRectangleField = getClass().getDeclaredField("playedMatchItems" + (i + 1) + "" + j);
-                            HBox HBox = (HBox) HBoxRectangleField.get(this);
-                            HBox.getChildren().addAll(rectangles);
-                        }
+                        int finalI = i;
+                        Platform.runLater((() -> {
+                            try {
+                                rectangles = new ArrayList<>();
+                                for (int j = 1; j <= 2; j++) {
+                                    rectangles = GraphicUtils.createRectangleItemsRow(
+                                            summonerMatch.getItemsSlotsByParticipantId(
+                                                    String.valueOf(participantChampion.getInt("participantId")), j),
+                                            3,
+                                            1
+                                    );
+                                    Field HBoxRectangleField = getClass().getDeclaredField("playedMatchItems" + (finalI + 1) + "" + j);
+                                    HBox HBox = (HBox) HBoxRectangleField.get(this);
+                                    HBox.getChildren().addAll(rectangles);
+                                }
 
-                        // Set game score match label
-                        Field scoreField = getClass().getDeclaredField("score" + (i + 1));
-                        Label scoreLabel = (Label) scoreField.get(this);
-                        scoreLabel.setText(String.valueOf(summonerPerformance.getPerformanceScore()));
 
-                        // Set game result match label
-                        Field resultField = getClass().getDeclaredField("result" + (i + 1));
-                        Label resultLabel = (Label) resultField.get(this);
-                        resultLabel.setText(matchResult);
-                        resultLabel.setTextFill(Paint.valueOf(resultLabelColor));
+                                // Set game score match label
+                                setLabelStyleByFieldCall(
+                                        "score" + (finalI + 1), summonerPerformance.getPerformanceScore(), null
+                                );
 
-                        // Set game duration label
-                        Field gameDurationField = getClass().getDeclaredField("gameDuration" + (i + 1));
-                        Label gameDurationLabel = (Label) gameDurationField.get(this);
-                        gameDurationLabel.setText(String.valueOf(summonerMatch.getGameDuration()));
+                                // Set result match label
+                                setLabelStyleByFieldCall(
+                                        "result" + (finalI + 1),
+                                        matchResult,
+                                        resultLabelColor
+                                );
 
-                        // Set champion name
-                        Field championNameField = getClass().getDeclaredField("championName" + (i + 1));
-                        Label championNameLabel = (Label) championNameField.get(this);
-                        championNameLabel.setText(
-                                champion.getChampionData().getString("name")
-                        );
+                                // Set game duration label
+                                setLabelStyleByFieldCall(
+                                        "gameDuration" + (finalI + 1), summonerMatch.getGameDuration(), null
+                                );
 
-                        // Set icon played champion
-                        Field championIconField = getClass().getDeclaredField("playedMatchChampionIcon" + (i + 1));
-                        Circle circle = (Circle) championIconField.get(this);
-                        Image championImage = new Image(champion.getImageChampionBuiltUrl(ImagesUrl.SQUARE));
-                        circle.setFill(new ImagePattern(championImage));
+                                // Set champion name
+                                setLabelStyleByFieldCall(
+                                        "championName" + (finalI + 1),
+                                        champion.getChampionData().getString("name"),
+                                        null
+                                );
 
-                        // Set kda match
-                        Field kdaPlayerField = getClass().getDeclaredField("kdaMatchHistory" + (i + 1));
-                        Label kdaLabel = (Label) kdaPlayerField.get(this);
-                        kdaLabel.setText(
-                                matchPlayerStats.getInt("kills") + "/" +
-                                        matchPlayerStats.getInt("deaths") + "/" +
-                                        matchPlayerStats.getInt("assists")
-                        );
 
-                        Field calculatedKdaPlayerField = getClass().getDeclaredField("calculatedKDA" + (i + 1));
-                        Label calculatedKdaLabel = (Label) calculatedKdaPlayerField.get(this);
-                        double calculatedKDA = NumberUtils.round(
-                                (
-                                        (matchPlayerStats.getDouble("kills") + matchPlayerStats.getDouble("assists"))
-                                                / summonerMatch.setDeathToWhenItIsZero(matchPlayerStats.getDouble("deaths"))
-                                ),
-                                2
-                        );
-                        calculatedKdaLabel.setText("KDA " + calculatedKDA);
-                        int a = 8;
+                                // Set icon played champion
+                                Field championIconField = getClass().getDeclaredField("playedMatchChampionIcon" + (finalI + 1));
+                                Circle circle = (Circle) championIconField.get(this);
+                                Image championImage = new Image(champion.getImageChampionBuiltUrl(ImagesUrl.SQUARE));
+                                circle.setFill(new ImagePattern(championImage));
+
+                                // Set kda match
+                                Field kdaPlayerField = getClass().getDeclaredField("kdaMatchHistory" + (finalI + 1));
+                                Label kdaLabel = (Label) kdaPlayerField.get(this);
+                                kdaLabel.setText(
+                                        matchPlayerStats.getInt("kills") + "/" +
+                                                matchPlayerStats.getInt("deaths") + "/" +
+                                                matchPlayerStats.getInt("assists")
+                                );
+
+                                Field calculatedKdaPlayerField = getClass().getDeclaredField("calculatedKDA" + (finalI + 1));
+                                Label calculatedKdaLabel = (Label) calculatedKdaPlayerField.get(this);
+                                double calculatedKDA = NumberUtils.round(
+                                        (
+                                                (matchPlayerStats.getDouble("kills") + matchPlayerStats.getDouble("assists"))
+                                                        / summonerMatch.setDeathToWhenItIsZero(matchPlayerStats.getDouble("deaths"))
+                                        ),
+                                        2
+                                );
+                                calculatedKdaLabel.setText("KDA " + calculatedKDA);
+                                System.out.println("MATCH FINISHED");
+                            } catch (Exception easd) {
+                                easd.printStackTrace();
+                            }
+                        }));
                     }
+                    profileStage.show();
+                    menuStage.close();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             });
 
-            exec.execute(summonerMatchListTask);
 
             // Set profile image icon
             String profileIconId = String.valueOf(searchedSummoner.getIconId());
@@ -407,7 +471,21 @@ public class ProfileController implements Initializable {
             // Set summoner name text
             summonerName.setText(searchedSummoner.getSummonerName());
 
+            exec.execute(summonerChampionsTask);
+
+//            exec.execute(summonerMatchListTask);
+
+            exec.execute(rankedSummonerInfoTask);
         });
         exec.execute(championArrDataTask);
+    }
+
+    private void setLabelStyleByFieldCall(String fieldName, Object fieldValue, String color)
+            throws IllegalAccessException, NoSuchFieldException {
+        Field field = getClass().getDeclaredField(fieldName);
+        Label label = (Label) field.get(this);
+        label.setText(String.valueOf(fieldValue));
+        if (color != null)
+            label.setTextFill(Paint.valueOf(color));
     }
 }

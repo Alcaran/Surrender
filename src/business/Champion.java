@@ -6,8 +6,6 @@ import org.json.JSONObject;
 import java.util.Iterator;
 
 public class Champion {
-    ApiHelper apiHelper = new ApiHelper();
-
     public JSONObject getChampionData() {
         return championData;
     }

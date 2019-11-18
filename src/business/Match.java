@@ -13,13 +13,16 @@ public class Match {
     private String matchId;
     private JSONArray participantIdentities;
     private JSONArray participants;
-
-    public String getGameDuration() {
-        return String.valueOf(NumberUtils.round(gameDuration / 60, 2)).replace(".", ":");
-    }
-
     private double gameDuration;
     private ApiHelper apiHelper = new ApiHelper();
+
+    public String getGameDuration() {
+        int minutes = (int) gameDuration / 60;
+        int secondsRemaining = (int) gameDuration % 60;
+        return  minutes + ":" + secondsRemaining;
+    }
+
+
 
     public Match(String matchId) throws Exception {
         JSONObject fullMatchDetails = apiHelper

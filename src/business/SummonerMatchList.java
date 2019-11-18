@@ -22,16 +22,26 @@ public class SummonerMatchList {
         return matchHistoryPlayedChampions;
     }
 
-    public SummonerMatchList(String accountId, int matchHistoryLength, JSONObject championData) throws Exception {
+    public SummonerMatchList(
+            String accountId,
+            int matchHistoryLength,
+            JSONObject championData,
+            int[] championId,
+            boolean needChampionData
+    ) throws Exception {
         JSONArray matchHistory =
-                apiHelper.getUserMatchHistory(accountId, matchHistoryLength)
+                apiHelper.getUserMatchHistory(accountId, matchHistoryLength, championId)
                         .getJSONArray("matches");
-        ArrayList<JSONObject> matchHistoryPlayedChampions = RiotUtils.getChampionsNameById(
-                JSONUtils.getNElementsOfJSONArrayAsStringArray(matchHistoryLength, matchHistory, "champion"),
-                championData
-        );
+
+        if(needChampionData) {
+            ArrayList<JSONObject> matchHistoryPlayedChampions = RiotUtils.getChampionsNameById(
+                    JSONUtils.getNElementsOfJSONArrayAsStringArray(matchHistoryLength, matchHistory, "champion"),
+                    championData
+            );
+            this.matchHistoryPlayedChampions = matchHistoryPlayedChampions;
+        }
+
 
         this.pureMatchHistory = matchHistory;
-        this.matchHistoryPlayedChampions = matchHistoryPlayedChampions;
     }
 }

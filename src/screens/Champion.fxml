@@ -1,175 +1,204 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.text.Font?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.shape.Line?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-        <ScrollPane hbarPolicy="NEVER" prefHeight="636.0" prefWidth="1080.0" stylesheets="@css/pane.css">
-            <content>
-                <BorderPane prefHeight="720.0" prefWidth="1070.0" style="-fx-background-color: #2E3440;">
-                    <top>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="584.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
-                                <ImageView fitHeight="511.0" fitWidth="473.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../assets/Graphic.png" />
-                                    </image>
-                                </ImageView>
-                                <VBox alignment="CENTER" prefHeight="306.0" prefWidth="549.0">
-                                        <Label text="Compare your performance with another player" textFill="WHITE">
-                                            <font>
-                                                <Font name="Josefin Sans Regular" size="21.0" />
-                                            </font>
-                                        </Label>
-                                        <JFXTextField focusColor="WHITE" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="440.0" promptText="Search a player..." style="-fx-prompt-text-fill: #4C566A; -fx-text-fill: white;" unFocusColor="WHITE">
-                                            <font>
-                                                <Font name="Josefin Sans Regular" size="18.0" />
-                                            </font>
-                                        </JFXTextField>
-                                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="440.0" style="-fx-background-color: #4c566a;">
-                                                <HBox prefHeight="440.0" prefWidth="441.0">
-                                                        <VBox alignment="TOP_CENTER" prefHeight="440.0" prefWidth="181.0">
-                                                                <Label text="You" textFill="#e8e8e8">
-                                                                    <font>
-                                                                        <Font name="Josefin Sans Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets top="30.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-                                                                <Label layoutX="83.0" layoutY="215.0" text="203 CS" textFill="#bf616a">
-                                                                    <font>
-                                                                        <Font name="Josefin Sans Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets top="50.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-                                                                <Label layoutX="83.0" layoutY="230.0" text="4.57 KDA" textFill="#a3be8c">
-                                                                    <font>
-                                                                        <Font name="Josefin Sans Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets top="30.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-                                                                <Label layoutX="83.0" layoutY="245.0" text="420 gold/m" textFill="#bf616a">
-                                                                    <font>
-                                                                        <Font name="Josefin Sans Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets top="30.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-                                                                <Label layoutX="83.0" layoutY="260.0" text="57% p/kill" textFill="#bf616a">
-                                                                    <font>
-                                                                        <Font name="Josefin Sans Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets top="30.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-                                                                <Label layoutX="83.0" layoutY="275.0" text="9.3 score" textFill="#bf616a">
-                                                                    <font>
-                                                                        <Font name="Josefin Sans Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets top="30.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-
-                                                        </VBox>
-                                                        <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="440.0" prefWidth="74.0">
-                                                                <Label text="Defeat" textFill="#bf616a">
-                                                                    <font>
-                                                                        <Font name="Josefin Sans Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets top="30.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-                                                                <Line endY="150.0" startY="-219.0" stroke="#88c0d0">
-                                                                    <VBox.margin>
-                                                                        <Insets top="10.0" />
-                                                                    </VBox.margin>
-                                                                </Line>
-
-                                                        </VBox>
-                                                        <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="440.0" prefWidth="181.0">
-                                                                <Label text="KomaedaSenpai" textFill="#393939">
-                                                                    <font>
-                                                                        <Font name="Josefin Sans Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets top="30.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-                                                                <Label layoutX="83.0" layoutY="215.0" text="215 CS" textFill="#a3be8c">
-                                                                    <font>
-                                                                        <Font name="Josefin Sans Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets top="50.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-                                                                <Label layoutX="83.0" layoutY="230.0" text="3.45 KDA" textFill="#bf616a">
-                                                                    <font>
-                                                                        <Font name="Josefin Sans Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets top="30.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-                                                                <Label layoutX="83.0" layoutY="245.0" text="567 gold/m" textFill="#a3be8c">
-                                                                    <font>
-                                                                        <Font name="Josefin Sans Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets top="30.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-                                                                <Label layoutX="83.0" layoutY="260.0" text="69% p/kill" textFill="#a3be8c">
-                                                                    <font>
-                                                                        <Font name="Josefin Sans Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets top="30.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-                                                                <Label layoutX="83.0" layoutY="275.0" text="9.7 score" textFill="#a3be8c">
-                                                                    <font>
-                                                                        <Font name="Josefin Sans Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets top="30.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-
-                                                        </VBox>
-
-                                                </HBox>
-
-                                            <VBox.margin>
-                                                <Insets top="20.0" />
-                                            </VBox.margin>
-                                        </Pane>
-
-                                </VBox>
-
-                        </HBox>
-                    </top>
-                    <bottom>
+<GridPane alignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#keyPressed" prefHeight="720.0" prefWidth="1080.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ChampionController">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="721.0" prefWidth="1187.0">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="720.0" prefWidth="1080.0" stylesheets="@css/pane.css">
+               <content>
+                  <BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1070.0" style="-fx-background-color: #2E3440;" stylesheets="@snackbarStyles/errorSnackBar.css">
+                     <bottom>
                         <ImageView fitHeight="617.0" fitWidth="1094.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                            <image>
-                                <Image url="@../assets/ChampionDown.png" />
-                            </image>
+                           <image>
+                              <Image url="@../assets/ChampionDown.png" />
+                           </image>
                         </ImageView>
-                    </bottom>
-                </BorderPane>
-            </content></ScrollPane>
-    </AnchorPane>
+                     </bottom>
+                     <top>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="584.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <AreaChart fx:id="areaChart" prefHeight="584.0" prefWidth="451.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </AreaChart>
+                              <VBox alignment="CENTER" prefHeight="306.0" prefWidth="549.0">
+                                 <children>
+                                    <Label text="Compare your performance with another player" textFill="WHITE">
+                                       <font>
+                                          <Font name="Josefin Sans Regular" size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="45.0" prefWidth="506.0">
+                                       <children>
+                                          <JFXSpinner fx:id="loading" prefHeight="29.0" prefWidth="44.0" visible="false" />
+                                          <JFXTextField fx:id="searchedPlayer" focusColor="WHITE" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="460.0" promptText="Search a player..." style="-fx-prompt-text-fill: #4C566A; -fx-text-fill: white;" unFocusColor="WHITE">
+                                             <font>
+                                                <Font name="Josefin Sans Regular" size="18.0" />
+                                             </font>
+                                          </JFXTextField>
+                                       </children>
+                                    </HBox>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="440.0" style="-fx-background-color: #4c566a;">
+                                       <children>
+                                          <HBox prefHeight="440.0" prefWidth="441.0">
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" prefHeight="440.0" prefWidth="181.0">
+                                                   <children>
+                                                      <Label text="You" textFill="#e8e8e8">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label fx:id="ward1" layoutX="83.0" layoutY="215.0" text="23 wards" textFill="#e8e8e8">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="50.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label fx:id="kda1" layoutX="83.0" layoutY="230.0" text="4.57 KDA" textFill="#e8e8e8">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label fx:id="gold1" layoutX="83.0" layoutY="245.0" text="4200 gold" textFill="#e8e8e8">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label fx:id="damage1" layoutX="83.0" layoutY="260.0" text="10000 Damage" textFill="#e8e8e8">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label fx:id="score1" layoutX="83.0" layoutY="275.0" text="9.3 score" textFill="#e8e8e8">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="440.0" prefWidth="74.0">
+                                                   <children>
+                                                      <Label fx:id="result" text="Defeat" textFill="#bf616a" visible="false">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Line endY="150.0" startY="-219.0" stroke="#88c0d0">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Line>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="440.0" prefWidth="181.0">
+                                                   <children>
+                                                      <Label fx:id="searchedPlayerResult" text="KomaedaSenpai" textFill="#393939" visible="false">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label fx:id="ward2" layoutX="83.0" layoutY="215.0" text="24 wards" textFill="#a3be8c" visible="false">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="50.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label fx:id="kda2" layoutX="83.0" layoutY="230.0" text="3.45 KDA" textFill="#bf616a" visible="false">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label fx:id="gold2" layoutX="83.0" layoutY="245.0" text="5670 gold" textFill="#a3be8c" visible="false">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label fx:id="damage2" layoutX="83.0" layoutY="260.0" text="15000 Damage" textFill="#a3be8c" visible="false">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label fx:id="score2" layoutX="83.0" layoutY="275.0" text="9.7 score" textFill="#a3be8c" visible="false">
+                                                         <font>
+                                                            <Font name="Josefin Sans Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </top>
+                  </BorderPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
