@@ -80,7 +80,7 @@
                                                             <Insets top="30.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label fx:id="ward1" layoutX="83.0" layoutY="215.0" text="23 wards" textFill="#e8e8e8">
+                                                      <Label fx:id="ward1" layoutX="83.0" layoutY="215.0" text="Loading..." textFill="#e8e8e8">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
@@ -88,7 +88,7 @@
                                                             <Insets top="50.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label fx:id="kda1" layoutX="83.0" layoutY="230.0" text="4.57 KDA" textFill="#e8e8e8">
+                                                      <Label fx:id="kda1" layoutX="83.0" layoutY="230.0" text="Loading..." textFill="#e8e8e8">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
@@ -96,7 +96,7 @@
                                                             <Insets top="30.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label fx:id="gold1" layoutX="83.0" layoutY="245.0" text="4200 gold" textFill="#e8e8e8">
+                                                      <Label fx:id="gold1" layoutX="83.0" layoutY="245.0" text="Loading..." textFill="#e8e8e8">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
@@ -104,7 +104,7 @@
                                                             <Insets top="30.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label fx:id="damage1" layoutX="83.0" layoutY="260.0" text="10000 Damage" textFill="#e8e8e8">
+                                                      <Label fx:id="damage1" layoutX="83.0" layoutY="260.0" text="Loading..." textFill="#e8e8e8">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
@@ -112,7 +112,7 @@
                                                             <Insets top="30.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label fx:id="score1" layoutX="83.0" layoutY="275.0" text="9.3 score" textFill="#e8e8e8">
+                                                      <Label fx:id="score1" layoutX="83.0" layoutY="275.0" text="Loading..." textFill="#e8e8e8">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
@@ -149,7 +149,7 @@
                                                             <Insets top="30.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label fx:id="ward2" layoutX="83.0" layoutY="215.0" text="24 wards" textFill="#a3be8c" visible="false">
+                                                      <Label fx:id="ward2" layoutX="83.0" layoutY="215.0" text="Loading..." textFill="#a3be8c" visible="false">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
@@ -173,7 +173,7 @@
                                                             <Insets top="30.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label fx:id="damage2" layoutX="83.0" layoutY="260.0" text="15000 Damage" textFill="#a3be8c" visible="false">
+                                                      <Label fx:id="damage2" layoutX="83.0" layoutY="260.0" text="Loading..." textFill="#a3be8c" visible="false">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
