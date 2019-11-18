@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import utils.NumberUtils;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -41,7 +42,9 @@ public class Performance {
         double gold = 0;
         double damage = 0;
         double score = 0;
+        ArrayList<Double> playedData = new ArrayList<>();
         for (Object pureJsonMatch : summonerMatchList.getPureMatchHistory()) {
+
             JSONObject matchResponse = (JSONObject) pureJsonMatch;
             Match match = new Match(String.valueOf(matchResponse.getLong("gameId")));
             participant = match.getParticipantDtoBySummonerAccountId(accountId).getJSONObject("stats");
@@ -51,14 +54,17 @@ public class Performance {
             ) / match.setDeathToWhenItIsZero(participant.getInt("deaths"));
             gold += participant.getInt("goldEarned");
             damage  += participant.getInt("totalDamageDealt");
-            score += calculatePerformanceScore();
+            double currentScore = calculatePerformanceScore();;
+            score += currentScore;
+            playedData.add(currentScore);
         }
         return Stream.of(
                 NumberUtils.round(wardsPlaced/5, 1),
                 NumberUtils.round(kda/5, 1),
                 NumberUtils.round(gold/5, 1),
                 NumberUtils.round(damage/5, 1),
-                NumberUtils.round(score/5, 1)
+                NumberUtils.round(score/5, 1),
+                playedData
         ).collect(Collectors.toList());
     }
 

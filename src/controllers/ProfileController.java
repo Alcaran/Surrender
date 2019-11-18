@@ -316,9 +316,6 @@ public class ProfileController implements Initializable {
                                 )
                 );
                 championTop3.setFill(new ImagePattern(championTop3Image));
-                profileStage.show();
-                menuStage.close();
-
             });
 
 
@@ -473,7 +470,7 @@ public class ProfileController implements Initializable {
 
             exec.execute(summonerChampionsTask);
 
-//            exec.execute(summonerMatchListTask);
+            exec.execute(summonerMatchListTask);
 
             exec.execute(rankedSummonerInfoTask);
         });

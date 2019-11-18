@@ -33,14 +33,22 @@
                      <top>
                         <HBox alignment="CENTER_RIGHT" prefHeight="584.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
                            <children>
-                              <AreaChart fx:id="areaChart" prefHeight="584.0" prefWidth="451.0">
-                                <xAxis>
-                                  <CategoryAxis side="BOTTOM" />
-                                </xAxis>
-                                <yAxis>
-                                  <NumberAxis side="LEFT" />
-                                </yAxis>
-                              </AreaChart>
+                              <HBox prefHeight="584.0" prefWidth="518.0">
+                                 <children>
+                                    <VBox alignment="BOTTOM_LEFT" prefHeight="544.0" prefWidth="514.0">
+                                       <children>
+                                          <AreaChart fx:id="areaChart" nodeOrientation="LEFT_TO_RIGHT" prefHeight="468.0" prefWidth="514.0" title="Score per game" VBox.vgrow="NEVER">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </AreaChart>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
                               <VBox alignment="CENTER" prefHeight="306.0" prefWidth="549.0">
                                  <children>
                                     <Label text="Compare your performance with another player" textFill="WHITE">

@@ -10,8 +10,12 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyCode;
@@ -118,6 +122,18 @@ public class ChampionController implements Initializable {
                     damage2.setText(performanceTask.getValue().get(3) + " damage");
                     score2.setText(performanceTask.getValue().get(4) + " score");
                     this.searchedSummonerPerformance = performanceTask.getValue();
+
+                    XYChart.Series series1 = new XYChart.Series();
+                    series1.setName(profileSummonerTask.getValue().getSummonerName());
+                    ArrayList<Double> last5GamesPerformance = (ArrayList<Double>) performanceTask.getValue().get(5);
+                    series1.getData().add(new XYChart.Data("1", last5GamesPerformance.get(0)));
+                    series1.getData().add(new XYChart.Data("2", last5GamesPerformance.get(1)));
+                    series1.getData().add(new XYChart.Data("3", last5GamesPerformance.get(2)));
+                    series1.getData().add(new XYChart.Data("4", last5GamesPerformance.get(3)));
+                    series1.getData().add(new XYChart.Data("5", last5GamesPerformance.get(4)));
+
+                    areaChart.getData().add(series1);
+
                     try {
                         analyzeSummonersPerformance();
                     } catch (NoSuchFieldException ex) {
@@ -158,6 +174,24 @@ public class ChampionController implements Initializable {
         performanceTask.setOnFailed(e -> performanceTask.getException().printStackTrace());
 
         performanceTask.setOnSucceeded(e -> {
+            //Defining the X axis
+            CategoryAxis xAxis = new CategoryAxis();
+
+            //Defining the y Axis
+            NumberAxis yAxis = new NumberAxis(0, 50, 7.5);
+            yAxis.setLabel("Score");
+
+            XYChart.Series series1 = new XYChart.Series();
+            series1.setName("You");
+            ArrayList<Double> last5GamesPerformance = (ArrayList<Double>) performanceTask.getValue().get(5);
+            series1.getData().add(new XYChart.Data("1", last5GamesPerformance.get(0)));
+            series1.getData().add(new XYChart.Data("2", last5GamesPerformance.get(1)));
+            series1.getData().add(new XYChart.Data("3", last5GamesPerformance.get(2)));
+            series1.getData().add(new XYChart.Data("4", last5GamesPerformance.get(3)));
+            series1.getData().add(new XYChart.Data("5", last5GamesPerformance.get(4)));
+
+            areaChart.getData().add(series1);
+
             ward1.setText(performanceTask.getValue().get(0) + " wards");
             kda1.setText(performanceTask.getValue().get(1) + " KDA");
             gold1.setText(performanceTask.getValue().get(2) + " gold");
@@ -190,7 +224,7 @@ public class ChampionController implements Initializable {
 
     private void analyzeSummonersPerformance() throws NoSuchFieldException, IllegalAccessException {
         String[] labels = new String[]{"ward", "kda", "gold", "damage", "score"};
-        for (int i = 0; i < analyzedSummonerPerformance.size(); i++) {
+        for (int i = 0; i < analyzedSummonerPerformance.size() - 1; i++) {
             boolean analyzedWins = false;
             if ((double) analyzedSummonerPerformance.get(i) > (double) searchedSummonerPerformance.get(i))
                 analyzedWins = true;
