@@ -320,138 +320,142 @@ public class ProfileController implements Initializable {
 
 
             // Get match history of searched summoner
-            Task<SummonerMatchList> summonerMatchListTask = new Task<SummonerMatchList>() {
+            Task<Void> summonerMatchListTask = new Task<Void>() {
                 @Override
-                protected SummonerMatchList call() throws Exception {
-                    return new SummonerMatchList(
+                protected Void call() throws Exception {
+                    SummonerMatchList summonerMatchList = new SummonerMatchList(
                             searchedSummoner.getAccountId(),
                             3,
                             championArrData,
                             new int[]{0},
                             true
                     );
+
+                    int matchSize = summonerMatchList.getPureMatchHistory().length();
+                    try {
+                        for (int i = 0; i < matchSize; i++) {
+                            int finalI = i;
+                            Match summonerMatch = new Match(
+                                    String.valueOf(
+                                            ((JSONObject) summonerMatchList.getPureMatchHistory().get(finalI))
+                                                    .getInt("gameId")
+                                    )
+                            );
+
+                            JSONObject matchPlayerStats = summonerMatch.
+                                    getParticipantDtoBySummonerAccountId(searchedSummoner.getAccountId())
+                                    .getJSONObject("stats");
+
+                            JSONObject participantChampion = summonerMatch.
+                                    getParticipantDtoBySummonerAccountId(searchedSummoner.getAccountId());
+
+                            Champion champion = new Champion(
+                                    String.valueOf(participantChampion.getInt("championId")),
+                                    championArrData
+                            );
+
+                            Performance summonerPerformance = new Performance(
+                                    champion,
+                                    matchPlayerStats
+                            );
+
+                            String matchResult = summonerMatch.getMatchResultByParticipantId(
+                                    String.valueOf(participantChampion.getInt("participantId")));
+
+                            String resultLabelColor = matchResult.equals("Victory")
+                                    ? "#31ab47"
+                                    : "#bf616a";
+
+                            // Create items rectangles
+                            rectangles = new ArrayList<>();
+                            for (int j = 1; j <= 2; j++) {
+                                rectangles = GraphicUtils.createRectangleItemsRow(
+                                        summonerMatch.getItemsSlotsByParticipantId(
+                                                String.valueOf(participantChampion.getInt("participantId")), j),
+                                        3,
+                                        1
+                                );
+
+                                setHBoxStyleByFieldCall(
+                                        "playedMatchItems" + (finalI + 1) + "" + j,
+                                        rectangles
+                                );
+                            }
+
+
+                            // Set game score match label
+                            setLabelStyleByFieldCall(
+                                    "score" + (finalI + 1),
+                                    String.valueOf(summonerPerformance.getPerformanceScore()),
+                                    null
+                            );
+
+                            // Set result match label
+                            setLabelStyleByFieldCall(
+                                    "result" + (finalI + 1),
+                                    matchResult,
+                                    resultLabelColor
+                            );
+
+                            // Set game duration label
+                            setLabelStyleByFieldCall(
+                                    "gameDuration" + (finalI + 1), summonerMatch.getGameDuration(), null
+                            );
+
+                            // Set champion name
+                            setLabelStyleByFieldCall(
+                                    "championName" + (finalI + 1),
+                                    champion.getChampionData().getString("name"),
+                                    null
+                            );
+
+                            setCircleStyleByFieldCall(
+                                    "playedMatchChampionIcon" + (finalI + 1),
+                                     new Image(champion.getImageChampionBuiltUrl(ImagesUrl.SQUARE))
+                            );
+
+                            // Set kda match
+                            String kdaDisplayable = matchPlayerStats.getInt("kills") + "/" +
+                                    matchPlayerStats.getInt("deaths") + "/" +
+                                    matchPlayerStats.getInt("assists");
+                            setLabelStyleByFieldCall(
+                                    "kdaMatchHistory" + (finalI + 1),
+                                    kdaDisplayable,
+                                    null
+                            );
+
+                            double calculatedKDA = NumberUtils.round(
+                                    (
+                                            (matchPlayerStats.getDouble("kills")
+                                                    + matchPlayerStats.getDouble("assists"))
+                                                    /
+                                                    summonerMatch
+                                                            .setDeathToWhenItIsZero(
+                                                                    matchPlayerStats
+                                                                            .getDouble("deaths")
+                                                            )
+                                    ),
+                                    2
+                            );
+
+                            setLabelStyleByFieldCall(
+                                    "calculatedKDA" + (finalI + 1),
+                                    "KDA " + calculatedKDA,
+                                    null
+                            );
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return null;
                 }
             };
 
             summonerMatchListTask.setOnFailed(eMatchList -> summonerChampionsTask.getException().printStackTrace());
 
             summonerMatchListTask.setOnSucceeded(eMatchList -> {
-                try {
-                    int matchSize = summonerMatchListTask.getValue().getPureMatchHistory().length();
-                    // Display match stats
-                    for (int i = 0; i < matchSize; i++) {
-
-                        Match summonerMatch = new Match(
-                                String.valueOf(
-                                        ((JSONObject) summonerMatchListTask.getValue().getPureMatchHistory().get(i))
-                                                .getInt("gameId")
-                                )
-                        );
-                        System.out.println("MATCH RETURNED");
-
-                        JSONObject matchPlayerStats = summonerMatch.
-                                getParticipantDtoBySummonerAccountId(searchedSummoner.getAccountId())
-                                .getJSONObject("stats");
-
-                        JSONObject participantChampion = summonerMatch.
-                                getParticipantDtoBySummonerAccountId(searchedSummoner.getAccountId());
-
-                        Champion champion = new Champion(
-                                String.valueOf(participantChampion.getInt("championId")),
-                                championArrData
-                        );
-
-                        Performance summonerPerformance = new Performance(
-                                champion,
-                                matchPlayerStats
-                        );
-
-                        String matchResult = summonerMatch.getMatchResultByParticipantId(
-                                String.valueOf(participantChampion.getInt("participantId")));
-
-                        String resultLabelColor = matchResult.equals("Victory")
-                                ? "#31ab47"
-                                : "#bf616a";
-
-                        // Create items rectangles
-                        int finalI = i;
-                        Platform.runLater((() -> {
-                            try {
-                                rectangles = new ArrayList<>();
-                                for (int j = 1; j <= 2; j++) {
-                                    rectangles = GraphicUtils.createRectangleItemsRow(
-                                            summonerMatch.getItemsSlotsByParticipantId(
-                                                    String.valueOf(participantChampion.getInt("participantId")), j),
-                                            3,
-                                            1
-                                    );
-                                    Field HBoxRectangleField = getClass().getDeclaredField("playedMatchItems" + (finalI + 1) + "" + j);
-                                    HBox HBox = (HBox) HBoxRectangleField.get(this);
-                                    HBox.getChildren().addAll(rectangles);
-                                }
-
-
-                                // Set game score match label
-                                setLabelStyleByFieldCall(
-                                        "score" + (finalI + 1), summonerPerformance.getPerformanceScore(), null
-                                );
-
-                                // Set result match label
-                                setLabelStyleByFieldCall(
-                                        "result" + (finalI + 1),
-                                        matchResult,
-                                        resultLabelColor
-                                );
-
-                                // Set game duration label
-                                setLabelStyleByFieldCall(
-                                        "gameDuration" + (finalI + 1), summonerMatch.getGameDuration(), null
-                                );
-
-                                // Set champion name
-                                setLabelStyleByFieldCall(
-                                        "championName" + (finalI + 1),
-                                        champion.getChampionData().getString("name"),
-                                        null
-                                );
-
-
-                                // Set icon played champion
-                                Field championIconField = getClass().getDeclaredField("playedMatchChampionIcon" + (finalI + 1));
-                                Circle circle = (Circle) championIconField.get(this);
-                                Image championImage = new Image(champion.getImageChampionBuiltUrl(ImagesUrl.SQUARE));
-                                circle.setFill(new ImagePattern(championImage));
-
-                                // Set kda match
-                                Field kdaPlayerField = getClass().getDeclaredField("kdaMatchHistory" + (finalI + 1));
-                                Label kdaLabel = (Label) kdaPlayerField.get(this);
-                                kdaLabel.setText(
-                                        matchPlayerStats.getInt("kills") + "/" +
-                                                matchPlayerStats.getInt("deaths") + "/" +
-                                                matchPlayerStats.getInt("assists")
-                                );
-
-                                Field calculatedKdaPlayerField = getClass().getDeclaredField("calculatedKDA" + (finalI + 1));
-                                Label calculatedKdaLabel = (Label) calculatedKdaPlayerField.get(this);
-                                double calculatedKDA = NumberUtils.round(
-                                        (
-                                                (matchPlayerStats.getDouble("kills") + matchPlayerStats.getDouble("assists"))
-                                                        / summonerMatch.setDeathToWhenItIsZero(matchPlayerStats.getDouble("deaths"))
-                                        ),
-                                        2
-                                );
-                                calculatedKdaLabel.setText("KDA " + calculatedKDA);
-                                System.out.println("MATCH FINISHED");
-                            } catch (Exception easd) {
-                                easd.printStackTrace();
-                            }
-                        }));
-                    }
-                    profileStage.show();
-                    menuStage.close();
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+                profileStage.show();
+                menuStage.close();
             });
 
 
@@ -477,12 +481,27 @@ public class ProfileController implements Initializable {
         exec.execute(championArrDataTask);
     }
 
-    private void setLabelStyleByFieldCall(String fieldName, Object fieldValue, String color)
+    private void setLabelStyleByFieldCall(String fieldName, String fieldValue, String color)
             throws IllegalAccessException, NoSuchFieldException {
         Field field = getClass().getDeclaredField(fieldName);
         Label label = (Label) field.get(this);
         label.setText(String.valueOf(fieldValue));
         if (color != null)
             label.setTextFill(Paint.valueOf(color));
+    }
+
+    private void setCircleStyleByFieldCall(String fieldName, Image fieldValue)
+            throws IllegalAccessException, NoSuchFieldException {
+        Field field = getClass().getDeclaredField(fieldName);
+        Circle circle = (Circle) field.get(this);
+        circle.setFill(new ImagePattern(fieldValue));
+    }
+
+    private void setHBoxStyleByFieldCall(String fieldName, List<Rectangle> fieldValue)
+            throws IllegalAccessException, NoSuchFieldException {
+        Field field = getClass().getDeclaredField(fieldName);
+        HBox hbox = (HBox) field.get(this);
+        hbox.getChildren().addAll(fieldValue);
+
     }
 }
