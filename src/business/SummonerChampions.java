@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import utils.JSONUtils;
 import utils.RiotUtils;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class SummonerChampions {
 
@@ -14,6 +15,8 @@ public class SummonerChampions {
     public ArrayList<JSONObject> getTopPlayedChampions() {
         return topPlayedChampions;
     }
+
+    public JSONObject championJsonData;
 
     public JSONObject getChampionByIndex (int index) {
         return topPlayedChampions.get(index);
@@ -25,32 +28,37 @@ public class SummonerChampions {
                 apiHelper.getChampionsSummonerInfo(summonerId)
                         .getJSONArray("array");
 
-        this.topPlayedChampions  = RiotUtils.getChampionsNameById(
+        this.championJsonData = championData;
+        this.topPlayedChampions  = getSummonerChampionsById(
                 JSONUtils.getNElementsOfJSONArrayAsStringArray(
                         3,
                         championsSummonerInfo,
                         "championId"
-                ),
-                championData
+                )
         );
     }
 
-//    private ArrayList<JSONObject> getSummonerChampionsById(String[] championsId) {
-//        ApiHelper apiHelper = new ApiHelper();
-//        ArrayList<JSONObject> championsName = new ArrayList<>();
-//
-//        JSONObject championArrData = apiHelper.getChampionData().getJSONObject("data");
-//        Iterator<String> keys = championArrData.keys();
-//        while(keys.hasNext()) {
-//            String key = keys.next();
-//            if (championArrData.get(key) instanceof JSONObject) {
-//                JSONObject obj = (JSONObject) championArrData.get(key);
-//                if(Arrays.asList(championsId).contains(obj.getString("key"))) {
-//                    championsName.add(obj);
-//                }
-//            }
-//        }
-//
-//        return championsName;
-//    }
+    private ArrayList<JSONObject> getSummonerChampionsById(String[] championsId) {
+        ArrayList<JSONObject> championsName = new ArrayList<>();
+
+        Iterator<String> keys = championJsonData.keys();
+        while(keys.hasNext()) {
+            String key = keys.next();
+            if (championJsonData.get(key) instanceof JSONObject) {
+                JSONObject obj = (JSONObject) championJsonData.get(key);
+                if(championExists(championsId, (obj.getString("key")))) {
+                    championsName.add(obj);
+                }
+            }
+        }
+
+        return championsName;
+    }
+
+    private boolean championExists(String[] championsId, String targetValue) {
+        for (String champion : championsId)
+            if(champion.equals(targetValue))
+                return true;
+        return false;
+    }
 }

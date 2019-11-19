@@ -35,8 +35,10 @@ public class Match {
     }
 
     public JSONObject getParticipantDtoBySummonerAccountId(String accountId) {
-        String participantId = getMatchParticipantIdByAccountId(accountId);
-        return getParticipantByParticipantId(participantId);
+
+        return getParticipantByParticipantId(
+                getMatchParticipantIdByAccountId(accountId)
+        );
     }
 
     public String getMatchResultByParticipantId(String participantId) {
