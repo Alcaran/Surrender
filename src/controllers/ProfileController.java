@@ -159,8 +159,6 @@ public class ProfileController implements Initializable {
 
         stage.show();
 
-        Stage s = (Stage) bp.getScene().getWindow();
-        s.close();
     }
 
     @FXML

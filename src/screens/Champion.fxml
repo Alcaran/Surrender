@@ -18,30 +18,25 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="721.0" prefWidth="1187.0">
-         <children>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="720.0" prefWidth="1080.0" stylesheets="@css/pane.css">
+      <BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
+         <center>
+            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="720.0" prefWidth="1080.0" stylesheets="@css/pane.css" BorderPane.alignment="CENTER">
                <content>
-                  <BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1070.0" style="-fx-background-color: #2E3440;" stylesheets="@snackbarStyles/errorSnackBar.css">
-                     <top>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="584.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+                  <VBox prefHeight="779.0" prefWidth="1066.0">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="584.0" prefWidth="1080.0">
                            <children>
-                              <HBox prefHeight="584.0" prefWidth="518.0">
-                                 <children>
-                                    <VBox alignment="BOTTOM_LEFT" prefHeight="544.0" prefWidth="514.0">
-                                       <children>
-                                          <AreaChart fx:id="areaChart" nodeOrientation="LEFT_TO_RIGHT" prefHeight="468.0" prefWidth="514.0" title="Score per game" VBox.vgrow="NEVER">
-                                            <xAxis>
-                                              <CategoryAxis side="BOTTOM" />
-                                            </xAxis>
-                                            <yAxis>
-                                              <NumberAxis side="LEFT" />
-                                            </yAxis>
-                                          </AreaChart>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
+                              <AreaChart fx:id="areaChart" nodeOrientation="LEFT_TO_RIGHT" prefHeight="627.0" prefWidth="514.0" title="Score per game">
+                                <xAxis>
+                                  <CategoryAxis prefHeight="19.0" prefWidth="467.0" side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                                 <padding>
+                                    <Insets top="30.0" />
+                                 </padding>
+                              </AreaChart>
                               <VBox alignment="CENTER" prefHeight="306.0" prefWidth="549.0">
                                  <children>
                                     <Label text="Compare your performance with another player" textFill="WHITE">
@@ -49,15 +44,21 @@
                                           <Font name="Josefin Sans Regular" size="21.0" />
                                        </font>
                                     </Label>
-                                    <HBox prefHeight="45.0" prefWidth="506.0">
+                                    <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="528.0">
                                        <children>
-                                          <JFXSpinner fx:id="loading" prefHeight="29.0" prefWidth="44.0" visible="false" />
-                                          <JFXTextField fx:id="searchedPlayer" focusColor="WHITE" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="460.0" promptText="Search a player..." style="-fx-prompt-text-fill: #4C566A; -fx-text-fill: white;" unFocusColor="WHITE">
+                                          <JFXSpinner fx:id="loading" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="35.0" visible="false" />
+                                          <JFXTextField fx:id="searchedPlayer" focusColor="WHITE" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="420.0" promptText="Search a player..." style="-fx-prompt-text-fill: #4C566A; -fx-text-fill: white;" unFocusColor="WHITE">
                                              <font>
                                                 <Font name="Josefin Sans Regular" size="18.0" />
                                              </font>
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
                                           </JFXTextField>
                                        </children>
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" />
+                                       </VBox.margin>
                                     </HBox>
                                     <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="440.0" style="-fx-background-color: #4c566a;">
                                        <children>
@@ -195,9 +196,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                     </top>
-                     <bottom>
-                        <VBox prefHeight="307.0" prefWidth="1070.0" BorderPane.alignment="CENTER">
+                        <VBox prefHeight="151.0" prefWidth="660.0">
                            <children>
                               <Label text="Weakness" textFill="#bf616a">
                                  <font>
@@ -206,25 +205,68 @@
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets left="50.0" />
+                                 </VBox.margin>
                               </Label>
-                              <HBox prefHeight="241.0" prefWidth="1070.0">
+                              <HBox prefHeight="121.0" prefWidth="1066.0">
                                  <children>
-                                    <TextArea fx:id="infoCard" editable="false" prefHeight="264.0" prefWidth="402.0" text="You can leave wards in the middle of the lane just &#10;outside of tower range to track enemy movement. &#10;This is useful in mid lane where you can track players&#10; crossing the center of the map, or to see if the &#10;enemy Mid is roaming. This isn't just the Mid laner's &#10;job though, anyone can pitch in during the mid to &#10;late game. It's rare to see players use this trick below &#10;Diamond level, so be apart of the few who take &#10;advantage of this now." />
+                                    <TextArea fx:id="infoCard" editable="false" prefHeight="132.0" prefWidth="504.0" text="You can leave wards in the middle of the lane just &#10;outside of tower range to track enemy movement. &#10;This is useful in mid lane where you can track players&#10; crossing the center of the map, or to see if the &#10;enemy Mid is roaming. This isn't just the Mid laner's &#10;job though, anyone can pitch in during the mid to &#10;late game. It's rare to see players use this trick below &#10;Diamond level, so be apart of the few who take &#10;advantage of this now.">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                    </TextArea>
                                  </children>
                               </HBox>
                            </children>
-                           <BorderPane.margin>
-                              <Insets top="70.0" />
-                           </BorderPane.margin>
                            <opaqueInsets>
                               <Insets left="90.0" />
                            </opaqueInsets>
                         </VBox>
-                     </bottom>
-                  </BorderPane>
+                     </children>
+                  </VBox>
                </content>
             </ScrollPane>
-         </children>
-      </AnchorPane>
+         </center>
+         <top>
+            <HBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton id="btnBack" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="1000.0" layoutY="10.0" onAction="#backButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/BackIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets right="950.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Minimize.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets bottom="4.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton id="btnExit" alignment="CENTER" contentDisplay="CENTER" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Close.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
    </children>
 </GridPane>
