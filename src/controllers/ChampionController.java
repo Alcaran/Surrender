@@ -6,6 +6,7 @@ import business.Player;
 import business.SummonerMatchList;
 import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
+import data.database.DataTipsDao;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,14 +19,17 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.json.JSONObject;
 import utils.GraphicUtils;
 
+import java.awt.*;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URL;
@@ -79,6 +83,9 @@ public class ChampionController implements Initializable {
 
     @FXML
     AreaChart areaChart;
+
+    @FXML
+    TextArea infoCard;
 
     private List<Object> analyzedSummonerPerformance;
     private List<Object> searchedSummonerPerformance;
@@ -198,6 +205,24 @@ public class ChampionController implements Initializable {
             damage1.setText(performanceTask.getValue().get(3) + " damage");
             score1.setText(performanceTask.getValue().get(4) + " score");
             this.analyzedSummonerPerformance = performanceTask.getValue();
+            final List<Object> value = performanceTask.getValue();
+            Task<JSONObject[]> tipsTask = new Task<JSONObject[]>() {
+                @Override
+                protected JSONObject[] call() throws Exception {
+                    return new Performance(champion).getWorstPerformanceAttributesTips(
+                            value
+                    );
+                }
+            };
+
+            tipsTask.setOnFailed(ti -> {
+                tipsTask.getException().printStackTrace();
+            });
+
+            tipsTask.setOnSucceeded(ti -> {
+                infoCard.setText(tipsTask.getValue()[0].getString("text"));
+            });
+            exec.execute(tipsTask);
         });
         exec.execute(performanceTask);
     }

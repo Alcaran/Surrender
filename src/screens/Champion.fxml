@@ -23,13 +23,6 @@
             <ScrollPane hbarPolicy="NEVER" prefHeight="720.0" prefWidth="1080.0" stylesheets="@css/pane.css">
                <content>
                   <BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1070.0" style="-fx-background-color: #2E3440;" stylesheets="@snackbarStyles/errorSnackBar.css">
-                     <bottom>
-                        <ImageView fitHeight="617.0" fitWidth="1094.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                           <image>
-                              <Image url="@../assets/ChampionDown.png" />
-                           </image>
-                        </ImageView>
-                     </bottom>
                      <top>
                         <HBox alignment="CENTER_RIGHT" prefHeight="584.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
                            <children>
@@ -203,6 +196,31 @@
                            </children>
                         </HBox>
                      </top>
+                     <bottom>
+                        <VBox prefHeight="307.0" prefWidth="1070.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Weakness" textFill="#bf616a">
+                                 <font>
+                                    <Font size="37.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                              <HBox prefHeight="241.0" prefWidth="1070.0">
+                                 <children>
+                                    <TextArea fx:id="infoCard" editable="false" prefHeight="264.0" prefWidth="402.0" text="You can leave wards in the middle of the lane just &#10;outside of tower range to track enemy movement. &#10;This is useful in mid lane where you can track players&#10; crossing the center of the map, or to see if the &#10;enemy Mid is roaming. This isn't just the Mid laner's &#10;job though, anyone can pitch in during the mid to &#10;late game. It's rare to see players use this trick below &#10;Diamond level, so be apart of the few who take &#10;advantage of this now." />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <BorderPane.margin>
+                              <Insets top="70.0" />
+                           </BorderPane.margin>
+                           <opaqueInsets>
+                              <Insets left="90.0" />
+                           </opaqueInsets>
+                        </VBox>
+                     </bottom>
                   </BorderPane>
                </content>
             </ScrollPane>
