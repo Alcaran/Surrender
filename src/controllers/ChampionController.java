@@ -20,6 +20,8 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
@@ -29,7 +31,8 @@ import javafx.stage.StageStyle;
 import org.json.JSONObject;
 import utils.GraphicUtils;
 
-import java.awt.*;
+//import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URL;
@@ -86,6 +89,12 @@ public class ChampionController implements Initializable {
 
     @FXML
     TextArea infoCard;
+    @FXML
+    TextArea infoCard1;
+    @FXML
+    ImageView imgTips;
+    @FXML
+    ImageView imgTips1;
 
     private List<Object> analyzedSummonerPerformance;
     private List<Object> searchedSummonerPerformance;
@@ -133,11 +142,9 @@ public class ChampionController implements Initializable {
                     XYChart.Series series1 = new XYChart.Series();
                     series1.setName(profileSummonerTask.getValue().getSummonerName());
                     ArrayList<Double> last5GamesPerformance = (ArrayList<Double>) performanceTask.getValue().get(5);
-                    series1.getData().add(new XYChart.Data("1", last5GamesPerformance.get(0)));
-                    series1.getData().add(new XYChart.Data("2", last5GamesPerformance.get(1)));
-                    series1.getData().add(new XYChart.Data("3", last5GamesPerformance.get(2)));
-                    series1.getData().add(new XYChart.Data("4", last5GamesPerformance.get(3)));
-                    series1.getData().add(new XYChart.Data("5", last5GamesPerformance.get(4)));
+                    for(double score : last5GamesPerformance) {
+                        series1.getData().add(new XYChart.Data("1", score));
+                    }
 
                     areaChart.getData().add(series1);
 
@@ -191,11 +198,9 @@ public class ChampionController implements Initializable {
             XYChart.Series series1 = new XYChart.Series();
             series1.setName("You");
             ArrayList<Double> last5GamesPerformance = (ArrayList<Double>) performanceTask.getValue().get(5);
-            series1.getData().add(new XYChart.Data("1", last5GamesPerformance.get(0)));
-            series1.getData().add(new XYChart.Data("2", last5GamesPerformance.get(1)));
-            series1.getData().add(new XYChart.Data("3", last5GamesPerformance.get(2)));
-            series1.getData().add(new XYChart.Data("4", last5GamesPerformance.get(3)));
-            series1.getData().add(new XYChart.Data("5", last5GamesPerformance.get(4)));
+            for(double score : last5GamesPerformance) {
+                series1.getData().add(new XYChart.Data("1", score));
+            }
 
             areaChart.getData().add(series1);
 
@@ -221,6 +226,11 @@ public class ChampionController implements Initializable {
 
             tipsTask.setOnSucceeded(ti -> {
                 infoCard.setText(tipsTask.getValue()[0].getString("text"));
+                String src = "src/assets/tips-images/" + tipsTask.getValue()[0].getString("url");
+                imgTips.setImage(new Image(new File(src).toURI().toString()));
+                infoCard1.setText(tipsTask.getValue()[1].getString("text"));
+                String src1 = "src/assets/tips-images/" + tipsTask.getValue()[1].getString("url");
+                imgTips1.setImage(new Image(new File(src).toURI().toString()));
             });
             exec.execute(tipsTask);
         });
@@ -238,6 +248,8 @@ public class ChampionController implements Initializable {
                         new int[]{Integer.valueOf(champion.getChampionData().getString("key"))},
                         false
                 );
+
+
                 return new Performance(champion).calculatePerformanceScoreWithMultipleMatches(
                         summonerMatchList,
                         player.getAccountId()

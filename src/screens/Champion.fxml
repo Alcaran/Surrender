@@ -22,11 +22,11 @@
          <center>
             <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="720.0" prefWidth="1080.0" stylesheets="@css/pane.css" BorderPane.alignment="CENTER">
                <content>
-                  <VBox prefHeight="779.0" prefWidth="1066.0">
+                  <VBox alignment="CENTER" prefHeight="874.0" prefWidth="1066.0">
                      <children>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="584.0" prefWidth="1080.0">
+                        <HBox prefHeight="584.0" prefWidth="1080.0">
                            <children>
-                              <AreaChart fx:id="areaChart" nodeOrientation="LEFT_TO_RIGHT" prefHeight="627.0" prefWidth="514.0" title="Score per game">
+                              <AreaChart fx:id="areaChart" nodeOrientation="LEFT_TO_RIGHT" prefHeight="587.0" prefWidth="510.0" title="Score per game">
                                 <xAxis>
                                   <CategoryAxis prefHeight="19.0" prefWidth="467.0" side="BOTTOM" />
                                 </xAxis>
@@ -37,7 +37,7 @@
                                     <Insets top="30.0" />
                                  </padding>
                               </AreaChart>
-                              <VBox alignment="CENTER" prefHeight="306.0" prefWidth="549.0">
+                              <VBox alignment="CENTER" prefHeight="589.0" prefWidth="561.0">
                                  <children>
                                     <Label text="Compare your performance with another player" textFill="WHITE">
                                        <font>
@@ -193,10 +193,13 @@
                                        </VBox.margin>
                                     </Pane>
                                  </children>
+                                 <HBox.margin>
+                                    <Insets bottom="90.0" />
+                                 </HBox.margin>
                               </VBox>
                            </children>
                         </HBox>
-                        <VBox prefHeight="151.0" prefWidth="660.0">
+                        <VBox prefHeight="204.0" prefWidth="1066.0">
                            <children>
                               <Label text="Weakness" textFill="#bf616a">
                                  <font>
@@ -209,19 +212,59 @@
                                     <Insets left="50.0" />
                                  </VBox.margin>
                               </Label>
-                              <HBox prefHeight="121.0" prefWidth="1066.0">
+                              <HBox minHeight="-Infinity" prefHeight="291.0" prefWidth="1066.0">
                                  <children>
-                                    <TextArea fx:id="infoCard" editable="false" prefHeight="132.0" prefWidth="504.0" text="You can leave wards in the middle of the lane just &#10;outside of tower range to track enemy movement. &#10;This is useful in mid lane where you can track players&#10; crossing the center of the map, or to see if the &#10;enemy Mid is roaming. This isn't just the Mid laner's &#10;job though, anyone can pitch in during the mid to &#10;late game. It's rare to see players use this trick below &#10;Diamond level, so be apart of the few who take &#10;advantage of this now.">
+                                    <TextArea fx:id="infoCard" editable="false" prefHeight="250.0" prefWidth="504.0" text="Loading...&#10;">
                                        <HBox.margin>
                                           <Insets left="40.0" />
                                        </HBox.margin>
                                     </TextArea>
+                                    <ImageView fitHeight="56.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                                       <image>
+                                          <Image url="@../assets/BackIcon.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="50.0" right="50.0" top="120.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="imgTips" fitHeight="292.0" fitWidth="426.0" pickOnBounds="true" />
                                  </children>
                               </HBox>
                            </children>
                            <opaqueInsets>
                               <Insets left="90.0" />
                            </opaqueInsets>
+                        </VBox>
+                        <VBox prefHeight="204.0" prefWidth="1066.0">
+                           <children>
+                              <HBox minHeight="-Infinity" prefHeight="291.0" prefWidth="1066.0">
+                                 <children>
+                                    <ImageView fx:id="imgTips1" fitHeight="292.0" fitWidth="426.0" pickOnBounds="true" />
+                                    <ImageView fitHeight="56.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/BackIcon.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="50.0" right="50.0" top="120.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <TextArea fx:id="infoCard1" editable="false" prefHeight="250.0" prefWidth="504.0" text="Loading...">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                    </TextArea>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                           <opaqueInsets>
+                              <Insets left="90.0" />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets left="20.0" top="30.0" />
+                           </VBox.margin>
                         </VBox>
                      </children>
                   </VBox>
