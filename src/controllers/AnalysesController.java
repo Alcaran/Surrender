@@ -1,5 +1,6 @@
 package controllers;
 
+import business.Match;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,8 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class AnalysesController {
+    @FXML
+    private BorderPane bp;
 
     @FXML
     private void handleButtonAction() {
@@ -18,11 +21,18 @@ public class AnalysesController {
     }
 
     @FXML
-    private BorderPane bp;
-
-    @FXML
     private void backButtonAction() throws IOException {
         Stage stage  = (Stage) bp.getScene().getWindow();
         stage.close();
     }
+
+    void initData(Match playerMatch, Stage analysesStage, Stage profileStage){
+
+
+
+
+    }
+
+
+
 }

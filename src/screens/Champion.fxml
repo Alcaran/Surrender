@@ -19,8 +19,47 @@
    </rowConstraints>
    <children>
       <BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
+         <top>
+            <HBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton id="btnBack" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="1000.0" layoutY="10.0" onAction="#backButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/BackIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets right="950.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Minimize.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets bottom="4.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton id="btnExit" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Close.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </top>
          <center>
-            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="720.0" prefWidth="1080.0" stylesheets="@css/pane.css" BorderPane.alignment="CENTER">
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/pane.css" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
                <content>
                   <VBox alignment="CENTER" prefHeight="874.0" prefWidth="1066.0">
                      <children>
@@ -28,7 +67,7 @@
                            <children>
                               <AreaChart fx:id="areaChart" nodeOrientation="LEFT_TO_RIGHT" prefHeight="587.0" prefWidth="510.0" title="Score per game">
                                 <xAxis>
-                                  <CategoryAxis prefHeight="19.0" prefWidth="467.0" side="BOTTOM" />
+                                  <CategoryAxis prefHeight="19.0" prefWidth="467.0" />
                                 </xAxis>
                                 <yAxis>
                                   <NumberAxis side="LEFT" />
@@ -271,45 +310,6 @@
                </content>
             </ScrollPane>
          </center>
-         <top>
-            <HBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
-               <children>
-                  <JFXButton id="btnBack" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="1000.0" layoutY="10.0" onAction="#backButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/BackIcon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <HBox.margin>
-                        <Insets right="950.0" />
-                     </HBox.margin>
-                  </JFXButton>
-                  <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/Minimize.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <HBox.margin>
-                        <Insets bottom="4.0" />
-                     </HBox.margin>
-                  </JFXButton>
-                  <JFXButton id="btnExit" alignment="CENTER" contentDisplay="CENTER" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/Close.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
-               </children>
-            </HBox>
-         </top>
       </BorderPane>
    </children>
 </GridPane>
