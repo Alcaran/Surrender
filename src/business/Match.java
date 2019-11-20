@@ -22,6 +22,9 @@ public class Match {
         return  minutes + ":" + secondsRemaining;
     }
 
+    public JSONArray getParticipantIdentities() {
+        return  participantIdentities;
+    }
 
 
     public Match(String matchId) throws Exception {

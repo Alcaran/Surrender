@@ -210,16 +210,15 @@ public class ProfileController implements Initializable {
 
         analysesStage = new Stage(StageStyle.TRANSPARENT);
         analysesStage.setScene(new Scene(loader.load()));
-        Stage profileStage = (Stage) bp.getScene().getWindow();
         AnalysesController analyses = loader.getController();
         analysesStage.initStyle(StageStyle.TRANSPARENT);
 
         if(id.equals("btnMatch1"))
-            analyses.initData(listMatches.get(0), profileStage, analysesStage);
+            analyses.initData(listMatches.get(0), analysesStage, championJsonData);
         else if(id.equals("btnMatch2"))
-            analyses.initData(listMatches.get(1), profileStage, analysesStage);
+            analyses.initData(listMatches.get(1), analysesStage, championJsonData);
         else
-            analyses.initData(listMatches.get(2), profileStage, analysesStage);
+            analyses.initData(listMatches.get(2), analysesStage, championJsonData);
     }
 
     @FXML
@@ -334,7 +333,6 @@ public class ProfileController implements Initializable {
             });
 
             listMatches = new ArrayList<>();
-
 
             // Get match history of searched summoner
             Task<Void> summonerMatchListTask = new Task<Void>() {
