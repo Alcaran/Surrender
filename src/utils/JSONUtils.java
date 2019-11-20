@@ -2,6 +2,12 @@ package utils;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class JSONUtils {
 
@@ -21,5 +27,20 @@ public class JSONUtils {
             out[i] = String.valueOf(((JSONObject) in.get(i)).getInt(key));
         }
         return out;
+    }
+
+    public static JSONObject readJsonFile(String path) throws IOException
+    {
+        Object obj = null;
+        try (FileReader reader = new FileReader(path))
+        {
+            //Read JSON file
+            obj = new JSONObject(reader);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return (JSONObject) obj;
     }
 }

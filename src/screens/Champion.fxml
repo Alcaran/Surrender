@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.chart.*?>
-<?import java.lang.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
@@ -18,7 +17,7 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
+      <BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;" stylesheets="@snackbarStyles/errorSnackBar.css" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
          <top>
             <HBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
                <children>
@@ -59,9 +58,9 @@
             </HBox>
          </top>
          <center>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/pane.css" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+            <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="200.0" prefWidth="200.0" stylesheets="@css/pane.css" vmax="1.3">
                <content>
-                  <VBox alignment="CENTER" prefHeight="874.0" prefWidth="1066.0">
+                  <VBox prefHeight="874.0" prefWidth="1066.0">
                      <children>
                         <HBox prefHeight="584.0" prefWidth="1080.0">
                            <children>

@@ -4,7 +4,6 @@ import business.*;
 import data.enums.ImagesUrl;
 import data.enums.Tiers;
 import data.api.ApiHelper;
-import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +12,6 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,14 +23,12 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import utils.GraphicUtils;
 import utils.NumberUtils;
 import utils.RiotUtils;
 
-import java.awt.*;
-
-import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -156,7 +152,7 @@ public class ProfileController implements Initializable {
 
     private void callChampionScreen(Champion champion) throws IOException {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("../screens/Champion.fxml")
+                getClass().getResource("/screens/Champion.fxml")
         );
         Stage stage = new Stage(StageStyle.TRANSPARENT);
         stage.setScene(new Scene(loader.load()));
@@ -209,7 +205,7 @@ public class ProfileController implements Initializable {
         String id = source.getId();
 
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("../screens/Analyses.fxml")
+                getClass().getResource("/screens/Analyses.fxml")
         );
 
         analysesStage = new Stage(StageStyle.TRANSPARENT);
@@ -243,7 +239,7 @@ public class ProfileController implements Initializable {
     private void backButtonAction() throws IOException {
 
         Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../screens/Menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/screens/Menu.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
         s.show();

@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         Font.loadFont(Main.class.getResource("fonts/JosefinSans-Regular.ttf").toExternalForm(), 64);
-        Parent root = FXMLLoader.load(getClass().getResource("../screens/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
