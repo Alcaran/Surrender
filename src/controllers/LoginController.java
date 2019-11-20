@@ -91,7 +91,7 @@ public class LoginController {
 
     private void goToLoadingScreen(ArrayList<String> linkedAccounts) throws IOException {
         Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../screens/Loading.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/screens/Loading.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
         s.show();

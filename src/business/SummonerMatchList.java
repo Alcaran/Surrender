@@ -11,15 +11,11 @@ import java.util.ArrayList;
 public class SummonerMatchList {
 
     private JSONArray pureMatchHistory;
-    private ArrayList<JSONObject> matchHistoryPlayedChampions;
+//    private ArrayList<JSONObject> matchHistoryPlayedChampions;
     private ApiHelper apiHelper = new ApiHelper();
 
     public JSONArray getPureMatchHistory() {
         return pureMatchHistory;
-    }
-
-    public ArrayList<JSONObject> getMatchHistoryPlayedChampions() {
-        return matchHistoryPlayedChampions;
     }
 
     public SummonerMatchList(
@@ -33,13 +29,13 @@ public class SummonerMatchList {
                 apiHelper.getUserMatchHistory(accountId, matchHistoryLength, championId)
                         .getJSONArray("matches");
 
-        if(needChampionData) {
-            ArrayList<JSONObject> matchHistoryPlayedChampions = RiotUtils.getChampionsNameById(
-                    JSONUtils.getNElementsOfJSONArrayAsStringArray(matchHistoryLength, matchHistory, "champion"),
-                    championData
-            );
-            this.matchHistoryPlayedChampions = matchHistoryPlayedChampions;
-        }
+//        if(needChampionData) {
+//            ArrayList<JSONObject> matchHistoryPlayedChampions = RiotUtils.getChampionsNameById(
+//                    JSONUtils.getNElementsOfJSONArrayAsStringArray(matchHistoryLength, matchHistory, "champion"),
+//                    championData
+//            );
+//            this.matchHistoryPlayedChampions = matchHistoryPlayedChampions;
+//        }
 
 
         this.pureMatchHistory = matchHistory;

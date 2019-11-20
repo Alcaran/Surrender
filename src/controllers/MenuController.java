@@ -2,7 +2,6 @@ package controllers;
 
 import business.Player;
 import com.jfoenix.controls.*;
-import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,7 +42,7 @@ public class MenuController implements Initializable {
 
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            VBox box = FXMLLoader.load(getClass().getResource("../screens/Drawer.fxml"));
+            VBox box = FXMLLoader.load(getClass().getResource("/screens/Drawer.fxml"));
             drwMenu.setSidePane(box);
             for (Node node : box.getChildren()) {
                 node.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
@@ -54,7 +53,7 @@ public class MenuController implements Initializable {
                         case "btnLogin":
                             Stage s = new Stage();
                             try {
-                                Parent root = FXMLLoader.load(getClass().getResource("../screens/Login.fxml"));
+                                Parent root = FXMLLoader.load(getClass().getResource("/screens/Login.fxml"));
                                 s.setScene(new Scene(root));
                                 s.initStyle(StageStyle.TRANSPARENT);
                                 s.show();
@@ -109,7 +108,7 @@ public class MenuController implements Initializable {
             profileSummonerTask.setOnSucceeded(e -> {
                 try {
                     FXMLLoader loader = new FXMLLoader(
-                            getClass().getResource("../screens/Profile.fxml")
+                            getClass().getResource("/screens/Profile.fxml")
                     );
 
                     // Set profile page to load
