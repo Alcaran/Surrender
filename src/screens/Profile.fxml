@@ -130,7 +130,7 @@
                                     <Insets top="40.0" />
                                  </VBox.margin>
                               </Line>
-                              <JFXButton focusTraversable="false" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
+                              <JFXButton fx:id="btnMatch1" focusTraversable="false" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
                                  <VBox.margin>
                                     <Insets top="50.0" />
                                  </VBox.margin>
@@ -225,7 +225,7 @@
                                     </HBox>
                                  </graphic>
                               </JFXButton>
-                              <JFXButton focusTraversable="false" layoutX="74.0" layoutY="376.0" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
+                              <JFXButton fx:id="btnMatch2" focusTraversable="false" layoutX="74.0" layoutY="376.0" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
                                  <graphic>
                                     <HBox fx:id="playedMatch2" alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
                                        <children>
@@ -320,101 +320,101 @@
                                     <Insets top="50.0" />
                                  </VBox.margin>
                               </JFXButton>
-                                 <JFXButton focusTraversable="false" layoutX="74.0" layoutY="376.0" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
-                                    <graphic>
-                                       <HBox fx:id="playedMatch3" alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
-                                          <children>
-                                             <Circle fx:id="playedMatchChampionIcon3" fill="#979797" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE">
-                                                <HBox.margin>
-                                                   <Insets left="20.0" />
-                                                </HBox.margin>
-                                             </Circle>
-                                             <VBox alignment="TOP_CENTER" prefHeight="239.0" prefWidth="123.0">
-                                                <children>
-                                                   <Label fx:id="gameDuration3" alignment="BOTTOM_LEFT" prefHeight="46.0" prefWidth="99.0" text="99:99">
-                                                      <font>
-                                                         <Font name="Josefin Sans Regular" size="26.0" />
-                                                      </font>
-                                                      <VBox.margin>
-                                                         <Insets top="15.0" />
-                                                      </VBox.margin>
-                                                   </Label>
-                                                   <Label fx:id="championName3" alignment="BOTTOM_LEFT" layoutX="33.0" layoutY="10.0" prefHeight="46.0" prefWidth="99.0" text="Champion" textFill="#8d8c8c">
-                                                      <font>
-                                                         <Font name="Josefin Sans Regular" size="16.0" />
-                                                      </font>
-                                                   </Label>
-                                                   <Label layoutX="33.0" layoutY="56.0" prefHeight="46.0" prefWidth="100.0" text="Tier average">
-                                                      <font>
-                                                         <Font name="Josefin Sans Regular" size="16.0" />
-                                                      </font>
-                                                   </Label>
+                              <JFXButton fx:id="btnMatch3" focusTraversable="false" layoutX="74.0" layoutY="376.0" onAction="#analysesButtonAction" prefHeight="239.0" prefWidth="953.0" style="-fx-background-color: #4C566A;">
+                                 <graphic>
+                                    <HBox fx:id="playedMatch3" alignment="CENTER_LEFT" prefHeight="239.0" prefWidth="935.0">
+                                       <children>
+                                          <Circle fx:id="playedMatchChampionIcon3" fill="#979797" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <VBox alignment="TOP_CENTER" prefHeight="239.0" prefWidth="123.0">
+                                             <children>
+                                                <Label fx:id="gameDuration3" alignment="BOTTOM_LEFT" prefHeight="46.0" prefWidth="99.0" text="99:99">
+                                                   <font>
+                                                      <Font name="Josefin Sans Regular" size="26.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label fx:id="championName3" alignment="BOTTOM_LEFT" layoutX="33.0" layoutY="10.0" prefHeight="46.0" prefWidth="99.0" text="Champion" textFill="#8d8c8c">
+                                                   <font>
+                                                      <Font name="Josefin Sans Regular" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="33.0" layoutY="56.0" prefHeight="46.0" prefWidth="100.0" text="Tier average">
+                                                   <font>
+                                                      <Font name="Josefin Sans Regular" size="16.0" />
+                                                   </font>
+                                                </Label>
                                                 <ImageView fx:id="avgTier3" fitHeight="78.0" fitWidth="68.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
-                                                </children>
-                                                <HBox.margin>
-                                                   <Insets left="20.0" />
-                                                </HBox.margin>
-                                             </VBox>
-                                             <VBox alignment="TOP_CENTER" layoutX="250.0" layoutY="10.0" prefHeight="239.0" prefWidth="147.0">
-                                                <children>
-                                                   <Label fx:id="kdaMatchHistory3" alignment="CENTER" contentDisplay="TOP" prefHeight="54.0" prefWidth="175.0" text="0/0/0" textFill="WHITE">
-                                                      <font>
-                                                         <Font name="Josefin Sans Regular" size="37.0" />
-                                                      </font>
-                                                      <VBox.margin>
-                                                         <Insets top="15.0" />
-                                                      </VBox.margin>
-                                                   </Label>
-                                                   <Label fx:id="calculatedKDA3" alignment="TOP_CENTER" disable="true" layoutX="33.0" layoutY="10.0" prefHeight="46.0" prefWidth="99.0" text="0.0 KDA" textFill="#222121">
-                                                      <font>
-                                                         <Font name="Josefin Sans Regular" size="16.0" />
-                                                      </font>
-                                                   </Label>
-                                                   <Label alignment="CENTER" layoutX="33.0" layoutY="56.0" prefHeight="46.0" prefWidth="100.0" text="Score">
-                                                      <font>
-                                                         <Font name="Josefin Sans Regular" size="24.0" />
-                                                      </font>
-                                                   </Label>
-                                                   <Label fx:id="score3" alignment="CENTER" layoutX="43.0" layoutY="125.0" prefHeight="46.0" prefWidth="100.0" text="0.0" textFill="#88bfcf">
-                                                      <font>
-                                                         <Font name="Josefin Sans Regular" size="34.0" />
-                                                      </font>
-                                                   </Label>
-                                                </children>
-                                                <HBox.margin>
-                                                   <Insets left="30.0" />
-                                                </HBox.margin>
-                                             </VBox>
-                                             <VBox prefHeight="239.0" prefWidth="230.0">
-                                                <children>
-                                                   <HBox fx:id="playedMatchItems31" alignment="CENTER" prefHeight="60.0" prefWidth="230.0">
-                                                      <children>
-                                                      </children>
-                                                      <VBox.margin>
-                                                         <Insets top="62.0" />
-                                                      </VBox.margin>
-                                                   </HBox>
-                                                   <HBox fx:id="playedMatchItems32" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="200.0">
-                                                      <children>
-                                                      </children>
-                                                   </HBox>
-                                                </children>
-                                             </VBox>
-                                             <Label fx:id="result3" text="Victory" textFill="#31ab47">
-                                                <font>
-                                                   <Font name="Josefin Sans Regular" size="43.0" />
-                                                </font>
-                                                <HBox.margin>
-                                                   <Insets left="10.0" />
-                                                </HBox.margin>
-                                             </Label>
-                                          </children>
-                                       </HBox>
-                                    </graphic>
-                                    <VBox.margin>
-                                       <Insets top="50.0" />
-                                    </VBox.margin>
-                                 </JFXButton>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox alignment="TOP_CENTER" layoutX="250.0" layoutY="10.0" prefHeight="239.0" prefWidth="147.0">
+                                             <children>
+                                                <Label fx:id="kdaMatchHistory3" alignment="CENTER" contentDisplay="TOP" prefHeight="54.0" prefWidth="175.0" text="0/0/0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Josefin Sans Regular" size="37.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label fx:id="calculatedKDA3" alignment="TOP_CENTER" disable="true" layoutX="33.0" layoutY="10.0" prefHeight="46.0" prefWidth="99.0" text="0.0 KDA" textFill="#222121">
+                                                   <font>
+                                                      <Font name="Josefin Sans Regular" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" layoutX="33.0" layoutY="56.0" prefHeight="46.0" prefWidth="100.0" text="Score">
+                                                   <font>
+                                                      <Font name="Josefin Sans Regular" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="score3" alignment="CENTER" layoutX="43.0" layoutY="125.0" prefHeight="46.0" prefWidth="100.0" text="0.0" textFill="#88bfcf">
+                                                   <font>
+                                                      <Font name="Josefin Sans Regular" size="34.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets left="30.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox prefHeight="239.0" prefWidth="230.0">
+                                             <children>
+                                                <HBox fx:id="playedMatchItems31" alignment="CENTER" prefHeight="60.0" prefWidth="230.0">
+                                                   <children>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="62.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox fx:id="playedMatchItems32" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="200.0">
+                                                   <children>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <Label fx:id="result3" text="Victory" textFill="#31ab47">
+                                             <font>
+                                                <Font name="Josefin Sans Regular" size="43.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </graphic>
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </JFXButton>
                            </children>
                         </VBox>
                      </center>

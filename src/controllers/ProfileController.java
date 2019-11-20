@@ -9,6 +9,8 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
@@ -29,6 +31,8 @@ import utils.NumberUtils;
 import utils.RiotUtils;
 
 import java.awt.*;
+
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -40,7 +44,9 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class ProfileController implements Initializable {
+
     private Executor exec;
+    private Stage analysesStage;
 
     @FXML
     Label playerLevel;
@@ -146,6 +152,7 @@ public class ProfileController implements Initializable {
     private SummonerChampions summonerChampions;
     private Player summoner;
     private JSONObject championJsonData;
+    private ArrayList<Match> listMatches;
 
     private void callChampionScreen(Champion champion) throws IOException {
         FXMLLoader loader = new FXMLLoader(
@@ -158,7 +165,6 @@ public class ProfileController implements Initializable {
         controller.initData(champion, summoner);
 
         stage.show();
-
     }
 
     @FXML
@@ -197,18 +203,33 @@ public class ProfileController implements Initializable {
     }
 
     @FXML
-    private void minimizeButtonAction() {
-        Stage stage = (Stage) bp.getScene().getWindow();
-        stage.setIconified(true);
+    private void analysesButtonAction(ActionEvent event) throws Exception {
+
+        final Node source = (Node) event.getSource();
+        String id = source.getId();
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("../screens/Analyses.fxml")
+        );
+
+        analysesStage = new Stage(StageStyle.TRANSPARENT);
+        analysesStage.setScene(new Scene(loader.load()));
+        Stage profileStage = (Stage) bp.getScene().getWindow();
+        AnalysesController analyses = loader.getController();
+        analysesStage.initStyle(StageStyle.TRANSPARENT);
+
+        if(id.equals("btnMatch1"))
+            analyses.initData(listMatches.get(0), profileStage, analysesStage);
+        else if(id.equals("btnMatch2"))
+            analyses.initData(listMatches.get(1), profileStage, analysesStage);
+        else
+            analyses.initData(listMatches.get(2), profileStage, analysesStage);
     }
 
     @FXML
-    private void analysesButtonAction() throws IOException {
-        Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../screens/Analyses.fxml"));
-        s.setScene(new Scene(root));
-        s.initStyle(StageStyle.TRANSPARENT);
-        s.show();
+    private void minimizeButtonAction() {
+        Stage stage = (Stage) bp.getScene().getWindow();
+        stage.setIconified(true);
     }
 
     public void initialize(URL url, ResourceBundle rb) {
@@ -316,6 +337,8 @@ public class ProfileController implements Initializable {
                 championTop3.setFill(new ImagePattern(championTop3Image));
             });
 
+            listMatches = new ArrayList<>();
+
 
             // Get match history of searched summoner
             Task<Void> summonerMatchListTask = new Task<Void>() {
@@ -340,6 +363,8 @@ public class ProfileController implements Initializable {
                                     )
                             );
 
+                            listMatches.add(summonerMatch);
+
                             JSONObject matchPlayerStats = summonerMatch.
                                     getParticipantDtoBySummonerAccountId(searchedSummoner.getAccountId())
                                     .getJSONObject("stats");
@@ -351,6 +376,7 @@ public class ProfileController implements Initializable {
                                     String.valueOf(participantChampion.getInt("championId")),
                                     championArrData
                             );
+
 
                             Performance summonerPerformance = new Performance(
                                     champion,
@@ -441,6 +467,8 @@ public class ProfileController implements Initializable {
                                     "KDA " + calculatedKDA,
                                     null
                             );
+
+
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -454,6 +482,7 @@ public class ProfileController implements Initializable {
             summonerMatchListTask.setOnSucceeded(eMatchList -> {
                 profileStage.show();
                 menuStage.close();
+
             });
 
 
