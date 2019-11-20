@@ -142,8 +142,10 @@ public class ChampionController implements Initializable {
                     XYChart.Series series1 = new XYChart.Series();
                     series1.setName(profileSummonerTask.getValue().getSummonerName());
                     ArrayList<Double> last5GamesPerformance = (ArrayList<Double>) performanceTask.getValue().get(5);
+                    int i = 1;
                     for(double score : last5GamesPerformance) {
-                        series1.getData().add(new XYChart.Data("1", score));
+                        series1.getData().add(new XYChart.Data(String.valueOf(i), score));
+                        i++;
                     }
 
                     areaChart.getData().add(series1);
@@ -198,8 +200,10 @@ public class ChampionController implements Initializable {
             XYChart.Series series1 = new XYChart.Series();
             series1.setName("You");
             ArrayList<Double> last5GamesPerformance = (ArrayList<Double>) performanceTask.getValue().get(5);
+            int i = 1;
             for(double score : last5GamesPerformance) {
-                series1.getData().add(new XYChart.Data("1", score));
+                series1.getData().add(new XYChart.Data(String.valueOf(i), score));
+                i++;
             }
 
             areaChart.getData().add(series1);
@@ -230,7 +234,8 @@ public class ChampionController implements Initializable {
                 imgTips.setImage(new Image(new File(src).toURI().toString()));
                 infoCard1.setText(tipsTask.getValue()[1].getString("text"));
                 String src1 = "src/assets/tips-images/" + tipsTask.getValue()[1].getString("url");
-                imgTips1.setImage(new Image(new File(src).toURI().toString()));
+                File f = new File(src1);
+                imgTips1.setImage(new Image(f.toURI().toString()));
             });
             exec.execute(tipsTask);
         });
