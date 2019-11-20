@@ -10,47 +10,47 @@
 <?import javafx.scene.text.*?>
 
 <GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AnalysesController">
-    <children>
-        <BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
-            <top>
-                <HBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
-                    <children>
-                       <JFXButton id="btnBack" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="1000.0" layoutY="10.0" onAction="#backButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
-                          <graphic>
-                             <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                   <Image url="@../assets/BackIcon.png" />
-                                </image>
-                             </ImageView>
-                          </graphic>
-                          <HBox.margin>
-                             <Insets right="950.0" />
-                          </HBox.margin>
-                       </JFXButton>
-                        <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
-                            <graphic>
-                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../assets/Minimize.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                            <HBox.margin>
-                                <Insets bottom="4.0" />
-                            </HBox.margin>
-                        </JFXButton>
-                        <JFXButton id="btnExit" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
-                            <graphic>
-                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../assets/Close.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                        </JFXButton>
-                    </children>
-                </HBox>
-            </top>
+   <children>
+      <BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #2E3440;">
+         <top>
+            <HBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton id="btnBack" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="1000.0" layoutY="10.0" onAction="#backButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/BackIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets right="950.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton id="btnMinimize" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Minimize.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets bottom="4.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton id="btnExit" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="45.0" ripplerFill="WHITE" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Close.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </top>
          <center>
             <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="636.0" prefWidth="1080.0" stylesheets="@css/pane.css" BorderPane.alignment="CENTER">
                <content>
@@ -67,19 +67,19 @@
                                        <children>
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                              <children>
-                                                <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                <Circle fx:id="championCircle0" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                                                    <HBox.margin>
                                                       <Insets left="10.0" />
                                                    </HBox.margin>
                                                 </Circle>
                                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label text="Name" textFill="WHITE">
+                                                      <Label fx:id="labelName0" text="Name" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                      <Label fx:id="labelKda0" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
@@ -106,9 +106,9 @@
                                                       <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
                                                          <children>
                                                             <Label text="99.999" textFill="#ebcb8b">
-                                                                <font>
-                                                                    <Font name="Josefin Sans Regular" size="20.0" />
-                                                                </font>
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="20.0" />
+                                                               </font>
                                                                <HBox.margin>
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
@@ -119,9 +119,9 @@
                                                       <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
                                                          <children>
                                                             <Label text="99.999" textFill="#bf616a">
-                                                                <font>
-                                                                    <Font name="Josefin Sans Regular" size="20.0" />
-                                                                </font>
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="20.0" />
+                                                               </font>
                                                                <HBox.margin>
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
@@ -168,19 +168,19 @@
                                        <children>
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                              <children>
-                                                <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                <Circle fx:id="championCircle1" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                                                    <HBox.margin>
                                                       <Insets left="10.0" />
                                                    </HBox.margin>
                                                 </Circle>
                                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label text="Name" textFill="WHITE">
+                                                      <Label fx:id="labelName1" text="Name" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                      <Label fx:id="labelKda1" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
@@ -272,19 +272,19 @@
                                        <children>
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                              <children>
-                                                <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                <Circle fx:id="championCircle2" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                                                    <HBox.margin>
                                                       <Insets left="10.0" />
                                                    </HBox.margin>
                                                 </Circle>
                                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label text="Name" textFill="WHITE">
+                                                      <Label fx:id="labelName2" text="Name" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                      <Label fx:id="labelKda2" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
@@ -376,19 +376,19 @@
                                        <children>
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                              <children>
-                                                <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                <Circle fx:id="championCircle3" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                                                    <HBox.margin>
                                                       <Insets left="10.0" />
                                                    </HBox.margin>
                                                 </Circle>
                                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label text="Name" textFill="WHITE">
+                                                      <Label fx:id="labelName3" text="Name" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                      <Label fx:id="labelKda3" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
@@ -480,19 +480,19 @@
                                        <children>
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                              <children>
-                                                <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                <Circle fx:id="championCircle4" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                                                    <HBox.margin>
                                                       <Insets left="10.0" />
                                                    </HBox.margin>
                                                 </Circle>
                                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label text="Name" textFill="WHITE">
+                                                      <Label fx:id="labelName4" text="Name" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                      <Label fx:id="labelKda4" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
@@ -588,19 +588,19 @@
                                        <children>
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                              <children>
-                                                <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                <Circle fx:id="championCircle5" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                                                    <HBox.margin>
                                                       <Insets left="10.0" />
                                                    </HBox.margin>
                                                 </Circle>
                                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label text="Name" textFill="WHITE">
+                                                      <Label fx:id="labelName5" text="Name" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                      <Label fx:id="labelKda5" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
@@ -692,19 +692,19 @@
                                        <children>
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                              <children>
-                                                <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                <Circle fx:id="championCircle6" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                                                    <HBox.margin>
                                                       <Insets left="10.0" />
                                                    </HBox.margin>
                                                 </Circle>
                                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label text="Name" textFill="WHITE">
+                                                      <Label fx:id="labelName6" text="Name" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                      <Label fx:id="labelKda6" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
@@ -796,19 +796,19 @@
                                        <children>
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                              <children>
-                                                <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                <Circle fx:id="championCircle7" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                                                    <HBox.margin>
                                                       <Insets left="10.0" />
                                                    </HBox.margin>
                                                 </Circle>
                                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label text="Name" textFill="WHITE">
+                                                      <Label fx:id="labelName7" text="Name" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                      <Label fx:id="labelKda7" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
@@ -900,19 +900,19 @@
                                        <children>
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                              <children>
-                                                <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                <Circle fx:id="championCircle8" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                                                    <HBox.margin>
                                                       <Insets left="10.0" />
                                                    </HBox.margin>
                                                 </Circle>
                                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label text="Name" textFill="WHITE">
+                                                      <Label fx:id="labelName8" text="Name" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                      <Label fx:id="labelKda8" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
@@ -1004,19 +1004,19 @@
                                        <children>
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                              <children>
-                                                <Circle fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                <Circle fx:id="championCircle9" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                                                    <HBox.margin>
                                                       <Insets left="10.0" />
                                                    </HBox.margin>
                                                 </Circle>
                                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label text="Name" textFill="WHITE">
+                                                      <Label fx:id="labelName9" text="Name" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                      <Label fx:id="labelKda9" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
@@ -1123,12 +1123,12 @@
                </content>
             </ScrollPane>
          </center>
-        </BorderPane>
-    </children>
-    <columnConstraints>
-        <ColumnConstraints />
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints />
-    </rowConstraints>
+      </BorderPane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>
