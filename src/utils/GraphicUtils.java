@@ -38,6 +38,28 @@ public class GraphicUtils {
         return rectangles;
     }
 
+    public static List<Rectangle> createRectangleItemsRowMatch(ArrayList<Integer> images, int iterate, int row) {
+        List<Rectangle> rectangles = new ArrayList<>();
+        for (int j = 1; j <= iterate; j++) {
+            Rectangle rectangle = new Rectangle();
+            rectangle.setId("item" + row + "" + j);
+            rectangle.setArcHeight(5);
+            rectangle.setArcWidth(5);
+
+            rectangle.setFill(Paint.valueOf("#9a9a9a"));
+            rectangle.setHeight(35);
+            rectangle.setWidth(35);
+            rectangle.setStroke(Paint.valueOf("TRANSPARENT"));
+            if(images.size() >= j) {
+                Image itemImage = new Image(ImagesUrl.ITEMS.getUrl() + images.get(j - 1) + ".png");
+                rectangle.setFill(new ImagePattern(itemImage));
+            }
+            rectangles.add(rectangle);
+        }
+
+        return rectangles;
+    }
+
     public static void callSnackbar(String message, Pane pane) {
         JFXSnackbar snackbar = new JFXSnackbar(pane);
         snackbar.setStyle("-fx-background-color: #BF616A");

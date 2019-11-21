@@ -505,6 +505,7 @@ public class ProfileController implements Initializable {
             throws IllegalAccessException, NoSuchFieldException {
         Field field = getClass().getDeclaredField(fieldName);
         HBox hbox = (HBox) field.get(this);
+        hbox.setSpacing(10.00);
         hbox.getChildren().addAll(fieldValue);
 
     }

@@ -24,10 +24,12 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import utils.GraphicUtils;
 
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AnalysesController {
@@ -93,7 +95,109 @@ public class AnalysesController {
     Label labelKda8;
     @FXML
     Label labelKda9;
+    @FXML
+    Label labelGold0;
+    @FXML
+    Label labelGold1;
+    @FXML
+    Label labelGold2;
+    @FXML
+    Label labelGold3;
+    @FXML
+    Label labelGold4;
+    @FXML
+    Label labelGold5;
+    @FXML
+    Label labelGold6;
+    @FXML
+    Label labelGold7;
+    @FXML
+    Label labelGold8;
+    @FXML
+    Label labelGold9;
+    @FXML
+    Label labelDmg0;
+    @FXML
+    Label labelDmg1;
+    @FXML
+    Label labelDmg2;
+    @FXML
+    Label labelDmg3;
+    @FXML
+    Label labelDmg4;
+    @FXML
+    Label labelDmg5;
+    @FXML
+    Label labelDmg6;
+    @FXML
+    Label labelDmg7;
+    @FXML
+    Label labelDmg8;
+    @FXML
+    Label labelDmg9;
+    @FXML
+    Label labelCs0;
+    @FXML
+    Label labelCs1;
+    @FXML
+    Label labelCs2;
+    @FXML
+    Label labelCs3;
+    @FXML
+    Label labelCs4;
+    @FXML
+    Label labelCs5;
+    @FXML
+    Label labelCs6;
+    @FXML
+    Label labelCs7;
+    @FXML
+    Label labelCs8;
+    @FXML
+    Label labelCs9;
+    @FXML
+    HBox playedMatchItems01;
+    @FXML
+    HBox playedMatchItems02;
+    @FXML
+    HBox playedMatchItems11;
+    @FXML
+    HBox playedMatchItems12;
+    @FXML
+    HBox playedMatchItems21;
+    @FXML
+    HBox playedMatchItems22;
+    @FXML
+    HBox playedMatchItems31;
+    @FXML
+    HBox playedMatchItems32;
+    @FXML
+    HBox playedMatchItems41;
+    @FXML
+    HBox playedMatchItems42;
+    @FXML
+    HBox playedMatchItems51;
+    @FXML
+    HBox playedMatchItems52;
+    @FXML
+    HBox playedMatchItems61;
+    @FXML
+    HBox playedMatchItems62;
+    @FXML
+    HBox playedMatchItems71;
+    @FXML
+    HBox playedMatchItems72;
+    @FXML
+    HBox playedMatchItems81;
+    @FXML
+    HBox playedMatchItems82;
+    @FXML
+    HBox playedMatchItems91;
+    @FXML
+    HBox playedMatchItems92;
 
+
+    private List<Rectangle> rectangles;
     private JSONObject player;
     private JSONObject championJson;
 
@@ -121,6 +225,34 @@ public class AnalysesController {
                     championJson
             );
 
+            int gold = participantChampion.getJSONObject("stats").getInt("goldEarned");
+            String sgold = Integer.toString(gold);
+
+            int dmg = participantChampion.getJSONObject("stats").getInt("totalDamageDealtToChampions");
+            String sdmg = Integer.toString(dmg);
+
+            int cs1 = participantChampion.getJSONObject("stats").getInt("neutralMinionsKilled");
+            int cs2 = participantChampion.getJSONObject("stats").getInt("totalMinionsKilled");
+            String scs = Integer.toString(cs1 + cs2);
+
+            setLabelStyleByFieldCall(
+                    "labelCs" + a,
+                    scs + " CS",
+                    null
+            );
+
+            setLabelStyleByFieldCall(
+                    "labelGold" + a,
+                    sgold,
+                    null
+            );
+
+            setLabelStyleByFieldCall(
+                    "labelDmg" + a,
+                    sdmg,
+                    null
+            );
+
             setLabelStyleByFieldCall(
                     "labelName" + a,
                     player.getJSONObject("player").getString("summonerName"),
@@ -141,6 +273,21 @@ public class AnalysesController {
                     null
             );
 
+            rectangles = new ArrayList<>();
+            for (int j = 1; j <= 2; j++) {
+
+                rectangles = GraphicUtils.createRectangleItemsRowMatch(
+                        playerMatch.getItemsSlotsByParticipantId(
+                                String.valueOf(participantChampion.getInt("participantId")), j),
+                        3,
+                        1
+                );
+
+                setHBoxStyleByFieldCall(
+                        "playedMatchItems" + a + "" + j,
+                        rectangles
+                );
+            }
 
 
         }
@@ -167,6 +314,7 @@ public class AnalysesController {
             throws IllegalAccessException, NoSuchFieldException {
         Field field = getClass().getDeclaredField(fieldName);
         HBox hbox = (HBox) field.get(this);
+        hbox.setSpacing(10.00);
         hbox.getChildren().addAll(fieldValue);
     }
 }
