@@ -20,7 +20,6 @@ import java.util.concurrent.Executors;
 
 public class LoginController {
     private UserDao userAccessor;
-
     private Executor exec;
 
     @FXML
@@ -49,6 +48,18 @@ public class LoginController {
     @FXML
     private void closeButtonAction() throws IOException {
         this.goToLoadingScreen(null);
+    }
+
+    @FXML
+    private void registerButtonAction() throws IOException {
+        Stage s = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("../screens/Register.fxml"));
+        s.setScene(new Scene(root));
+        s.initStyle(StageStyle.TRANSPARENT);
+        s.show();
+
+        Stage stage = (Stage) bp.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
