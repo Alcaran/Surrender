@@ -30,4 +30,24 @@ public class UserDao {
         return linkedAccounts;
     }
 
+    public boolean registerUser(String username, String pass, String linkedAcc)
+            throws SQLException, ClassNotFoundException {
+        boolean updateSuccess = false;
+        Connection conn = ConnectionDao.retrieveConnection();
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(
+                    "insert into users (user, password, linked_account) values (?, ?, ?)");
+
+            // Set to statement parameters data
+            pstmt.setString(1, username);
+            pstmt.setString(2, pass);
+            pstmt.setString(3, linkedAcc);
+            pstmt.executeQuery();
+            updateSuccess = true;
+        } catch(Exception e) {
+            e.printStackTrace();
+            updateSuccess = false;
+        }
+        return updateSuccess;
+    }
 }
