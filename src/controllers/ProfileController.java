@@ -23,11 +23,9 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import org.json.JSONArray;
 import org.json.JSONObject;
 import utils.GraphicUtils;
 import utils.NumberUtils;
-import utils.RiotUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -173,7 +171,7 @@ public class ProfileController implements Initializable {
 
         callChampionScreen(
                 new Champion(
-                        summonerChampions.getChampionByIndex(0).getString("key"),
+                        summonerChampions.getChampionByIndex(0).getChampionData().getString("key"),
                         championJsonData
                 )
         );
@@ -183,7 +181,7 @@ public class ProfileController implements Initializable {
     private void handleTopPlayedChampionAction2() throws Exception {
         callChampionScreen(
                 new Champion(
-                        summonerChampions.getChampionByIndex(1).getString("key"),
+                        summonerChampions.getChampionByIndex(1).getChampionData().getString("key"),
                         championJsonData
                 ));
     }
@@ -192,7 +190,7 @@ public class ProfileController implements Initializable {
     private void handleTopPlayedChampionAction3() throws Exception {
         callChampionScreen(
                 new Champion(
-                        summonerChampions.getChampionByIndex(2).getString("key"),
+                        summonerChampions.getChampionByIndex(2).getChampionData().getString("key"),
                         championJsonData
                 )
         );
@@ -309,25 +307,17 @@ public class ProfileController implements Initializable {
                 this.summonerChampions = summonerChampions;
                 // Display top played champions image icon
                 Image championTop1Image = new Image(
-                        RiotUtils
-                                .getImageChampionBuiltUrl(
-                                        summonerChampions.getTopPlayedChampions().get(0), ImagesUrl.SQUARE
-                                )
+                        summonerChampions.getChampionByIndex(0).getImageChampionBuiltUrl(ImagesUrl.SQUARE)
                 );
                 championTop1.setFill(new ImagePattern(championTop1Image));
 
                 Image championTop2Image = new Image(
-                        RiotUtils
-                                .getImageChampionBuiltUrl(
-                                        summonerChampions.getTopPlayedChampions().get(1), ImagesUrl.SQUARE
-                                )
+                        summonerChampions.getChampionByIndex(1).getImageChampionBuiltUrl(ImagesUrl.SQUARE)
                 );
                 championTop2.setFill(new ImagePattern(championTop2Image));
 
                 Image championTop3Image = new Image(
-                        RiotUtils
-                                .getImageChampionBuiltUrl(summonerChampions.getTopPlayedChampions().get(2), ImagesUrl.SQUARE
-                                )
+                        summonerChampions.getChampionByIndex(0).getImageChampionBuiltUrl(ImagesUrl.SQUARE)
                 );
                 championTop3.setFill(new ImagePattern(championTop3Image));
             });
@@ -341,18 +331,15 @@ public class ProfileController implements Initializable {
                     SummonerMatchList summonerMatchList = new SummonerMatchList(
                             searchedSummoner.getAccountId(),
                             3,
-                            championArrData,
-                            new int[]{0},
-                            true
+                            new int[]{0}
                     );
 
                     int matchSize = summonerMatchList.getPureMatchHistory().length();
                     try {
                         for (int i = 0; i < matchSize; i++) {
-                            int finalI = i;
                             Match summonerMatch = new Match(
                                     String.valueOf(
-                                            ((JSONObject) summonerMatchList.getPureMatchHistory().get(finalI))
+                                            ((JSONObject) summonerMatchList.getPureMatchHistory().get(i))
                                                     .getInt("gameId")
                                     )
                             );
@@ -370,7 +357,6 @@ public class ProfileController implements Initializable {
                                     String.valueOf(participantChampion.getInt("championId")),
                                     championArrData
                             );
-
 
                             Performance summonerPerformance = new Performance(
                                     champion,
@@ -395,40 +381,39 @@ public class ProfileController implements Initializable {
                                 );
 
                                 setHBoxStyleByFieldCall(
-                                        "playedMatchItems" + (finalI + 1) + "" + j,
+                                        "playedMatchItems" + (i + 1) + "" + j,
                                         rectangles
                                 );
                             }
 
-
                             // Set game score match label
                             setLabelStyleByFieldCall(
-                                    "score" + (finalI + 1),
+                                    "score" + (i + 1),
                                     String.valueOf(summonerPerformance.getPerformanceScore()),
                                     null
                             );
 
                             // Set result match label
                             setLabelStyleByFieldCall(
-                                    "result" + (finalI + 1),
+                                    "result" + (i + 1),
                                     matchResult,
                                     resultLabelColor
                             );
 
                             // Set game duration label
                             setLabelStyleByFieldCall(
-                                    "gameDuration" + (finalI + 1), summonerMatch.getGameDuration(), null
+                                    "gameDuration" + (i + 1), summonerMatch.getGameDuration(), null
                             );
 
                             // Set champion name
                             setLabelStyleByFieldCall(
-                                    "championName" + (finalI + 1),
+                                    "championName" + (i + 1),
                                     champion.getChampionData().getString("name"),
                                     null
                             );
 
                             setCircleStyleByFieldCall(
-                                    "playedMatchChampionIcon" + (finalI + 1),
+                                    "playedMatchChampionIcon" + (i + 1),
                                      new Image(champion.getImageChampionBuiltUrl(ImagesUrl.SQUARE))
                             );
 
@@ -437,7 +422,7 @@ public class ProfileController implements Initializable {
                                     matchPlayerStats.getInt("deaths") + "/" +
                                     matchPlayerStats.getInt("assists");
                             setLabelStyleByFieldCall(
-                                    "kdaMatchHistory" + (finalI + 1),
+                                    "kdaMatchHistory" + (i + 1),
                                     kdaDisplayable,
                                     null
                             );
@@ -457,12 +442,10 @@ public class ProfileController implements Initializable {
                             );
 
                             setLabelStyleByFieldCall(
-                                    "calculatedKDA" + (finalI + 1),
+                                    "calculatedKDA" + (i + 1),
                                     "KDA " + calculatedKDA,
                                     null
                             );
-
-
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

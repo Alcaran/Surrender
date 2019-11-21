@@ -1,6 +1,5 @@
 package business;
 
-import data.api.ApiHelper;
 import data.enums.ImagesUrl;
 import org.json.JSONObject;
 import java.util.Iterator;
@@ -12,11 +11,11 @@ public class Champion {
 
     private JSONObject championData;
 
-    public Champion(String championId ,JSONObject championData) throws Exception {
+    public Champion(String championId ,JSONObject championData) {
         this.championData = this.getChampionNameById(championId, championData);
     }
 
-    public  String getImageChampionBuiltUrl(ImagesUrl imageType) {
+    public String getImageChampionBuiltUrl(ImagesUrl imageType) {
         return imageType.getUrl() + this.championData.getJSONObject("image").getString("full");
     }
 

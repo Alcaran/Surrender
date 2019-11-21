@@ -4,21 +4,20 @@ import data.api.ApiHelper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import utils.JSONUtils;
-import utils.RiotUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class SummonerChampions {
 
-    private  ArrayList<JSONObject> topPlayedChampions;
+    private  ArrayList<Champion> topPlayedChampions;
 
-    public ArrayList<JSONObject> getTopPlayedChampions() {
+    public ArrayList<Champion> getTopPlayedChampions() {
         return topPlayedChampions;
     }
 
-    public JSONObject championJsonData;
+    private JSONObject championJsonData;
 
-    public JSONObject getChampionByIndex (int index) {
+    public Champion getChampionByIndex (int index) {
         return topPlayedChampions.get(index);
     }
 
@@ -29,13 +28,21 @@ public class SummonerChampions {
                         .getJSONArray("array");
 
         this.championJsonData = championData;
-        this.topPlayedChampions  = getSummonerChampionsById(
+        this.topPlayedChampions  = buildTopPlayedChampionArr(
                 JSONUtils.getNElementsOfJSONArrayAsStringArray(
                         3,
                         championsSummonerInfo,
                         "championId"
                 )
         );
+    }
+
+    private ArrayList<Champion> buildTopPlayedChampionArr(String[] championsId) {
+        ArrayList<Champion> champions = new ArrayList<>();
+        for(String championId : championsId) {
+            champions.add(new Champion(championId, championJsonData));
+        }
+        return champions;
     }
 
     private ArrayList<JSONObject> getSummonerChampionsById(String[] championsId) {

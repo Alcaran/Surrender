@@ -133,22 +133,20 @@ public class ChampionController implements Initializable {
                     score2.setText(performanceTask.getValue().get(4) + " score");
                     this.searchedSummonerPerformance = performanceTask.getValue();
 
-                    XYChart.Series series1 = new XYChart.Series();
-                    series1.setName(profileSummonerTask.getValue().getSummonerName());
+                    XYChart.Series series = new XYChart.Series();
+                    series.setName(profileSummonerTask.getValue().getSummonerName());
                     ArrayList<Double> last5GamesPerformance = (ArrayList<Double>) performanceTask.getValue().get(5);
                     int i = 1;
                     for(double score : last5GamesPerformance) {
-                        series1.getData().add(new XYChart.Data(String.valueOf(i), score));
+                        series.getData().add(new XYChart.Data(String.valueOf(i), score));
                         i++;
                     }
 
-                    areaChart.getData().add(series1);
+                    areaChart.getData().add(series);
 
                     try {
                         analyzeSummonersPerformance();
-                    } catch (NoSuchFieldException ex) {
-                        ex.printStackTrace();
-                    } catch (IllegalAccessException ex) {
+                    } catch (NoSuchFieldException | IllegalAccessException ex) {
                         ex.printStackTrace();
                     }
                     loading.setVisible(false);
@@ -165,7 +163,7 @@ public class ChampionController implements Initializable {
     }
 
     @FXML
-    private void backButtonAction() throws IOException {
+    private void backButtonAction() {
         Stage stage = (Stage) bp.getScene().getWindow();
         stage.close();
     }
@@ -191,16 +189,16 @@ public class ChampionController implements Initializable {
             NumberAxis yAxis = new NumberAxis(0, 50, 7.5);
             yAxis.setLabel("Score");
 
-            XYChart.Series series1 = new XYChart.Series();
-            series1.setName("You");
+            XYChart.Series series = new XYChart.Series();
+            series.setName("You");
             ArrayList<Double> last5GamesPerformance = (ArrayList<Double>) performanceTask.getValue().get(5);
             int i = 1;
             for(double score : last5GamesPerformance) {
-                series1.getData().add(new XYChart.Data(String.valueOf(i), score));
+                series.getData().add(new XYChart.Data(String.valueOf(i), score));
                 i++;
             }
 
-            areaChart.getData().add(series1);
+            areaChart.getData().add(series);
 
             ward1.setText(performanceTask.getValue().get(0) + " wards");
             kda1.setText(performanceTask.getValue().get(1) + " KDA");
@@ -218,9 +216,7 @@ public class ChampionController implements Initializable {
                 }
             };
 
-            tipsTask.setOnFailed(ti -> {
-                tipsTask.getException().printStackTrace();
-            });
+            tipsTask.setOnFailed(ti -> tipsTask.getException().printStackTrace());
 
             tipsTask.setOnSucceeded(ti -> {
                 infoCard.setText(tipsTask.getValue()[0].getString("text"));
@@ -243,11 +239,8 @@ public class ChampionController implements Initializable {
                 SummonerMatchList summonerMatchList = new SummonerMatchList(
                         player.getAccountId(),
                         5,
-                        null,
-                        new int[]{Integer.valueOf(champion.getChampionData().getString("key"))},
-                        false
+                        new int[]{Integer.parseInt(champion.getChampionData().getString("key"))}
                 );
-
 
                 return new Performance(champion).calculatePerformanceScoreWithMultipleMatches(
                         summonerMatchList,
