@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.chart.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
@@ -60,17 +61,17 @@
          <center>
             <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="200.0" prefWidth="200.0" stylesheets="@css/pane.css" vmax="1.3">
                <content>
-                  <VBox prefHeight="874.0" prefWidth="1066.0">
-                     <children>
-                        <HBox prefHeight="584.0" prefWidth="1080.0">
+                  <BorderPane prefHeight="688.0" prefWidth="1065.0">
+                     <top>
+                        <HBox prefHeight="584.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
                            <children>
-                              <AreaChart fx:id="areaChart" nodeOrientation="LEFT_TO_RIGHT" prefHeight="587.0" prefWidth="510.0" title="Score per game">
-                                <xAxis>
-                                  <CategoryAxis prefHeight="19.0" prefWidth="467.0" />
-                                </xAxis>
-                                <yAxis>
-                                  <NumberAxis side="LEFT" />
-                                </yAxis>
+                              <AreaChart fx:id="areaChart" nodeOrientation="LEFT_TO_RIGHT" prefHeight="626.0" prefWidth="593.0" title="Score per game">
+                                 <xAxis>
+                                    <CategoryAxis prefHeight="19.0" prefWidth="467.0" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
                                  <padding>
                                     <Insets top="30.0" />
                                  </padding>
@@ -237,7 +238,9 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <VBox prefHeight="204.0" prefWidth="1066.0">
+                     </top>
+                     <center>
+                        <VBox prefHeight="204.0" prefWidth="1066.0" BorderPane.alignment="CENTER">
                            <children>
                               <Label text="Weakness" textFill="#bf616a">
                                  <font>
@@ -268,44 +271,41 @@
                                     <ImageView fx:id="imgTips" fitHeight="292.0" fitWidth="426.0" pickOnBounds="true" />
                                  </children>
                               </HBox>
-                           </children>
-                           <opaqueInsets>
-                              <Insets left="90.0" />
-                           </opaqueInsets>
-                        </VBox>
-                        <VBox prefHeight="204.0" prefWidth="1066.0">
-                           <children>
-                              <HBox minHeight="-Infinity" prefHeight="291.0" prefWidth="1066.0">
+                              <VBox prefHeight="204.0" prefWidth="1066.0">
                                  <children>
-                                    <ImageView fx:id="imgTips1" fitHeight="292.0" fitWidth="426.0" pickOnBounds="true" />
-                                    <ImageView fitHeight="56.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../assets/BackIcon.png" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets left="50.0" right="50.0" top="120.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                    <TextArea fx:id="infoCard1" editable="false" prefHeight="250.0" prefWidth="504.0" text="Loading...">
-                                       <HBox.margin>
-                                          <Insets left="40.0" />
-                                       </HBox.margin>
-                                    </TextArea>
+                                    <HBox minHeight="-Infinity" prefHeight="291.0" prefWidth="1066.0">
+                                       <children>
+                                          <ImageView fx:id="imgTips1" fitHeight="292.0" fitWidth="426.0" pickOnBounds="true" />
+                                          <ImageView fitHeight="56.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../assets/BackIcon.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="50.0" right="50.0" top="120.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextArea fx:id="infoCard1" editable="false" prefHeight="250.0" prefWidth="504.0" text="Loading...">
+                                             <HBox.margin>
+                                                <Insets left="40.0" />
+                                             </HBox.margin>
+                                          </TextArea>
+                                       </children>
+                                       <padding>
+                                          <Insets left="20.0" />
+                                       </padding>
+                                    </HBox>
                                  </children>
-                                 <padding>
-                                    <Insets left="20.0" />
-                                 </padding>
-                              </HBox>
+                                 <opaqueInsets>
+                                    <Insets left="90.0" />
+                                 </opaqueInsets>
+                              </VBox>
                            </children>
                            <opaqueInsets>
                               <Insets left="90.0" />
                            </opaqueInsets>
-                           <VBox.margin>
-                              <Insets left="20.0" top="30.0" />
-                           </VBox.margin>
                         </VBox>
-                     </children>
-                  </VBox>
+                     </center>
+                  </BorderPane>
                </content>
             </ScrollPane>
          </center>

@@ -98,14 +98,14 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                      <Label fx:id="labelCs0" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
                                                       <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelGold0" text="99.999" textFill="#ebcb8b">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -113,12 +113,15 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/goldIcon.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                       <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#bf616a">
+                                                            <Label fx:id="labelDmg0" text="99.999" textFill="#bf616a">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -126,34 +129,18 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/VectorRed.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
                                                    <children>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
+                                                      <HBox fx:id="playedMatchItems01" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                      <HBox fx:id="playedMatchItems02" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
                                                          <VBox.margin>
                                                             <Insets top="10.0" />
                                                          </VBox.margin>
@@ -199,14 +186,14 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                      <Label fx:id="labelCs1" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
                                                       <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelGold1" text="99.999" textFill="#ebcb8b">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -214,12 +201,15 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/goldIcon.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                       <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#bf616a">
+                                                            <Label fx:id="labelDmg1" text="99.999" textFill="#bf616a">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -227,34 +217,18 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/VectorRed.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
                                                    <children>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
+                                                      <HBox fx:id="playedMatchItems11" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                      <HBox fx:id="playedMatchItems12" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
                                                          <VBox.margin>
                                                             <Insets top="10.0" />
                                                          </VBox.margin>
@@ -303,14 +277,14 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                      <Label fx:id="labelCs2" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
                                                       <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelGold2" text="99.999" textFill="#ebcb8b">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -318,12 +292,15 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/goldIcon.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                       <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#bf616a">
+                                                            <Label fx:id="labelDmg2" text="99.999" textFill="#bf616a">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -331,34 +308,18 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/VectorRed.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
                                                    <children>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
+                                                      <HBox fx:id="playedMatchItems21" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                      <HBox fx:id="playedMatchItems22" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
                                                          <VBox.margin>
                                                             <Insets top="10.0" />
                                                          </VBox.margin>
@@ -407,14 +368,14 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                      <Label fx:id="labelCs3" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
                                                       <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelGold3" text="99.999" textFill="#ebcb8b">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -422,12 +383,15 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/goldIcon.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                       <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#bf616a">
+                                                            <Label fx:id="labelDmg3" text="99.999" textFill="#bf616a">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -435,34 +399,18 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/VectorRed.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
                                                    <children>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
+                                                      <HBox fx:id="playedMatchItems31" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                      <HBox fx:id="playedMatchItems32" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
                                                          <VBox.margin>
                                                             <Insets top="10.0" />
                                                          </VBox.margin>
@@ -511,14 +459,14 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                      <Label fx:id="labelCs4" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
                                                       <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelGold4" text="99.999" textFill="#ebcb8b">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -526,12 +474,15 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/goldIcon.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                       <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#bf616a">
+                                                            <Label fx:id="labelDmg4" text="99.999" textFill="#bf616a">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -539,34 +490,18 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/VectorRed.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
                                                    <children>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
+                                                      <HBox fx:id="playedMatchItems41" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                      <HBox fx:id="playedMatchItems42" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
                                                          <VBox.margin>
                                                             <Insets top="10.0" />
                                                          </VBox.margin>
@@ -619,14 +554,14 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                      <Label fx:id="labelCs5" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
                                                       <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelGold5" text="99.999" textFill="#ebcb8b">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -634,12 +569,15 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/goldIcon.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                       <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#88c0d0">
+                                                            <Label fx:id="labelDmg5" text="99.999" textFill="#88c0d0">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -647,34 +585,18 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/Vector.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
                                                    <children>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
+                                                      <HBox fx:id="playedMatchItems51" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                      <HBox fx:id="playedMatchItems52" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
                                                          <VBox.margin>
                                                             <Insets top="10.0" />
                                                          </VBox.margin>
@@ -723,14 +645,14 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                      <Label fx:id="labelCs6" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
                                                       <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelGold6" text="99.999" textFill="#ebcb8b">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -738,12 +660,15 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/goldIcon.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                       <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#88c0d0">
+                                                            <Label fx:id="labelDmg6" text="99.999" textFill="#88c0d0">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -751,34 +676,18 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/Vector.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
                                                    <children>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
+                                                      <HBox fx:id="playedMatchItems61" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                      <HBox fx:id="playedMatchItems62" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
                                                          <VBox.margin>
                                                             <Insets top="10.0" />
                                                          </VBox.margin>
@@ -827,14 +736,14 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                      <Label fx:id="labelCs7" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
                                                       <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelGold7" text="99.999" textFill="#ebcb8b">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -842,12 +751,15 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/goldIcon.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                       <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#88c0d0">
+                                                            <Label fx:id="labelDmg7" text="99.999" textFill="#88c0d0">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -855,34 +767,18 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/Vector.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
                                                    <children>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
+                                                      <HBox fx:id="playedMatchItems71" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                      <HBox fx:id="playedMatchItems72" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
                                                          <VBox.margin>
                                                             <Insets top="10.0" />
                                                          </VBox.margin>
@@ -931,14 +827,14 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                      <Label fx:id="labelCs8" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
                                                       <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelGold8" text="99.999" textFill="#ebcb8b">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -946,12 +842,15 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/goldIcon.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                       <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#88c0d0">
+                                                            <Label fx:id="labelDmg8" text="99.999" textFill="#88c0d0">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -959,34 +858,18 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/Vector.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
                                                    <children>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
+                                                      <HBox fx:id="playedMatchItems81" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                      <HBox fx:id="playedMatchItems82" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
                                                          <VBox.margin>
                                                             <Insets top="10.0" />
                                                          </VBox.margin>
@@ -1035,14 +918,14 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                    <children>
-                                                      <Label prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                      <Label fx:id="labelCs9" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                          <font>
                                                             <Font name="Josefin Sans Regular" size="20.0" />
                                                          </font>
                                                       </Label>
                                                       <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelGold9" text="99.999" textFill="#ebcb8b">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -1050,12 +933,15 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/goldIcon.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                       <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label text="99.999" textFill="#88c0d0">
+                                                            <Label fx:id="labelDmg9" text="99.999" textFill="#88c0d0">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
@@ -1063,34 +949,18 @@
                                                                   <Insets right="5.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../assets/Vector.png" />
+                                                               </image></ImageView>
                                                          </children>
                                                       </HBox>
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
                                                    <children>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="70.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="85.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                         </children>
+                                                      <HBox fx:id="playedMatchItems91" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                      <HBox fx:id="playedMatchItems92" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
                                                          <VBox.margin>
                                                             <Insets top="10.0" />
                                                          </VBox.margin>

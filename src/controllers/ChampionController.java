@@ -14,6 +14,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -169,6 +170,8 @@ public class ChampionController implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle rb) {
+
+
         exec = Executors.newCachedThreadPool(runnable -> {
             Thread t = new Thread(runnable);
             t.setDaemon(true);
@@ -177,6 +180,7 @@ public class ChampionController implements Initializable {
     }
 
     void initData(Champion champion, Player player) {
+
         this.champion = champion;
         Task<List<Object>> performanceTask = getSummonerMatchListFilteredByChampion(player);
         performanceTask.setOnFailed(e -> performanceTask.getException().printStackTrace());
