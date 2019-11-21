@@ -41,7 +41,7 @@
                               <Insets />
                            </VBox.margin>
                         </JFXTextField>
-                        <JFXTextField fx:id="txtEmail" focusColor="WHITE" focusTraversable="false" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Email" style="-fx-prompt-text-fill: white; -fx-text-fill: white;" unFocusColor="#ffffff80">
+                        <JFXTextField fx:id="txtAccount" focusColor="WHITE" focusTraversable="false" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Conta" style="-fx-prompt-text-fill: white; -fx-text-fill: white;" unFocusColor="#ffffff80">
                            <font>
                               <Font name="Josefin Sans Regular" size="24.0" />
                            </font>
@@ -67,7 +67,7 @@
                         </JFXPasswordField>
                      </children>
                   </VBox>
-                  <JFXButton fx:id="btnCreate" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="169.0" style="-fx-background-color: #5e81ac;" text="Create" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                  <JFXButton fx:id="btnCreate" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="169.0" style="-fx-background-color: #5e81ac;" text="Create" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" onAction="#submitButtonAction">
                      <font>
                         <Font name="Josefin Sans Regular" size="24.0" />
                      </font>
