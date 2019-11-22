@@ -62,7 +62,6 @@ public class GraphicUtils {
 
     public static void callSnackbar(String message, Pane pane) {
         JFXSnackbar snackbar = new JFXSnackbar(pane);
-        snackbar.setStyle("-fx-background-color: #BF616A");
         snackbar.fireEvent(new JFXSnackbar.SnackbarEvent(
                 new JFXSnackbarLayout(message),
                 Duration.millis(3000),

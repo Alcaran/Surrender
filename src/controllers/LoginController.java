@@ -110,6 +110,10 @@ public class LoginController {
         Stage stage = (Stage) bp.getScene().getWindow();
         stage.close();
     }
+
+    public void callSuccessOnRegisteredMessage() {
+        GraphicUtils.callSnackbar("User successfully registered", bp);
+    }
 }
 
 

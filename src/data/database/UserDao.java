@@ -36,18 +36,41 @@ public class UserDao {
         Connection conn = ConnectionDao.retrieveConnection();
         try {
             PreparedStatement pstmt = conn.prepareStatement(
-                    "insert into users (user, password, linked_account) values (?, ?, ?)");
+                    "insert into users (name, password, linked_nickname) values (?, ?, ?)");
 
             // Set to statement parameters data
             pstmt.setString(1, username);
             pstmt.setString(2, pass);
             pstmt.setString(3, linkedAcc);
-            pstmt.executeQuery();
+            pstmt.executeUpdate();
             updateSuccess = true;
         } catch(Exception e) {
             e.printStackTrace();
             updateSuccess = false;
         }
         return updateSuccess;
+    }
+
+    public boolean finUserByUsername(String username)
+            throws SQLException, ClassNotFoundException {
+        boolean userFound = false;
+        Connection conn = ConnectionDao.retrieveConnection();
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(
+                    "select name from users where name = ?");
+
+            // Set to statement parameters data
+            pstmt.setString(1, username);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next())  {
+                if(rs.getString(1) != null || !rs.getString(1).equals("")) {
+                    userFound = true;
+                }
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+            userFound = false;
+        }
+        return userFound;
     }
 }
