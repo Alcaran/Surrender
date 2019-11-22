@@ -26,7 +26,6 @@ public class Match {
         return  participantIdentities;
     }
 
-
     public Match(String matchId) throws Exception {
         JSONObject fullMatchDetails = apiHelper
                 .getMatchDetails(matchId);
@@ -65,10 +64,10 @@ public class Match {
         ArrayList<Integer> items = new ArrayList<>();
 
         if(row == 1) {
-            items = addItemsToIterator(participant, 1, 3);
+            items = addItemsToIterator(participant, 0, 2);
         }
         if(row == 2) {
-            items = addItemsToIterator(participant, 4, 6);
+            items = addItemsToIterator(participant, 3, 5);
         }
         return items;
     }

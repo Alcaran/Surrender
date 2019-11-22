@@ -84,16 +84,7 @@
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Circle>
-                                                            <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                                         </children>
-                                                      </HBox>
+                                                      <HBox fx:id="spells0" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
@@ -172,16 +163,7 @@
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Circle>
-                                                            <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                                         </children>
-                                                      </HBox>
+                                                      <HBox fx:id="spells1" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
@@ -263,16 +245,7 @@
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Circle>
-                                                            <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                                         </children>
-                                                      </HBox>
+                                                      <HBox fx:id="spells2" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
@@ -354,16 +327,7 @@
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Circle>
-                                                            <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                                         </children>
-                                                      </HBox>
+                                                      <HBox fx:id="spells3" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
@@ -445,16 +409,7 @@
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Circle>
-                                                            <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                                         </children>
-                                                      </HBox>
+                                                      <HBox fx:id="spells4" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
@@ -540,16 +495,7 @@
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Circle>
-                                                            <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                                         </children>
-                                                      </HBox>
+                                                      <HBox fx:id="spells5" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
@@ -631,16 +577,7 @@
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Circle>
-                                                            <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                                         </children>
-                                                      </HBox>
+                                                      <HBox fx:id="spells6" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
@@ -722,16 +659,7 @@
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Circle>
-                                                            <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                                         </children>
-                                                      </HBox>
+                                                      <HBox fx:id="spells7" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
@@ -813,16 +741,7 @@
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Circle>
-                                                            <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                                         </children>
-                                                      </HBox>
+                                                      <HBox fx:id="spells8" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
@@ -904,16 +823,7 @@
                                                             <Font name="Josefin Sans Regular" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Circle fill="#949494" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Circle>
-                                                            <Circle fill="#949494" layoutX="71.0" layoutY="30.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                                         </children>
-                                                      </HBox>
+                                                      <HBox fx:id="spells9" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">

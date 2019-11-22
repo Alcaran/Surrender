@@ -195,9 +195,29 @@ public class AnalysesController {
     HBox playedMatchItems91;
     @FXML
     HBox playedMatchItems92;
-
+    @FXML
+    HBox spells0;
+    @FXML
+    HBox spells1;
+    @FXML
+    HBox spells2;
+    @FXML
+    HBox spells3;
+    @FXML
+    HBox spells4;
+    @FXML
+    HBox spells5;
+    @FXML
+    HBox spells6;
+    @FXML
+    HBox spells7;
+    @FXML
+    HBox spells8;
+    @FXML
+    HBox spells9;
 
     private List<Rectangle> rectangles;
+    private List<Circle> circles;
     private JSONObject player;
     private JSONObject championJson;
 
@@ -211,7 +231,7 @@ public class AnalysesController {
         stage.close();
     }
     void initData(Match playerMatch, Stage analysesStage, JSONObject championJsonData) throws Exception {
-
+        analysesStage.show();
         this.championJson = championJsonData;
         JSONArray playersArray = playerMatch.getParticipantIdentities();
         for(int a = 0; a < playersArray.length(); a++){
@@ -273,14 +293,15 @@ public class AnalysesController {
                     null
             );
 
+
             rectangles = new ArrayList<>();
             for (int j = 1; j <= 2; j++) {
-
-                rectangles = GraphicUtils.createRectangleItemsRowMatch(
+                rectangles = GraphicUtils.createRectangleItemsRow(
                         playerMatch.getItemsSlotsByParticipantId(
                                 String.valueOf(participantChampion.getInt("participantId")), j),
                         3,
-                        1
+                        1,
+                        35
                 );
 
                 setHBoxStyleByFieldCall(
@@ -289,9 +310,23 @@ public class AnalysesController {
                 );
             }
 
+            circles = new ArrayList<>();
+            ArrayList<Integer> spellslist = new ArrayList<>();
+            spellslist.add(participantChampion.getInt("spell1Id"));
+            spellslist.add(participantChampion.getInt("spell2Id"));
+
+            circles = GraphicUtils.createCircles(
+                    spellslist,
+                    2
+            );
+
+            setHBoxStyleByFieldCallCircles(
+                    "spells" + a,
+                    circles
+            );
 
         }
-        analysesStage.show();
+
     }
 
     private void setLabelStyleByFieldCall(String fieldName, String fieldValue, String color)
@@ -315,6 +350,14 @@ public class AnalysesController {
         Field field = getClass().getDeclaredField(fieldName);
         HBox hbox = (HBox) field.get(this);
         hbox.setSpacing(10.00);
+        hbox.getChildren().addAll(fieldValue);
+    }
+
+    private void setHBoxStyleByFieldCallCircles(String fieldName, List<Circle> fieldValue)
+            throws IllegalAccessException, NoSuchFieldException {
+        Field field = getClass().getDeclaredField(fieldName);
+        HBox hbox = (HBox) field.get(this);
+        hbox.setSpacing(5.00);
         hbox.getChildren().addAll(fieldValue);
     }
 }

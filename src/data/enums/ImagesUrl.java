@@ -5,7 +5,8 @@ public enum ImagesUrl {
     SPLASH_ART("champion/splash/"),
     SQUARE("champion/"),
     LOADING_SCREEN("champion/loading/"),
-    ITEMS("item/")
+    ITEMS("item/"),
+    SPELLS("spell/")
     ;
 
     public String getUrl() {

@@ -317,7 +317,7 @@ public class ProfileController implements Initializable {
                 championTop2.setFill(new ImagePattern(championTop2Image));
 
                 Image championTop3Image = new Image(
-                        summonerChampions.getChampionByIndex(0).getImageChampionBuiltUrl(ImagesUrl.SQUARE)
+                        summonerChampions.getChampionByIndex(2).getImageChampionBuiltUrl(ImagesUrl.SQUARE)
                 );
                 championTop3.setFill(new ImagePattern(championTop3Image));
             });
@@ -377,7 +377,8 @@ public class ProfileController implements Initializable {
                                         summonerMatch.getItemsSlotsByParticipantId(
                                                 String.valueOf(participantChampion.getInt("participantId")), j),
                                         3,
-                                        1
+                                        1,
+                                        50
                                 );
 
                                 setHBoxStyleByFieldCall(
