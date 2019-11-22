@@ -2,6 +2,8 @@ package controllers;
 
 import business.Player;
 import com.jfoenix.controls.*;
+import data.enums.Servers;
+import javafx.collections.FXCollections;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -18,8 +21,10 @@ import javafx.stage.StageStyle;
 import utils.GraphicUtils;
 
 
+import javax.net.ssl.SNIServerName;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -30,7 +35,7 @@ public class MenuController implements Initializable {
     private Stage profileStage;
 
     @FXML
-    private JFXComboBox<String> comboBox;
+    private JFXComboBox<Servers> comboBox;
     @FXML
     private BorderPane bp;
     @FXML
@@ -70,11 +75,8 @@ public class MenuController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        comboBox.getItems().add("BR");
-        comboBox.getItems().add("LAS");
-        comboBox.getItems().add("KR");
-        comboBox.getItems().add("EU");
-        comboBox.getItems().add("NA");
+
+        comboBox.getItems().setAll(Servers.values());
         comboBox.setStyle(
                 "-fx-font: 12px \"Josefin Sans Regular\"; -fx-text-fill: WHITE; -fx-prompt-text-fill: WHITE;"
         );
@@ -95,7 +97,7 @@ public class MenuController implements Initializable {
                     loaderSpinner.setVisible(true);
                     // Search player in riot api
                     return new Player(
-                            summonerSearch.getText().replace(" ", "")
+                            summonerSearch.getText().replace(" ", ""), comboBox.getValue()
                     );
                 }
             };
@@ -123,7 +125,7 @@ public class MenuController implements Initializable {
                     profileStage.initStyle(StageStyle.TRANSPARENT);
 
                     // Call initialize data of profile screen
-                    controller.initData(profileSummonerTask.getValue(), menuStage, profileStage);
+                    controller.initData(profileSummonerTask.getValue(), menuStage, profileStage, comboBox.getValue());
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

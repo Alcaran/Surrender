@@ -5,6 +5,7 @@ import business.Player;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import data.database.UserDao;
+import data.enums.Servers;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -80,7 +81,7 @@ public class RegisterController implements Initializable {
                         if (txtAccount.getText() == null) {
                             throw new Exception("Player name can't be empty");
                         }
-                        return new Player(txtAccount.getText().replace(" ", ""));
+                        return new Player(txtAccount.getText().replace(" ", ""), Servers.br1);
                     }
                 };
 

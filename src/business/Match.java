@@ -26,9 +26,9 @@ public class Match {
         return  participantIdentities;
     }
 
-    public Match(String matchId) throws Exception {
+    public Match(String matchId, Enum server) throws Exception {
         JSONObject fullMatchDetails = apiHelper
-                .getMatchDetails(matchId);
+                .getMatchDetails(matchId, server);
         this.fullMatchDetails = fullMatchDetails;
         this.matchId = matchId;
         this.participantIdentities = fullMatchDetails.getJSONArray("participantIdentities");

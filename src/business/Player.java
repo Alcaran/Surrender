@@ -15,9 +15,9 @@ public class Player {
     private String summonerName;
     private ArrayList<String> linkedAccounts;
 
-    public Player(String summonerName) throws Exception {
+    public Player(String summonerName, Enum server) throws Exception {
         ApiHelper apiHelper = new ApiHelper();
-        JSONObject summonerInfo = apiHelper.getSumonerInfo(summonerName);
+        JSONObject summonerInfo = apiHelper.getSumonerInfo(summonerName,server);
 
         this.accountId = summonerInfo.getString("accountId");
         this.summonerLevel = summonerInfo.getInt("summonerLevel");

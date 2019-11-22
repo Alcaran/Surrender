@@ -9,28 +9,31 @@ public class ApiHelper {
     private HttpRequest request = new HttpRequest();
     private ArrayList<Object[]> parameters = new ArrayList<>();
 
-    public JSONObject getSumonerInfo(String summonerName) throws Exception {
+    public JSONObject getSumonerInfo(String summonerName, Enum server) throws Exception {
         return request
                 .sendGet(
                         "/lol/summoner/v4/summoners/by-name/" + summonerName,
                         parameters,
-                        false
+                        false,
+                        server
                 );
     }
 
-    public JSONObject getSumonerLeagueInfo(String summonerEncriptedId) throws Exception {
+    public JSONObject getSumonerLeagueInfo(String summonerEncriptedId, Enum server) throws Exception {
         return request.sendGet(
                 "/lol/league/v4/entries/by-summoner/" + summonerEncriptedId,
                 parameters,
-                false
+                false,
+                server
         );
     }
 
-    public JSONObject getChampionsSummonerInfo(String summonerEncriptedId) throws Exception {
+    public JSONObject getChampionsSummonerInfo(String summonerEncriptedId, Enum server) throws Exception {
         return request.sendGet(
                 "/lol/champion-mastery/v4/champion-masteries/by-summoner/" + summonerEncriptedId,
                 parameters,
-                false);
+                false,
+                server);
     }
 
     public JSONObject getChampionData() throws Exception {
@@ -41,7 +44,7 @@ public class ApiHelper {
         );
     }
 
-    public JSONObject getUserMatchHistory(String summonerEncriptedId, int index, int[] championFilter) throws Exception {
+    public JSONObject getUserMatchHistory(String summonerEncriptedId, int index, int[] championFilter, Enum server) throws Exception {
         parameters = new ArrayList<>();
         parameters.add(new String[] {"endIndex", String.valueOf(index)});
         if(championFilter[0] != 0)
@@ -49,10 +52,11 @@ public class ApiHelper {
         return request.sendGet(
                 "/lol/match/v4/matchlists/by-account/" + summonerEncriptedId,
                 parameters,
-                false);
+                false,
+                server);
     }
 
-    public JSONObject getMatchDetails(String matchId) throws Exception {
-        return request.sendGet("/lol/match/v4/matches/" + matchId, parameters, false);
+    public JSONObject getMatchDetails(String matchId, Enum server) throws Exception {
+        return request.sendGet("/lol/match/v4/matches/" + matchId, parameters, false, server);
     }
 }

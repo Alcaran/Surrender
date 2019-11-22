@@ -6,6 +6,7 @@ import business.Player;
 import business.SummonerMatchList;
 import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
+import data.enums.Servers;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -95,6 +96,7 @@ public class ChampionController implements Initializable {
     private List<Object> searchedSummonerPerformance;
     private Champion champion;
     private Executor exec;
+    private Enum server;
 
     @FXML
     private void keyPressed(KeyEvent k) {
@@ -105,7 +107,7 @@ public class ChampionController implements Initializable {
                     loading.setVisible(true);
                     // Search player in riot api
                     return new Player(
-                            searchedPlayer.getText().replace(" ", "")
+                            searchedPlayer.getText().replace(" ", ""),server
                     );
                 }
             };
@@ -170,8 +172,6 @@ public class ChampionController implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle rb) {
-
-
         exec = Executors.newCachedThreadPool(runnable -> {
             Thread t = new Thread(runnable);
             t.setDaemon(true);
@@ -179,8 +179,8 @@ public class ChampionController implements Initializable {
         });
     }
 
-    void initData(Champion champion, Player player) {
-
+    void initData(Champion champion, Player player, Enum s) {
+        server = s;
         this.champion = champion;
         Task<List<Object>> performanceTask = getSummonerMatchListFilteredByChampion(player);
         performanceTask.setOnFailed(e -> performanceTask.getException().printStackTrace());
@@ -243,12 +243,14 @@ public class ChampionController implements Initializable {
                 SummonerMatchList summonerMatchList = new SummonerMatchList(
                         player.getAccountId(),
                         5,
-                        new int[]{Integer.parseInt(champion.getChampionData().getString("key"))}
+                        new int[]{Integer.parseInt(champion.getChampionData().getString("key"))},
+                        server
                 );
 
                 return new Performance(champion).calculatePerformanceScoreWithMultipleMatches(
                         summonerMatchList,
-                        player.getAccountId()
+                        player.getAccountId(),
+                        server
                 );
 
             }

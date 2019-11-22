@@ -11,9 +11,9 @@ public class Ranked {
     private String losses;
     private String tier;
 
-    public Ranked (String summonerId) throws Exception {
+    public Ranked (String summonerId, Enum server) throws Exception {
         ApiHelper apiHelper = new ApiHelper();
-        JSONObject summonerLeagueInfo = apiHelper.getSumonerLeagueInfo(summonerId);
+        JSONObject summonerLeagueInfo = apiHelper.getSumonerLeagueInfo(summonerId, server);
         JSONObject soloDuoInfo = JSONUtils.findIObjectInArrayByKeyStringValue(
                 "queueType",
                 QueueType.SoloDuo.getType(),

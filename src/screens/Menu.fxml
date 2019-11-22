@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import com.jfoenix.controls.*?>
@@ -39,7 +40,7 @@
                                         <Insets left="30.0" />
                                     </padding>
                                 </JFXTextField>
-                                <JFXComboBox fx:id="comboBox" focusColor="WHITE" focusTraversable="false" pickOnBounds="false" prefHeight="45.0" prefWidth="71.0" promptText="BR" stylesheets="@css/combo.css" unFocusColor="#ffffff00">
+                                <JFXComboBox fx:id="comboBox" focusColor="WHITE" focusTraversable="false" pickOnBounds="false" prefHeight="45.0" prefWidth="71.0" stylesheets="@css/combo.css" unFocusColor="#ffffff00">
                                     <HBox.margin>
                                         <Insets left="5.0" />
                                     </HBox.margin>

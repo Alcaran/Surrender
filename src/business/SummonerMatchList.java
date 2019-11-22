@@ -14,10 +14,11 @@ public class SummonerMatchList {
     public SummonerMatchList(
             String accountId,
             int matchHistoryLength,
-            int[] championId
+            int[] championId,
+            Enum server
     ) throws Exception {
 
-        this.pureMatchHistory =  apiHelper.getUserMatchHistory(accountId, matchHistoryLength, championId)
+        this.pureMatchHistory =  apiHelper.getUserMatchHistory(accountId, matchHistoryLength, championId, server)
                 .getJSONArray("matches");
     }
 }

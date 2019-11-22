@@ -147,6 +147,7 @@ public class ProfileController implements Initializable {
     private Player summoner;
     private JSONObject championJsonData;
     private ArrayList<Match> listMatches;
+    private Enum server;
 
     private void callChampionScreen(Champion champion) throws IOException {
         FXMLLoader loader = new FXMLLoader(
@@ -156,7 +157,7 @@ public class ProfileController implements Initializable {
         stage.setScene(new Scene(loader.load()));
 
         ChampionController controller = loader.getController();
-        controller.initData(champion, summoner);
+        controller.initData(champion, summoner, server);
 
         stage.show();
     }
@@ -246,7 +247,8 @@ public class ProfileController implements Initializable {
         stage.close();
     }
 
-    void initData(Player searchedSummoner, Stage menuStage, Stage profileStage) {
+    void initData(Player searchedSummoner, Stage menuStage, Stage profileStage, Enum s) {
+        server = s;
         this.summoner = searchedSummoner;
         Task<JSONObject> championArrDataTask = new Task<JSONObject>() {
             @Override
@@ -265,7 +267,7 @@ public class ProfileController implements Initializable {
             Task<Ranked> rankedSummonerInfoTask = new Task<Ranked>() {
                 @Override
                 protected Ranked call() throws Exception {
-                    return new Ranked(searchedSummoner.getSummonerId());
+                    return new Ranked(searchedSummoner.getSummonerId(),server);
                 }
             };
 
@@ -295,7 +297,8 @@ public class ProfileController implements Initializable {
                 protected SummonerChampions call() throws Exception {
                     return new SummonerChampions(
                             searchedSummoner.getSummonerId(),
-                            championArrData
+                            championArrData,
+                            server
                     );
                 }
             };
@@ -331,7 +334,8 @@ public class ProfileController implements Initializable {
                     SummonerMatchList summonerMatchList = new SummonerMatchList(
                             searchedSummoner.getAccountId(),
                             3,
-                            new int[]{0}
+                            new int[]{0},
+                            server
                     );
 
                     int matchSize = summonerMatchList.getPureMatchHistory().length();
@@ -341,7 +345,8 @@ public class ProfileController implements Initializable {
                                     String.valueOf(
                                             ((JSONObject) summonerMatchList.getPureMatchHistory().get(i))
                                                     .getInt("gameId")
-                                    )
+                                    ),
+                                    server
                             );
 
                             listMatches.add(summonerMatch);

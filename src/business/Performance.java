@@ -42,7 +42,8 @@ public class Performance {
 
     public List<Object> calculatePerformanceScoreWithMultipleMatches(
             SummonerMatchList summonerMatchList,
-            String accountId
+            String accountId,
+            Enum server
     ) throws Exception {
         double wardsPlaced = 0;
         double kda = 0;
@@ -53,7 +54,7 @@ public class Performance {
         for (Object pureJsonMatch : summonerMatchList.getPureMatchHistory()) {
 
             JSONObject matchResponse = (JSONObject) pureJsonMatch;
-            Match match = new Match(String.valueOf(matchResponse.getLong("gameId")));
+            Match match = new Match(String.valueOf(matchResponse.getLong("gameId")),server);
             participant = match.getParticipantDtoBySummonerAccountId(accountId).getJSONObject("stats");
             wardsPlaced += participant.getInt("wardsPlaced");
             kda += (
