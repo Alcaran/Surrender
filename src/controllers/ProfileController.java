@@ -466,7 +466,7 @@ public class ProfileController implements Initializable {
             // Set profile image icon
             String profileIconId = String.valueOf(searchedSummoner.getIconId());
             Image image = new Image(
-                    "http://ddragon.leagueoflegends.com/cdn/9.21.1/img/profileicon/"
+                    "http://ddragon.leagueoflegends.com/cdn/9.23.1/img/profileicon/"
                             + profileIconId + ".png", false);
             imageCircle.setFill(new ImagePattern(image));
 

@@ -14,6 +14,6 @@ public enum ImagesUrl {
 
     private final String url;
     ImagesUrl(String url) {
-        this.url = "http://ddragon.leagueoflegends.com/cdn/9.21.1/img/" + url;
+        this.url = "http://ddragon.leagueoflegends.com/cdn/9.23.1/img/" + url;
     }
 }
