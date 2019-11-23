@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -96,6 +97,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
+                              <ImageView fx:id="tierBorder" fitHeight="111.0" fitWidth="220.0" layoutX="432.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </Pane>
                      </top>
@@ -109,13 +111,13 @@
                               </Label>
                               <HBox alignment="CENTER" prefHeight="190.0" prefWidth="1080.0">
                                  <children>
-                                    <Circle fx:id="championTop1" fill="#aeaeae" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0" onMouseClicked="#handleTopPlayedChampionAction1">
+                                    <Circle fx:id="championTop1" fill="#aeaeae" onMouseClicked="#handleTopPlayedChampionAction1" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0">
                                        <HBox.margin>
                                           <Insets right="150.0" />
                                        </HBox.margin>
                                     </Circle>
-                                    <Circle fx:id="championTop2" fill="#aeaeae" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0" onMouseClicked="#handleTopPlayedChampionAction2" />
-                                    <Circle fx:id="championTop3" fill="#aeaeae" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0" onMouseClicked="#handleTopPlayedChampionAction3">
+                                    <Circle fx:id="championTop2" fill="#aeaeae" onMouseClicked="#handleTopPlayedChampionAction2" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0" />
+                                    <Circle fx:id="championTop3" fill="#aeaeae" onMouseClicked="#handleTopPlayedChampionAction3" radius="70.0" stroke="#88bfcf" strokeType="INSIDE" strokeWidth="2.0">
                                        <HBox.margin>
                                           <Insets left="150.0" />
                                        </HBox.margin>
@@ -165,7 +167,10 @@
                                                       <Font name="Josefin Sans Regular" size="16.0" />
                                                    </font>
                                                 </Label>
-                                                <ImageView fx:id="avgTier1" fitHeight="78.0" fitWidth="68.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                                                <ImageView fx:id="avgTier1" fitHeight="78.0" fitWidth="68.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                                   <VBox.margin>
+                                                      <Insets right="20.0" />
+                                                   </VBox.margin></ImageView>
                                              </children>
                                           </VBox>
                                           <VBox alignment="TOP_CENTER" layoutX="250.0" layoutY="10.0" prefHeight="239.0" prefWidth="147.0">
@@ -254,7 +259,10 @@
                                                       <Font name="Josefin Sans Regular" size="16.0" />
                                                    </font>
                                                 </Label>
-                                                <ImageView fx:id="avgTier2" fitHeight="78.0" fitWidth="68.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                                                <ImageView fx:id="avgTier2" fitHeight="78.0" fitWidth="68.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                                   <VBox.margin>
+                                                      <Insets right="20.0" />
+                                                   </VBox.margin></ImageView>
                                              </children>
                                              <HBox.margin>
                                                 <Insets left="20.0" />
@@ -349,7 +357,10 @@
                                                       <Font name="Josefin Sans Regular" size="16.0" />
                                                    </font>
                                                 </Label>
-                                                <ImageView fx:id="avgTier3" fitHeight="78.0" fitWidth="68.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                                                <ImageView fx:id="avgTier3" fitHeight="78.0" fitWidth="68.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                                   <VBox.margin>
+                                                      <Insets right="20.0" />
+                                                   </VBox.margin></ImageView>
                                              </children>
                                              <HBox.margin>
                                                 <Insets left="20.0" />

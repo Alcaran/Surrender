@@ -37,7 +37,6 @@ public class Match {
     }
 
     public JSONObject getParticipantDtoBySummonerAccountId(String accountId) {
-
         return getParticipantByParticipantId(
                 getMatchParticipantIdByAccountId(accountId)
         );
@@ -106,7 +105,7 @@ public class Match {
     private String getMatchParticipantIdByAccountId(String accountId) {
         for (Object participant : participantIdentities) {
             JSONObject participantObj = (JSONObject) participant;
-            if (participantObj.getJSONObject("player").getString("accountId").equals(accountId)) {
+            if (participantObj.getJSONObject("player").getString("currentAccountId").equals(accountId)) {
                 return String.valueOf(participantObj.getInt("participantId"));
             }
         }

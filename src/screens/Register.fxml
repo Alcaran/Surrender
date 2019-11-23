@@ -31,7 +31,7 @@
             </Label>
             <HBox alignment="CENTER" prefHeight="304.0" prefWidth="1005.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox prefHeight="304.0" prefWidth="462.0">
                      <children>
                         <JFXTextField fx:id="txtUsername" focusColor="WHITE" focusTraversable="false" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Username" style="-fx-prompt-text-fill: white; -fx-text-fill: white;" unFocusColor="#ffffff80">
                            <font>
@@ -41,14 +41,19 @@
                               <Insets />
                            </VBox.margin>
                         </JFXTextField>
-                        <JFXTextField fx:id="txtAccount" focusColor="WHITE" focusTraversable="false" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Conta" style="-fx-prompt-text-fill: white; -fx-text-fill: white;" unFocusColor="#ffffff80">
-                           <font>
-                              <Font name="Josefin Sans Regular" size="24.0" />
-                           </font>
+                        <HBox prefHeight="49.0" prefWidth="462.0">
+                           <children>
+                              <JFXTextField fx:id="txtAccount" focusColor="WHITE" focusTraversable="false" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Account name" style="-fx-prompt-text-fill: white; -fx-text-fill: white;" unFocusColor="#ffffff80">
+                                 <font>
+                                    <Font name="Josefin Sans Regular" size="24.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXComboBox fx:id="comboBox" focusColor="WHITE" focusTraversable="false" pickOnBounds="false" prefHeight="45.0" prefWidth="71.0" stylesheets="@css/combo.css" unFocusColor="#ffffff00" />
+                           </children>
                            <VBox.margin>
                               <Insets top="30.0" />
                            </VBox.margin>
-                        </JFXTextField>
+                        </HBox>
                         <JFXPasswordField fx:id="txtPassword" focusColor="WHITE" focusTraversable="false" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Password" style="-fx-prompt-text-fill: white;  -fx-text-fill: white;" unFocusColor="#ffffff80">
                            <font>
                               <Font name="Josefin Sans Regular" size="24.0" />
@@ -67,7 +72,7 @@
                         </JFXPasswordField>
                      </children>
                   </VBox>
-                  <JFXButton fx:id="btnCreate" alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="169.0" style="-fx-background-color: #5e81ac;" text="Create" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" onAction="#submitButtonAction">
+                  <JFXButton fx:id="btnCreate" alignment="CENTER" contentDisplay="CENTER" onAction="#submitButtonAction" prefHeight="90.0" prefWidth="169.0" style="-fx-background-color: #5e81ac;" text="Create" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                      <font>
                         <Font name="Josefin Sans Regular" size="24.0" />
                      </font>
@@ -75,6 +80,11 @@
                         <Insets left="200.0" />
                      </HBox.margin>
                   </JFXButton>
+                  <JFXSpinner fx:id="spinner" visible="false">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </JFXSpinner>
                </children>
                <VBox.margin>
                   <Insets top="40.0" />

@@ -1,5 +1,7 @@
 package data.database;
 
+import utils.LogicUtils;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -18,7 +20,7 @@ public class UserDao {
             pstmt.setString(2, password);
             ResultSet rs = pstmt.executeQuery();
             while(rs.next())  {
-                linkedAccounts.add(rs.getString("nickname"));
+                linkedAccounts.add(LogicUtils.usefulNickname(rs.getString("nickname")));
                 playerLinkedAccount = rs.getString("linked_nickname");
             }
         } catch(Exception e) {
@@ -26,7 +28,7 @@ public class UserDao {
         }
         conn.close();
         if (playerLinkedAccount != null)
-            linkedAccounts.add(playerLinkedAccount);
+            linkedAccounts.add(LogicUtils.usefulNickname(playerLinkedAccount));
         return linkedAccounts;
     }
 

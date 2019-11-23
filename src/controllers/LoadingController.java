@@ -13,10 +13,12 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class LoadingController implements Initializable {
-
+    private ArrayList<String> linkedAccounts;
+    Stage menuStage;
     @FXML
     private JFXProgressBar jfxProgress;
     @FXML
@@ -39,14 +41,27 @@ public class LoadingController implements Initializable {
         th.start();
     }
 
+    void initData(ArrayList<String> linkedAccounts) throws IOException {
+        this.linkedAccounts =linkedAccounts;
+    }
+
     public void close() throws IOException {
-        Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/screens/Menu.fxml"));
-        s.setScene(new Scene(root));
-        s.initStyle(StageStyle.TRANSPARENT);
-        s.show();
-        Stage stage  = (Stage) bp.getScene().getWindow();
-        stage.close();
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/screens/Menu.fxml")
+        );
+
+        // Set profile page to load
+        menuStage = new Stage(StageStyle.TRANSPARENT);
+        menuStage.setScene(new Scene(loader.load()));
+
+        MenuController controller = loader.getController();
+        controller.initData(linkedAccounts);
+
+        Stage loadingStage = (Stage) bp.getScene().getWindow();
+//        loadingStage.initStyle(StageStyle.TRANSPARENT);
+
+        loadingStage.close();
+        menuStage.show();
     }
 
     private Task taskWorker(int seconds){

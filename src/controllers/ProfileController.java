@@ -53,6 +53,8 @@ public class ProfileController implements Initializable {
 
     @FXML
     ImageView tier;
+    @FXML
+    ImageView tierBorder;
 
     @FXML
     Label leaguePoints;
@@ -121,6 +123,13 @@ public class ProfileController implements Initializable {
     @FXML
     Label score3;
 
+    @FXML
+    ImageView avgTier1;
+    @FXML
+    ImageView avgTier2;
+    @FXML
+    ImageView avgTier3;
+
 
     @FXML
     HBox playedMatch1;
@@ -148,6 +157,7 @@ public class ProfileController implements Initializable {
     private JSONObject championJsonData;
     private ArrayList<Match> listMatches;
     private Enum server;
+    private ArrayList<String> linkedAccount;
 
     private void callChampionScreen(Champion champion) throws IOException {
         FXMLLoader loader = new FXMLLoader(
@@ -236,18 +246,25 @@ public class ProfileController implements Initializable {
 
     @FXML
     private void backButtonAction() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/screens/Menu.fxml")
+        );
 
-        Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/screens/Menu.fxml"));
-        s.setScene(new Scene(root));
-        s.initStyle(StageStyle.TRANSPARENT);
-        s.show();
+        // Set profile page to load
+        Stage menuStage = new Stage(StageStyle.TRANSPARENT);
+        menuStage.setScene(new Scene(loader.load()));
 
-        Stage stage = (Stage) bp.getScene().getWindow();
-        stage.close();
+        MenuController controller = loader.getController();
+        controller.initData(linkedAccount);
+
+        Stage profileStage = (Stage) bp.getScene().getWindow();
+
+        profileStage.close();
+        menuStage.show();
     }
 
-    void initData(Player searchedSummoner, Stage menuStage, Stage profileStage, Enum s) {
+    void initData(Player searchedSummoner, Stage menuStage, Stage profileStage, Enum s, ArrayList<String> linkedAccount) {
+        this.linkedAccount = linkedAccount;
         server = s;
         this.summoner = searchedSummoner;
         Task<JSONObject> championArrDataTask = new Task<JSONObject>() {
@@ -264,31 +281,31 @@ public class ProfileController implements Initializable {
             JSONObject championArrData = championArrDataTask.getValue();
             this.championJsonData = championArrData;
             // Get summoner ranked data
-            Task<Ranked> rankedSummonerInfoTask = new Task<Ranked>() {
-                @Override
-                protected Ranked call() throws Exception {
-                    return new Ranked(searchedSummoner.getSummonerId(),server);
-                }
-            };
-
-            rankedSummonerInfoTask.setOnFailed(eRanked -> rankedSummonerInfoTask.getException().printStackTrace());
-
-            rankedSummonerInfoTask.setOnSucceeded(eRanked -> {
-                Ranked rankedSummonerInfo = rankedSummonerInfoTask.getValue();
-
-                // Set league points text
-                leaguePoints.setText(rankedSummonerInfo.getLeaguePoints() + " LP");
-
-                // Set league points text
-                rankedWins.setText(rankedSummonerInfo.getWins() + " W");
-
-                // Set league points text
-                rankedLosses.setText(rankedSummonerInfo.getLosses() + " L");
-
-                // Set tier image
-                File file = new File(Tiers.valueOf(rankedSummonerInfo.getTier()).getImageEloPath());
-                tier.setImage(new Image(file.toURI().toString()));
-            });
+//            Task<Ranked> rankedSummonerInfoTask = new Task<Ranked>() {
+//                @Override
+//                protected Ranked call() throws Exception {
+//                    return new Ranked(searchedSummoner.getSummonerId(),server);
+//                }
+//            };
+//
+//            rankedSummonerInfoTask.setOnFailed(eRanked -> rankedSummonerInfoTask.getException().printStackTrace());
+//
+//            rankedSummonerInfoTask.setOnSucceeded(eRanked -> {
+//                Ranked rankedSummonerInfo = rankedSummonerInfoTask.getValue();
+//
+//                // Set league points text
+//                leaguePoints.setText(rankedSummonerInfo.getLeaguePoints() + " LP");
+//
+//                // Set league points text
+//                rankedWins.setText(rankedSummonerInfo.getWins() + " W");
+//
+//                // Set league points text
+//                rankedLosses.setText(rankedSummonerInfo.getLosses() + " L");
+//
+//                // Set tier image
+//                File file = new File(Tiers.valueOf(rankedSummonerInfo.getTier()).getImageEloPath());
+//                tier.setImage(new Image(file.toURI().toString()));
+//            });
 
 
             // Get top played champions info of searched summoner
@@ -331,6 +348,26 @@ public class ProfileController implements Initializable {
             Task<Void> summonerMatchListTask = new Task<Void>() {
                 @Override
                 protected Void call() throws Exception {
+                    Ranked rankedSummonerInfo = new Ranked(searchedSummoner.getSummonerId(), server);
+
+                    // Set league points text
+                    leaguePoints.setText(rankedSummonerInfo.getLeaguePoints() + " LP");
+
+                    // Set league points text
+                    rankedWins.setText(rankedSummonerInfo.getWins() + " W");
+
+                    // Set league points text
+                    rankedLosses.setText(rankedSummonerInfo.getLosses() + " L");
+
+                    // Set tier image
+                    File file = new File(Tiers.valueOf(rankedSummonerInfo.getTier()).getImageEloPath());
+                    tier.setImage(new Image(file.toURI().toString()));
+
+                    // Set tier image
+                    File fileBorder = new File(Tiers.valueOf(rankedSummonerInfo.getTier()).getImageEloBorderPath());
+                    tierBorder.setImage(new Image(fileBorder.toURI().toString()));
+
+
                     SummonerMatchList summonerMatchList = new SummonerMatchList(
                             searchedSummoner.getAccountId(),
                             3,
@@ -344,7 +381,7 @@ public class ProfileController implements Initializable {
                             Match summonerMatch = new Match(
                                     String.valueOf(
                                             ((JSONObject) summonerMatchList.getPureMatchHistory().get(i))
-                                                    .getInt("gameId")
+                                                    .getLong("gameId")
                                     ),
                                     server
                             );
@@ -391,6 +428,12 @@ public class ProfileController implements Initializable {
                                         rectangles
                                 );
                             }
+
+                            // Set tier average
+                            setImageViewStyleByFieldCall(
+                                    "avgTier" + (i + 1),
+                                    Tiers.valueOf(rankedSummonerInfo.getTier()).getImageEloPath()
+                            );
 
                             // Set game score match label
                             setLabelStyleByFieldCall(
@@ -486,7 +529,7 @@ public class ProfileController implements Initializable {
 
             exec.execute(summonerMatchListTask);
 
-            exec.execute(rankedSummonerInfoTask);
+//            exec.execute(rankedSummonerInfoTask);
         });
         exec.execute(championArrDataTask);
     }
@@ -513,6 +556,13 @@ public class ProfileController implements Initializable {
         HBox hbox = (HBox) field.get(this);
         hbox.setSpacing(10.00);
         hbox.getChildren().addAll(fieldValue);
+    }
 
+    private void setImageViewStyleByFieldCall(String fieldName, String fieldValue)
+            throws IllegalAccessException, NoSuchFieldException {
+        Field field = getClass().getDeclaredField(fieldName);
+        ImageView tier = (ImageView) field.get(this);
+        File file = new File(fieldValue);
+        tier.setImage(new Image(file.toURI().toString()));
     }
 }

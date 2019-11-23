@@ -32,6 +32,8 @@ public class Player {
     }
 
 
+
+
     public String getSummonerName() {
         return summonerName;
     }

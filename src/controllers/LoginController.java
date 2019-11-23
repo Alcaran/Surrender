@@ -1,6 +1,7 @@
 package controllers;
 
 import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
 import data.database.UserDao;
 import javafx.concurrent.Task;
@@ -28,6 +29,8 @@ public class LoginController {
     private JFXTextField username;
     @FXML
     private JFXPasswordField password;
+    @FXML
+    private JFXSpinner spinner;
 
     @FXML
     private void initialize() {
@@ -47,7 +50,7 @@ public class LoginController {
 
     @FXML
     private void closeButtonAction() throws IOException {
-        this.goToLoadingScreen(null);
+        this.goToLoadingScreen(new ArrayList<>());
     }
 
     @FXML
@@ -67,6 +70,7 @@ public class LoginController {
             Task<ArrayList<String>> linkedAccountsTask = new Task<ArrayList<String>>() {
                 @Override
                 protected ArrayList<String> call() throws Exception {
+                    spinner.setVisible(true);
                     return userAccessor.getUser(
                             username.getText(),
                             password.getText()
@@ -88,9 +92,9 @@ public class LoginController {
                 }
                 else
                     GraphicUtils.callSnackbar("Credentials not found", bp);
+                spinner.setVisible(false);
             });
 
-            // run the task using a thread from the thread pool:
             exec.execute(linkedAccountsTask);
     }
 
@@ -101,14 +105,22 @@ public class LoginController {
     }
 
     private void goToLoadingScreen(ArrayList<String> linkedAccounts) throws IOException {
-        Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/screens/Loading.fxml"));
-        s.setScene(new Scene(root));
-        s.initStyle(StageStyle.TRANSPARENT);
-        s.show();
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/screens/Loading.fxml")
+        );
+
+        // Set profile page to load
+        Stage loadingStage = new Stage(StageStyle.TRANSPARENT);
+        loadingStage.setScene(new Scene(loader.load()));
+
+        LoadingController controller = loader.getController();
+        controller.initData((linkedAccounts));
 
         Stage stage = (Stage) bp.getScene().getWindow();
         stage.close();
+        loadingStage.show();
+
+
     }
 
     public void callSuccessOnRegisteredMessage() {

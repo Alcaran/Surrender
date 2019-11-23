@@ -1,17 +1,10 @@
 
 
-.jfx-snackbar-content:error-toast{
+.jfx-snackbar-content{
     -fx-background-color: #bf616a;
     -fx-background-radius: 10;
 
 }
-
-.jfx-snackbar-content:success-toast{
-    -fx-background-color: 31ab47;
-    -fx-background-radius: 10;
-
-}
-
 .jfx-snackbar-toast {
     -fx-text-fill: #eceff4;
     -fx-font-family: "Josefin Sans Regular"

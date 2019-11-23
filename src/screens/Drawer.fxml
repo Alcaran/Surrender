@@ -7,20 +7,12 @@
 
 <VBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="200.0" style="-fx-background-color: #5E81AC;" xmlns="http://javafx.com/javafx/8">
    <children>
-      <JFXButton id="btnBack" prefHeight="80.0" prefWidth="250.0" text="Back" textFill="WHITE">
-         <VBox.margin>
-            <Insets bottom="567.0" />
-         </VBox.margin>
-         <font>
-            <Font name="Josefin Sans Regular" size="20.0" />
-         </font>
-      </JFXButton>
       <JFXButton id="btnLogin" prefHeight="80.0" prefWidth="250.0" text="Login/Logout" textFill="WHITE">
          <font>
             <Font name="Josefin Sans Regular" size="20.0" />
          </font>
          <VBox.margin>
-            <Insets />
+            <Insets top="567.0" />
          </VBox.margin></JFXButton>
    </children>
 </VBox>

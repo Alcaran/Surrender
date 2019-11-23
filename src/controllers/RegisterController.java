@@ -2,7 +2,9 @@ package controllers;
 
 
 import business.Player;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
 import data.database.UserDao;
 import data.enums.Servers;
@@ -32,9 +34,13 @@ public class RegisterController implements Initializable {
     @FXML
     JFXTextField txtAccount;
     @FXML
+    private JFXComboBox<Servers> comboBox;
+    @FXML
     JFXPasswordField txtPassword;
     @FXML
     JFXPasswordField txtPassword2;
+    @FXML
+    JFXSpinner spinner;
 
     private Executor exec;
 
@@ -59,6 +65,7 @@ public class RegisterController implements Initializable {
         Task<Boolean> nicknameTask = new Task<Boolean>() {
             @Override
             protected Boolean call() throws Exception {
+                spinner.setVisible(true);
                 if(txtUsername.getText() == null) {
                     throw new Exception("Username can't be empty");
                 }
@@ -78,19 +85,20 @@ public class RegisterController implements Initializable {
                 Task<Player> playerTask = new Task<Player>() {
                     @Override
                     protected Player call() throws Exception {
-                        if (txtAccount.getText() == null) {
+                        if (txtAccount.getText() == null || comboBox.getValue() == null) {
                             throw new Exception("Player name can't be empty");
                         }
-                        return new Player(txtAccount.getText().replace(" ", ""), Servers.br1);
+                        return new Player(txtAccount.getText().replace(" ", ""), comboBox.getValue());
                     }
                 };
 
                 playerTask.setOnFailed(e -> {
                     GraphicUtils.callSnackbar("Player not found", bp);
+                    spinner.setVisible(false);
                 });
 
                 playerTask.setOnSucceeded(e -> {
-                    if (txtPassword.getText() != null) {
+                    if (!txtPassword.getText().equals("")) {
                         if (txtPassword.getText().equals(txtPassword2.getText())) {
                             UserDao userDao = new UserDao();
                             try {
@@ -121,6 +129,7 @@ public class RegisterController implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle rb) {
+        comboBox.getItems().setAll(Servers.values());
         exec = Executors.newCachedThreadPool(runnable -> {
             Thread t = new Thread(runnable);
             t.setDaemon(true);

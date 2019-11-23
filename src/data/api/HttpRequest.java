@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 class HttpRequest {
-    private String developmentApiKey = "RGAPI-f0d33a9c-7543-4477-ba80-71303f201e9e";
+    private String developmentApiKey = "RGAPI-a72f5654-5ccb-4d90-b045-b6bdb8684725";
 
     JSONObject sendGet(String apiPath, List<Object[]> parameters, boolean setFullPathRequest, Enum server) throws Exception {
 
