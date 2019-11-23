@@ -1,0 +1,40 @@
+.tab{
+    -fx-background-color: #2E3440;
+}
+
+.tab-header-background{
+    -fx-background-color: #2E3440;
+}
+
+.tab-label{
+    -fx-text-fill: white;
+    -fx-font-size: 20pt;
+    -fx-font: 12px "Josefin Sans Regular";
+}
+
+
+.tab-main{
+    -fx-pref-height : 60;
+    -fx-max-height : 60;
+}
+
+.settings-tab{
+    -fx-background-color: derive(#2E3440, 10%);
+    -fx-padding: 5px 20px 5px 20px;
+}
+
+.settings-tab:selected{
+    -fx-background-color: white;
+}
+
+.settings-tab:selected .tab-label{
+    -fx-text-fill: #2E3440;
+}
+
+.settings-tab .tab-header-background{
+    -fx-background-color: derive(#2E3440, -50%);
+}
+
+.jfx-tab-pane .tab-selected-line {
+  -fx-stroke: white;
+}

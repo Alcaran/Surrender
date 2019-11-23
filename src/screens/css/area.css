@@ -1,0 +1,8 @@
+.chart-plot-background {
+    -fx-background-color: #2E3440;
+}
+
+.chart-title {
+   -fx-font: 21px "Josefin Sans Regular";
+   -fx-text-fill: white;
+}
