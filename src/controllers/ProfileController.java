@@ -280,33 +280,6 @@ public class ProfileController implements Initializable {
         championArrDataTask.setOnSucceeded(e -> {
             JSONObject championArrData = championArrDataTask.getValue();
             this.championJsonData = championArrData;
-            // Get summoner ranked data
-//            Task<Ranked> rankedSummonerInfoTask = new Task<Ranked>() {
-//                @Override
-//                protected Ranked call() throws Exception {
-//                    return new Ranked(searchedSummoner.getSummonerId(),server);
-//                }
-//            };
-//
-//            rankedSummonerInfoTask.setOnFailed(eRanked -> rankedSummonerInfoTask.getException().printStackTrace());
-//
-//            rankedSummonerInfoTask.setOnSucceeded(eRanked -> {
-//                Ranked rankedSummonerInfo = rankedSummonerInfoTask.getValue();
-//
-//                // Set league points text
-//                leaguePoints.setText(rankedSummonerInfo.getLeaguePoints() + " LP");
-//
-//                // Set league points text
-//                rankedWins.setText(rankedSummonerInfo.getWins() + " W");
-//
-//                // Set league points text
-//                rankedLosses.setText(rankedSummonerInfo.getLosses() + " L");
-//
-//                // Set tier image
-//                File file = new File(Tiers.valueOf(rankedSummonerInfo.getTier()).getImageEloPath());
-//                tier.setImage(new Image(file.toURI().toString()));
-//            });
-
 
             // Get top played champions info of searched summoner
             Task<SummonerChampions> summonerChampionsTask = new Task<SummonerChampions>() {
