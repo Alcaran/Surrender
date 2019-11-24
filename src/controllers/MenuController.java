@@ -81,7 +81,7 @@ public class MenuController implements Initializable {
             box.getChildren().addAll(buttons);
 
             ObservableList<Node> workingCollection = FXCollections.observableArrayList(box.getChildren());
-            Collections.swap(workingCollection, 0, setToOneIfItIsZero(linkedAccount.size()) + 1);
+            Collections.swap(workingCollection, 0, setToOneIfItIsZero(linkedAccount.size()));
             box.getChildren().setAll(workingCollection);
 
             drwMenu.setSidePane(box);
