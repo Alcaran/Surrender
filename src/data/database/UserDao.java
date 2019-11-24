@@ -20,7 +20,8 @@ public class UserDao {
             pstmt.setString(2, password);
             ResultSet rs = pstmt.executeQuery();
             while(rs.next())  {
-                linkedAccounts.add(LogicUtils.usefulNickname(rs.getString("nickname")));
+                if(rs.getString("nickname") != null)
+                    linkedAccounts.add(LogicUtils.usefulNickname(rs.getString("nickname")));
                 playerLinkedAccount = rs.getString("linked_nickname");
             }
         } catch(Exception e) {

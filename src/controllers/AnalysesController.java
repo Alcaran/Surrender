@@ -313,21 +313,21 @@ public class AnalysesController implements Initializable {
             );
 
 
-//            rectangles = new ArrayList<>();
-//            for (int j = 1; j <= 2; j++) {
-//                rectangles = GraphicUtils.createRectangleItemsRow(
-//                        playerMatch.getItemsSlotsByParticipantId(
-//                                String.valueOf(participantChampion.getInt("participantId")), j),
-//                        3,
-//                        1,
-//                        35
-//                );
-//
-//                setHBoxStyleByFieldCall(
-//                        "playedMatchItems" + a + "" + j,
-//                        rectangles
-//                );
-//            }
+            rectangles = new ArrayList<>();
+            for (int j = 1; j <= 2; j++) {
+                rectangles = GraphicUtils.createRectangleItemsRow(
+                        playerMatch.getItemsSlotsByParticipantId(
+                                String.valueOf(participantChampion.getInt("participantId")), j),
+                        3,
+                        1,
+                        35
+                );
+
+                setHBoxStyleByFieldCall(
+                        "playedMatchItems" + a + "" + j,
+                        rectangles
+                );
+            }
 
             circles = new ArrayList<>();
             ArrayList<Integer> spellslist = new ArrayList<>();

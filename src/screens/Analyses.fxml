@@ -889,7 +889,7 @@
                            </children>
                         </HBox>
                      </top>
-                     <bottom>
+                     <left>
                         <VBox prefHeight="204.0" prefWidth="1066.0" BorderPane.alignment="CENTER">
                            <children>
                               <Label text="Weakness" textFill="#bf616a">
@@ -925,18 +925,21 @@
                                  <children>
                                     <HBox minHeight="-Infinity" prefHeight="291.0" prefWidth="1066.0">
                                        <children>
-                                          <ImageView fx:id="imgTips1" fitHeight="292.0" fitWidth="426.0" pickOnBounds="true" />
+                                          <ImageView fx:id="imgTips1" fitHeight="292.0" fitWidth="426.0" pickOnBounds="true">
+                                             <HBox.margin>
+                                                <Insets top="50.0" />
+                                             </HBox.margin></ImageView>
                                           <ImageView fitHeight="56.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../assets/BackIcon.png" />
                                              </image>
                                              <HBox.margin>
-                                                <Insets left="50.0" right="50.0" top="120.0" />
+                                                <Insets left="50.0" right="50.0" top="170.0" />
                                              </HBox.margin>
                                           </ImageView>
                                           <TextArea fx:id="infoCard1" editable="false" prefHeight="250.0" prefWidth="504.0" text="Loading...">
                                              <HBox.margin>
-                                                <Insets left="40.0" />
+                                                <Insets left="40.0" top="50.0" />
                                              </HBox.margin>
                                           </TextArea>
                                        </children>
@@ -954,7 +957,7 @@
                               <Insets left="90.0" />
                            </opaqueInsets>
                         </VBox>
-                     </bottom>
+                     </left>
                   </BorderPane>
                </content>
             </ScrollPane>

@@ -73,7 +73,7 @@ public class MenuController implements Initializable {
             JFXButton btn = generateDrawerButton("Back", "btnBack");
 
 
-            for (int i = 1; i < linkedAccount.size(); i++) {
+            for (int i = 0; i < linkedAccount.size(); i++) {
                 buttons.add(generateDrawerButton(linkedAccount.get(i), "btn" + i));
             }
 
@@ -81,11 +81,11 @@ public class MenuController implements Initializable {
             box.getChildren().addAll(buttons);
 
             ObservableList<Node> workingCollection = FXCollections.observableArrayList(box.getChildren());
-            Collections.swap(workingCollection, 0, setToOneIfItIsZero(linkedAccount.size()));
+            Collections.swap(workingCollection, 0, setToOneIfItIsZero(linkedAccount.size()) + 1);
             box.getChildren().setAll(workingCollection);
 
             drwMenu.setSidePane(box);
-            int i = 1;
+            int i = 0;
             for (Node node : box.getChildren()) {
                 String name = LogicUtils.removeLastChar(node.getId());
                 int finalI = i;
@@ -108,7 +108,7 @@ public class MenuController implements Initializable {
                         }
                     }
                 });
-                i++;
+                  i++;
             }
 
         } catch (IOException e) {

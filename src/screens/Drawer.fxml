@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="200.0" style="-fx-background-color: #5E81AC;" xmlns="http://javafx.com/javafx/8">
+<VBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="200.0" style="-fx-background-color: #5E81AC;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <JFXButton id="btnLogin" prefHeight="80.0" prefWidth="250.0" text="Login/Logout" textFill="WHITE">
          <font>
             <Font name="Josefin Sans Regular" size="20.0" />
          </font>
          <VBox.margin>
-            <Insets top="567.0" />
+            <Insets top="537.0" />
          </VBox.margin></JFXButton>
    </children>
 </VBox>
