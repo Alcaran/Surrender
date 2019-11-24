@@ -1,6 +1,7 @@
 package controllers;
 
 import business.*;
+import com.mysql.cj.xdevapi.JsonArray;
 import data.enums.ImagesUrl;
 import data.enums.Tiers;
 import data.api.ApiHelper;
@@ -9,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,12 +19,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import utils.GraphicUtils;
 import utils.NumberUtils;
@@ -148,6 +153,14 @@ public class ProfileController implements Initializable {
     HBox playedMatchItems31;
     @FXML
     HBox playedMatchItems32;
+
+    @FXML
+    HBox hboxclassimage;
+    @FXML
+    HBox hboxpercentages;
+    @FXML
+    HBox hboxbars;
+
     @FXML
     private BorderPane bp;
 
@@ -158,6 +171,7 @@ public class ProfileController implements Initializable {
     private ArrayList<Match> listMatches;
     private Enum server;
     private ArrayList<String> linkedAccount;
+    private ArrayList<String> classChampion;
 
     private void callChampionScreen(Champion champion) throws IOException {
         FXMLLoader loader = new FXMLLoader(
@@ -316,6 +330,7 @@ public class ProfileController implements Initializable {
             });
 
             listMatches = new ArrayList<>();
+            classChampion = new ArrayList<>();
 
             // Get match history of searched summoner
             Task<Void> summonerMatchListTask = new Task<Void>() {
@@ -370,6 +385,11 @@ public class ProfileController implements Initializable {
                                     String.valueOf(participantChampion.getInt("championId")),
                                     championArrData
                             );
+
+                            JSONArray jsonachampion = champion.getChampionData().getJSONArray("tags");
+                            for (Object a : jsonachampion) {
+                                classChampion.add(a.toString());
+                            }
 
                             Performance summonerPerformance = new Performance(
                                     champion,
@@ -477,10 +497,72 @@ public class ProfileController implements Initializable {
             summonerMatchListTask.setOnFailed(eMatchList -> summonerChampionsTask.getException().printStackTrace());
 
             summonerMatchListTask.setOnSucceeded(eMatchList -> {
+                int total = classChampion.size();
+                int classcount[] = new int[6];
+
+                for (String classchamp : classChampion) {
+                    if (classchamp.equals("Assassin"))
+                        classcount[0]++;
+                    else if (classchamp.equals("Fighter"))
+                        classcount[1]++;
+                    else if (classchamp.equals("Mage"))
+                        classcount[2]++;
+                    else if (classchamp.equals("Marksman"))
+                        classcount[3]++;
+                    else if (classchamp.equals("Tank"))
+                        classcount[4]++;
+                    else if (classchamp.equals("Support"))
+                        classcount[5]++;
+                }
+
+                for (int x = 0; x < 6; x++){
+                    if (classcount[x] != 0){
+
+                        int percentage = (classcount[x] * 100) / total;
+                        Label label = new Label(percentage + "%");
+                        label.setFont(new Font("Josefin Sans Regular", 20));
+                        hboxpercentages.setAlignment(Pos.CENTER);
+                        hboxpercentages.setSpacing(36);
+                        hboxpercentages.getChildren().add(label);
+
+                        String classname = "";
+                        if (x == 0)
+                            classname = "Assassin";
+                        else if (x == 1)
+                            classname = "Fighter";
+                        else if (x == 2)
+                            classname = "Mage";
+                        else if (x == 3)
+                            classname = "Marksman";
+                        else if (x == 4)
+                            classname = "Tank";
+                        else if (x == 5)
+                            classname = "Support";
+
+                        ImageView imageclass = new ImageView(new Image("/assets/championclass/" + classname + ".png"));
+                        imageclass.setFitHeight(65.0);
+                        imageclass.setFitWidth(65.0);
+                        hboxclassimage.setAlignment(Pos.CENTER);
+                        hboxclassimage.setSpacing(10);
+                        hboxclassimage.getChildren().add(imageclass);
+
+                        Rectangle rec = new Rectangle();
+                        rec.setHeight(percentage * 2);
+                        rec.setWidth(20);
+                        rec.setArcWidth(5);
+                        rec.setArcHeight(5);
+                        rec.setFill(Color.rgb(216,222,233));
+                        hboxbars.setAlignment(Pos.BOTTOM_CENTER);
+                        hboxbars.setSpacing(55);
+                        hboxbars.getChildren().add(rec);
+                    }
+                }
                 profileStage.show();
                 menuStage.close();
 
             });
+
+
 
 
             // Set profile image icon

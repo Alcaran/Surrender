@@ -52,915 +52,941 @@
             </HBox>
          </top>
          <center>
-            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" minHeight="-Infinity" prefHeight="636.0" prefWidth="1080.0" stylesheets="@css/pane.css" BorderPane.alignment="CENTER">
-               <content>
-                  <BorderPane prefHeight="1000.0" prefWidth="1070.0" style="-fx-background-color: #2E3440;">
-                     <top>
-                        <HBox prefHeight="574.0" prefWidth="1070.0" BorderPane.alignment="CENTER">
+            <JFXTabPane stylesheets="@css/tabpane.css" BorderPane.alignment="CENTER">
+               <tabs>
+                  <Tab text="Match">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <VBox prefHeight="574.0" prefWidth="532.5">
+                              <HBox alignment="CENTER" prefHeight="633.0" prefWidth="1080.0">
                                  <children>
-                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
-                                       <VBox.margin>
-                                          <Insets left="30.0" top="20.0" />
-                                       </VBox.margin>
+                                    <VBox prefHeight="574.0" prefWidth="532.5">
                                        <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                          <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
+                                             <VBox.margin>
+                                                <Insets left="30.0" top="20.0" />
+                                             </VBox.margin>
                                              <children>
-                                                <Circle fx:id="championCircle0" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
-                                                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                                    <children>
-                                                      <Label fx:id="labelName0" text="Name" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="labelKda0" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox fx:id="spells0" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelCs0" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                      <Circle fx:id="championCircle0" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label fx:id="labelGold0" text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelName0" text="Name" textFill="WHITE">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/goldIcon.png" />
-                                                               </image></ImageView>
+                                                            <Label fx:id="labelKda0" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox fx:id="spells0" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                          </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label fx:id="labelDmg0" text="99.999" textFill="#bf616a">
+                                                            <Label fx:id="labelCs0" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/VectorRed.png" />
-                                                               </image></ImageView>
+                                                            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelGold0" text="99.999" textFill="#ebcb8b">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/goldIcon.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelDmg0" text="99.999" textFill="#bf616a">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/VectorRed.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
                                                          </children>
-                                                      </HBox>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                         <children>
+                                                            <HBox fx:id="playedMatchItems01" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                            <HBox fx:id="playedMatchItems02" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
                                                    </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
-                                                   <children>
-                                                      <HBox fx:id="playedMatchItems01" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
-                                                      <HBox fx:id="playedMatchItems02" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <VBox.margin>
-                                                            <Insets top="10.0" />
-                                                         </VBox.margin>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
+                                                </HBox>
                                              </children>
-                                          </HBox>
-                                       </children>
-                                    </Pane>
-                                    <Pane layoutX="30.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                          </Pane>
+                                          <Pane layoutX="30.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
                                              <children>
-                                                <Circle fx:id="championCircle1" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
-                                                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                                    <children>
-                                                      <Label fx:id="labelName1" text="Name" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="labelKda1" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox fx:id="spells1" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelCs1" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                      <Circle fx:id="championCircle1" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label fx:id="labelGold1" text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelName1" text="Name" textFill="WHITE">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/goldIcon.png" />
-                                                               </image></ImageView>
+                                                            <Label fx:id="labelKda1" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox fx:id="spells1" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                          </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label fx:id="labelDmg1" text="99.999" textFill="#bf616a">
+                                                            <Label fx:id="labelCs1" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/VectorRed.png" />
-                                                               </image></ImageView>
+                                                            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelGold1" text="99.999" textFill="#ebcb8b">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/goldIcon.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelDmg1" text="99.999" textFill="#bf616a">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/VectorRed.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
                                                          </children>
-                                                      </HBox>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                         <children>
+                                                            <HBox fx:id="playedMatchItems11" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                            <HBox fx:id="playedMatchItems12" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
                                                    </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
-                                                   <children>
-                                                      <HBox fx:id="playedMatchItems11" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
-                                                      <HBox fx:id="playedMatchItems12" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <VBox.margin>
-                                                            <Insets top="10.0" />
-                                                         </VBox.margin>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
+                                                </HBox>
                                              </children>
-                                          </HBox>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="30.0" top="20.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                    <Pane layoutX="10.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                             <VBox.margin>
+                                                <Insets left="30.0" top="20.0" />
+                                             </VBox.margin>
+                                          </Pane>
+                                          <Pane layoutX="10.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
                                              <children>
-                                                <Circle fx:id="championCircle2" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
-                                                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                                    <children>
-                                                      <Label fx:id="labelName2" text="Name" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="labelKda2" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox fx:id="spells2" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelCs2" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                      <Circle fx:id="championCircle2" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label fx:id="labelGold2" text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelName2" text="Name" textFill="WHITE">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/goldIcon.png" />
-                                                               </image></ImageView>
+                                                            <Label fx:id="labelKda2" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox fx:id="spells2" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                          </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label fx:id="labelDmg2" text="99.999" textFill="#bf616a">
+                                                            <Label fx:id="labelCs2" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/VectorRed.png" />
-                                                               </image></ImageView>
+                                                            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelGold2" text="99.999" textFill="#ebcb8b">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/goldIcon.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelDmg2" text="99.999" textFill="#bf616a">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/VectorRed.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
                                                          </children>
-                                                      </HBox>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                         <children>
+                                                            <HBox fx:id="playedMatchItems21" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                            <HBox fx:id="playedMatchItems22" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
                                                    </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
-                                                   <children>
-                                                      <HBox fx:id="playedMatchItems21" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
-                                                      <HBox fx:id="playedMatchItems22" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <VBox.margin>
-                                                            <Insets top="10.0" />
-                                                         </VBox.margin>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
+                                                </HBox>
                                              </children>
-                                          </HBox>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="30.0" top="20.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                    <Pane layoutX="10.0" layoutY="230.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                             <VBox.margin>
+                                                <Insets left="30.0" top="20.0" />
+                                             </VBox.margin>
+                                          </Pane>
+                                          <Pane layoutX="10.0" layoutY="230.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
                                              <children>
-                                                <Circle fx:id="championCircle3" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
-                                                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                                    <children>
-                                                      <Label fx:id="labelName3" text="Name" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="labelKda3" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox fx:id="spells3" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelCs3" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                      <Circle fx:id="championCircle3" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label fx:id="labelGold3" text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelName3" text="Name" textFill="WHITE">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/goldIcon.png" />
-                                                               </image></ImageView>
+                                                            <Label fx:id="labelKda3" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox fx:id="spells3" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                          </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label fx:id="labelDmg3" text="99.999" textFill="#bf616a">
+                                                            <Label fx:id="labelCs3" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/VectorRed.png" />
-                                                               </image></ImageView>
+                                                            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelGold3" text="99.999" textFill="#ebcb8b">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/goldIcon.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelDmg3" text="99.999" textFill="#bf616a">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/VectorRed.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
                                                          </children>
-                                                      </HBox>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                         <children>
+                                                            <HBox fx:id="playedMatchItems31" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                            <HBox fx:id="playedMatchItems32" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
                                                    </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
-                                                   <children>
-                                                      <HBox fx:id="playedMatchItems31" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
-                                                      <HBox fx:id="playedMatchItems32" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <VBox.margin>
-                                                            <Insets top="10.0" />
-                                                         </VBox.margin>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
+                                                </HBox>
                                              </children>
-                                          </HBox>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="30.0" top="20.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                    <Pane layoutX="10.0" layoutY="330.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                             <VBox.margin>
+                                                <Insets left="30.0" top="20.0" />
+                                             </VBox.margin>
+                                          </Pane>
+                                          <Pane layoutX="10.0" layoutY="330.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #5e81ac;">
                                              <children>
-                                                <Circle fx:id="championCircle4" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
-                                                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
                                                    <children>
-                                                      <Label fx:id="labelName4" text="Name" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="labelKda4" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox fx:id="spells4" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelCs4" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                      <Circle fx:id="championCircle4" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label fx:id="labelGold4" text="99.999" textFill="#ebcb8b">
+                                                            <Label fx:id="labelName4" text="Name" textFill="WHITE">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/goldIcon.png" />
-                                                               </image></ImageView>
+                                                            <Label fx:id="labelKda4" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox fx:id="spells4" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
                                                          </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
                                                          <children>
-                                                            <Label fx:id="labelDmg4" text="99.999" textFill="#bf616a">
+                                                            <Label fx:id="labelCs4" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
                                                                <font>
                                                                   <Font name="Josefin Sans Regular" size="20.0" />
                                                                </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
                                                             </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/VectorRed.png" />
-                                                               </image></ImageView>
+                                                            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelGold4" text="99.999" textFill="#ebcb8b">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/goldIcon.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelDmg4" text="99.999" textFill="#bf616a">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/VectorRed.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
                                                          </children>
-                                                      </HBox>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                         <children>
+                                                            <HBox fx:id="playedMatchItems41" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                            <HBox fx:id="playedMatchItems42" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
                                                    </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
-                                                   <children>
-                                                      <HBox fx:id="playedMatchItems41" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
-                                                      <HBox fx:id="playedMatchItems42" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <VBox.margin>
-                                                            <Insets top="10.0" />
-                                                         </VBox.margin>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
+                                                </HBox>
                                              </children>
-                                          </HBox>
+                                             <VBox.margin>
+                                                <Insets left="30.0" top="20.0" />
+                                             </VBox.margin>
+                                          </Pane>
                                        </children>
-                                       <VBox.margin>
-                                          <Insets left="30.0" top="20.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                 </children>
-                              </VBox>
-                              <VBox prefHeight="574.0" prefWidth="532.5">
-                                 <children>
-                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
-                                             <children>
-                                                <Circle fx:id="championCircle5" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
-                                                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelName5" text="Name" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="labelKda5" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox fx:id="spells5" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelCs5" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Label fx:id="labelGold5" text="99.999" textFill="#ebcb8b">
-                                                               <font>
-                                                                  <Font name="Josefin Sans Regular" size="20.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/goldIcon.png" />
-                                                               </image></ImageView>
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Label fx:id="labelDmg5" text="99.999" textFill="#88c0d0">
-                                                               <font>
-                                                                  <Font name="Josefin Sans Regular" size="20.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/Vector.png" />
-                                                               </image></ImageView>
-                                                         </children>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
-                                                   <children>
-                                                      <HBox fx:id="playedMatchItems51" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
-                                                      <HBox fx:id="playedMatchItems52" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <VBox.margin>
-                                                            <Insets top="10.0" />
-                                                         </VBox.margin>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="10.0" top="20.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                    <Pane layoutX="20.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
-                                             <children>
-                                                <Circle fx:id="championCircle6" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
-                                                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelName6" text="Name" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="labelKda6" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox fx:id="spells6" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelCs6" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Label fx:id="labelGold6" text="99.999" textFill="#ebcb8b">
-                                                               <font>
-                                                                  <Font name="Josefin Sans Regular" size="20.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/goldIcon.png" />
-                                                               </image></ImageView>
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Label fx:id="labelDmg6" text="99.999" textFill="#88c0d0">
-                                                               <font>
-                                                                  <Font name="Josefin Sans Regular" size="20.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/Vector.png" />
-                                                               </image></ImageView>
-                                                         </children>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
-                                                   <children>
-                                                      <HBox fx:id="playedMatchItems61" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
-                                                      <HBox fx:id="playedMatchItems62" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <VBox.margin>
-                                                            <Insets top="10.0" />
-                                                         </VBox.margin>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="10.0" top="20.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                    <Pane layoutX="10.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
-                                             <children>
-                                                <Circle fx:id="championCircle7" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
-                                                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelName7" text="Name" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="labelKda7" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox fx:id="spells7" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelCs7" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Label fx:id="labelGold7" text="99.999" textFill="#ebcb8b">
-                                                               <font>
-                                                                  <Font name="Josefin Sans Regular" size="20.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/goldIcon.png" />
-                                                               </image></ImageView>
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Label fx:id="labelDmg7" text="99.999" textFill="#88c0d0">
-                                                               <font>
-                                                                  <Font name="Josefin Sans Regular" size="20.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/Vector.png" />
-                                                               </image></ImageView>
-                                                         </children>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
-                                                   <children>
-                                                      <HBox fx:id="playedMatchItems71" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
-                                                      <HBox fx:id="playedMatchItems72" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <VBox.margin>
-                                                            <Insets top="10.0" />
-                                                         </VBox.margin>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="10.0" top="20.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                    <Pane layoutX="10.0" layoutY="230.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
-                                             <children>
-                                                <Circle fx:id="championCircle8" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
-                                                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelName8" text="Name" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="labelKda8" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox fx:id="spells8" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelCs8" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Label fx:id="labelGold8" text="99.999" textFill="#ebcb8b">
-                                                               <font>
-                                                                  <Font name="Josefin Sans Regular" size="20.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/goldIcon.png" />
-                                                               </image></ImageView>
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Label fx:id="labelDmg8" text="99.999" textFill="#88c0d0">
-                                                               <font>
-                                                                  <Font name="Josefin Sans Regular" size="20.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/Vector.png" />
-                                                               </image></ImageView>
-                                                         </children>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
-                                                   <children>
-                                                      <HBox fx:id="playedMatchItems81" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
-                                                      <HBox fx:id="playedMatchItems82" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <VBox.margin>
-                                                            <Insets top="10.0" />
-                                                         </VBox.margin>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="10.0" top="20.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                    <Pane layoutX="10.0" layoutY="330.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
-                                             <children>
-                                                <Circle fx:id="championCircle9" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
-                                                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelName9" text="Name" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="labelKda9" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox fx:id="spells9" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
-                                                   <children>
-                                                      <Label fx:id="labelCs9" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Josefin Sans Regular" size="20.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Label fx:id="labelGold9" text="99.999" textFill="#ebcb8b">
-                                                               <font>
-                                                                  <Font name="Josefin Sans Regular" size="20.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/goldIcon.png" />
-                                                               </image></ImageView>
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
-                                                         <children>
-                                                            <Label fx:id="labelDmg9" text="99.999" textFill="#88c0d0">
-                                                               <font>
-                                                                  <Font name="Josefin Sans Regular" size="20.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets right="5.0" />
-                                                               </HBox.margin>
-                                                            </Label>
-                                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../assets/Vector.png" />
-                                                               </image></ImageView>
-                                                         </children>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
-                                                   <children>
-                                                      <HBox fx:id="playedMatchItems91" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
-                                                      <HBox fx:id="playedMatchItems92" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
-                                                         <VBox.margin>
-                                                            <Insets top="10.0" />
-                                                         </VBox.margin>
-                                                      </HBox>
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="10.0" top="20.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                     </top>
-                     <left>
-                        <VBox prefHeight="204.0" prefWidth="1066.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label text="Weakness" textFill="#bf616a">
-                                 <font>
-                                    <Font size="37.0" />
-                                 </font>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <VBox.margin>
-                                    <Insets left="50.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox minHeight="-Infinity" prefHeight="291.0" prefWidth="1066.0">
-                                 <children>
-                                    <TextArea fx:id="infoCard" editable="false" prefHeight="250.0" prefWidth="504.0" text="Loading...&#10;">
                                        <HBox.margin>
-                                          <Insets left="40.0" />
+                                          <Insets />
                                        </HBox.margin>
-                                    </TextArea>
-                                    <ImageView fitHeight="56.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-                                       <image>
-                                          <Image url="@../assets/BackIcon.png" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets left="50.0" right="50.0" top="120.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="imgTips" fitHeight="292.0" fitWidth="426.0" pickOnBounds="true" />
+                                    </VBox>
+                                    <VBox prefHeight="574.0" prefWidth="532.5">
+                                       <children>
+                                          <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                   <children>
+                                                      <Circle fx:id="championCircle5" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                         <children>
+                                                            <Label fx:id="labelName5" text="Name" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="labelKda5" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox fx:id="spells5" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                         <children>
+                                                            <Label fx:id="labelCs5" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelGold5" text="99.999" textFill="#ebcb8b">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/goldIcon.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelDmg5" text="99.999" textFill="#88c0d0">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/Vector.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                         <children>
+                                                            <HBox fx:id="playedMatchItems51" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                            <HBox fx:id="playedMatchItems52" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="10.0" top="20.0" />
+                                             </VBox.margin>
+                                          </Pane>
+                                          <Pane layoutX="20.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                   <children>
+                                                      <Circle fx:id="championCircle6" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                         <children>
+                                                            <Label fx:id="labelName6" text="Name" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="labelKda6" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox fx:id="spells6" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                         <children>
+                                                            <Label fx:id="labelCs6" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelGold6" text="99.999" textFill="#ebcb8b">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/goldIcon.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelDmg6" text="99.999" textFill="#88c0d0">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/Vector.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                         <children>
+                                                            <HBox fx:id="playedMatchItems61" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                            <HBox fx:id="playedMatchItems62" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="10.0" top="20.0" />
+                                             </VBox.margin>
+                                          </Pane>
+                                          <Pane layoutX="10.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                   <children>
+                                                      <Circle fx:id="championCircle7" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                         <children>
+                                                            <Label fx:id="labelName7" text="Name" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="labelKda7" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox fx:id="spells7" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                         <children>
+                                                            <Label fx:id="labelCs7" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelGold7" text="99.999" textFill="#ebcb8b">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/goldIcon.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelDmg7" text="99.999" textFill="#88c0d0">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/Vector.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                         <children>
+                                                            <HBox fx:id="playedMatchItems71" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                            <HBox fx:id="playedMatchItems72" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="10.0" top="20.0" />
+                                             </VBox.margin>
+                                          </Pane>
+                                          <Pane layoutX="10.0" layoutY="230.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                   <children>
+                                                      <Circle fx:id="championCircle8" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                         <children>
+                                                            <Label fx:id="labelName8" text="Name" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="labelKda8" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox fx:id="spells8" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                         <children>
+                                                            <Label fx:id="labelCs8" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelGold8" text="99.999" textFill="#ebcb8b">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/goldIcon.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelDmg8" text="99.999" textFill="#88c0d0">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/Vector.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                         <children>
+                                                            <HBox fx:id="playedMatchItems81" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                            <HBox fx:id="playedMatchItems82" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="10.0" top="20.0" />
+                                             </VBox.margin>
+                                          </Pane>
+                                          <Pane layoutX="10.0" layoutY="330.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="480.0" style="-fx-background-color: #BF616A;">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="480.0">
+                                                   <children>
+                                                      <Circle fx:id="championCircle9" fill="#9a9a9a" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Circle>
+                                                      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="121.0">
+                                                         <children>
+                                                            <Label fx:id="labelName9" text="Name" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="labelKda9" layoutX="44.0" layoutY="45.0" text="0/0/0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox fx:id="spells9" alignment="CENTER" prefHeight="34.0" prefWidth="121.0" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="121.0">
+                                                         <children>
+                                                            <Label fx:id="labelCs9" prefHeight="30.0" prefWidth="74.0" text="999 CS" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Josefin Sans Regular" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelGold9" text="99.999" textFill="#ebcb8b">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/goldIcon.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="28.0" prefWidth="121.0">
+                                                               <children>
+                                                                  <Label fx:id="labelDmg9" text="99.999" textFill="#88c0d0">
+                                                                     <font>
+                                                                        <Font name="Josefin Sans Regular" size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/Vector.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                                         <children>
+                                                            <HBox fx:id="playedMatchItems91" alignment="CENTER" prefHeight="24.0" prefWidth="121.0" />
+                                                            <HBox fx:id="playedMatchItems92" alignment="CENTER" layoutX="10.0" layoutY="45.0" prefHeight="24.0" prefWidth="121.0">
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="10.0" top="20.0" />
+                                             </VBox.margin>
+                                          </Pane>
+                                       </children>
+                                    </VBox>
                                  </children>
                               </HBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Weakness">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
                               <VBox prefHeight="204.0" prefWidth="1066.0">
                                  <children>
-                                    <HBox minHeight="-Infinity" prefHeight="291.0" prefWidth="1066.0">
+                                    <HBox minHeight="-Infinity" prefHeight="303.0" prefWidth="1066.0">
                                        <children>
-                                          <ImageView fx:id="imgTips1" fitHeight="292.0" fitWidth="426.0" pickOnBounds="true">
+                                          <TextArea fx:id="infoCard" editable="false" prefHeight="284.0" prefWidth="462.0" text="Loading...&#10;">
                                              <HBox.margin>
-                                                <Insets top="50.0" />
-                                             </HBox.margin></ImageView>
-                                          <ImageView fitHeight="56.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                                <Insets bottom="20.0" left="20.0" />
+                                             </HBox.margin>
+                                          </TextArea>
+                                          <ImageView fitHeight="56.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                                              <image>
                                                 <Image url="@../assets/BackIcon.png" />
                                              </image>
                                              <HBox.margin>
-                                                <Insets left="50.0" right="50.0" top="170.0" />
+                                                <Insets left="50.0" right="50.0" top="120.0" />
                                              </HBox.margin>
                                           </ImageView>
-                                          <TextArea fx:id="infoCard1" editable="false" prefHeight="250.0" prefWidth="504.0" text="Loading...">
-                                             <HBox.margin>
-                                                <Insets left="40.0" top="50.0" />
-                                             </HBox.margin>
-                                          </TextArea>
+                                          <ImageView fx:id="imgTips" fitHeight="292.0" fitWidth="426.0" pickOnBounds="true" />
                                        </children>
-                                       <padding>
-                                          <Insets left="20.0" />
-                                       </padding>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
                                     </HBox>
+                                    <VBox prefHeight="204.0" prefWidth="1066.0">
+                                       <children>
+                                          <HBox minHeight="-Infinity" prefHeight="291.0" prefWidth="1021.0">
+                                             <children>
+                                                <ImageView fx:id="imgTips1" fitHeight="239.0" fitWidth="438.0" pickOnBounds="true">
+                                                   <HBox.margin>
+                                                      <Insets top="50.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <ImageView fitHeight="56.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../assets/BackIcon.png" />
+                                                   </image>
+                                                   <HBox.margin>
+                                                      <Insets left="80.0" right="30.0" top="140.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <TextArea fx:id="infoCard1" editable="false" prefHeight="251.0" prefWidth="429.0" text="Loading...">
+                                                   <HBox.margin>
+                                                      <Insets left="40.0" right="10.0" top="20.0" />
+                                                   </HBox.margin>
+                                                </TextArea>
+                                             </children>
+                                             <padding>
+                                                <Insets left="20.0" />
+                                             </padding>
+                                          </HBox>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets left="90.0" />
+                                       </opaqueInsets>
+                                    </VBox>
                                  </children>
                                  <opaqueInsets>
                                     <Insets left="90.0" />
                                  </opaqueInsets>
                               </VBox>
                            </children>
-                           <opaqueInsets>
-                              <Insets left="90.0" />
-                           </opaqueInsets>
-                        </VBox>
-                     </left>
-                  </BorderPane>
-               </content>
-            </ScrollPane>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+               </tabs>
+            </JFXTabPane>
          </center>
       </BorderPane>
    </children>

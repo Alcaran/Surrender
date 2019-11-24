@@ -98,11 +98,19 @@
                                  </font>
                               </Label>
                               <ImageView fx:id="tierBorder" fitHeight="111.0" fitWidth="220.0" layoutX="432.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label alignment="CENTER" layoutX="758.0" layoutY="77.0" prefHeight="38.0" prefWidth="189.0" text="Play style" textFill="#566175">
+                                 <font>
+                                    <Font name="Josefin Sans Regular" size="26.0" />
+                                 </font>
+                              </Label>
+                              <HBox fx:id="hboxpercentages" layoutX="699.0" layoutY="127.0" prefHeight="41.0" prefWidth="313.0" />
+                              <HBox fx:id="hboxbars" layoutX="699.0" layoutY="168.0" prefHeight="122.0" prefWidth="313.0" />
+                              <HBox fx:id="hboxclassimage" layoutX="699.0" layoutY="299.0" prefHeight="41.0" prefWidth="313.0" />
                            </children>
                         </Pane>
                      </top>
                      <center>
-                        <VBox alignment="TOP_CENTER" prefHeight="762.0" prefWidth="1070.0" BorderPane.alignment="CENTER">
+                        <VBox alignment="TOP_CENTER" prefHeight="780.0" prefWidth="1130.0" BorderPane.alignment="CENTER">
                            <children>
                               <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="Most Played Champions" textAlignment="CENTER" textFill="WHITE">
                                  <font>
@@ -427,6 +435,9 @@
                                  </VBox.margin>
                               </JFXButton>
                            </children>
+                           <BorderPane.margin>
+                              <Insets top="30.0" />
+                           </BorderPane.margin>
                         </VBox>
                      </center>
                   </BorderPane>
