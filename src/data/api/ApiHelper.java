@@ -38,7 +38,7 @@ public class ApiHelper {
 
     public JSONObject getChampionData() throws Exception {
         return request.sendGet(
-                "https://ddragon.leagueoflegends.com/cdn/9.23.1/data/en_US/champion.json",
+                "https://ddragon.leagueoflegends.com/cdn/9.22.1/data/en_US/champion.json",
                 new ArrayList<>(),
                 true
         );

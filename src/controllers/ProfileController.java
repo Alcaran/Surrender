@@ -223,11 +223,11 @@ public class ProfileController implements Initializable {
         analysesStage.initStyle(StageStyle.TRANSPARENT);
 
         if(id.equals("btnMatch1"))
-            analyses.initData(listMatches.get(0), analysesStage, championJsonData);
+            analyses.initData(listMatches.get(0), analysesStage, championJsonData, summoner.getAccountId());
         else if(id.equals("btnMatch2"))
-            analyses.initData(listMatches.get(1), analysesStage, championJsonData);
+            analyses.initData(listMatches.get(1), analysesStage, championJsonData, summoner.getAccountId());
         else
-            analyses.initData(listMatches.get(2), analysesStage, championJsonData);
+            analyses.initData(listMatches.get(2), analysesStage, championJsonData, summoner.getAccountId());
     }
 
     @FXML
@@ -333,12 +333,10 @@ public class ProfileController implements Initializable {
                     rankedLosses.setText(rankedSummonerInfo.getLosses() + " L");
 
                     // Set tier image
-                    File file = new File(Tiers.valueOf(rankedSummonerInfo.getTier()).getImageEloPath());
-                    tier.setImage(new Image(file.toURI().toString()));
+                    tier.setImage(new Image(Tiers.valueOf(rankedSummonerInfo.getTier()).getImageEloPath()));
 
                     // Set tier image
-                    File fileBorder = new File(Tiers.valueOf(rankedSummonerInfo.getTier()).getImageEloBorderPath());
-                    tierBorder.setImage(new Image(fileBorder.toURI().toString()));
+                    tierBorder.setImage(new Image(Tiers.valueOf(rankedSummonerInfo.getTier()).getImageEloBorderPath()));
 
 
                     SummonerMatchList summonerMatchList = new SummonerMatchList(
@@ -488,7 +486,7 @@ public class ProfileController implements Initializable {
             // Set profile image icon
             String profileIconId = String.valueOf(searchedSummoner.getIconId());
             Image image = new Image(
-                    "http://ddragon.leagueoflegends.com/cdn/9.23.1/img/profileicon/"
+                        "http://ddragon.leagueoflegends.com/cdn/9.22.1/img/profileicon/"
                             + profileIconId + ".png", false);
             imageCircle.setFill(new ImagePattern(image));
 
@@ -535,7 +533,6 @@ public class ProfileController implements Initializable {
             throws IllegalAccessException, NoSuchFieldException {
         Field field = getClass().getDeclaredField(fieldName);
         ImageView tier = (ImageView) field.get(this);
-        File file = new File(fieldValue);
-        tier.setImage(new Image(file.toURI().toString()));
+        tier.setImage(new Image(fieldValue));
     }
 }

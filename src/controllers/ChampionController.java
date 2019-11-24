@@ -224,12 +224,11 @@ public class ChampionController implements Initializable {
 
             tipsTask.setOnSucceeded(ti -> {
                 infoCard.setText(tipsTask.getValue()[0].getString("text"));
-                String src = "src/assets/tips-images/" + tipsTask.getValue()[0].getString("url");
-                imgTips.setImage(new Image(new File(src).toURI().toString()));
+                String src = "/assets/tips-images/" + tipsTask.getValue()[0].getString("url");
+                imgTips.setImage(new Image(src));
                 infoCard1.setText(tipsTask.getValue()[1].getString("text"));
-                String src1 = "src/assets/tips-images/" + tipsTask.getValue()[1].getString("url");
-                File f = new File(src1);
-                imgTips1.setImage(new Image(f.toURI().toString()));
+                String src1 = "/assets/tips-images/" + tipsTask.getValue()[1].getString("url");
+                imgTips1.setImage(new Image(src1));
             });
             exec.execute(tipsTask);
         });

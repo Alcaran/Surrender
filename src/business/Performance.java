@@ -4,11 +4,9 @@ import data.database.DataReferenceDao;
 import data.database.DataTipsDao;
 import data.enums.PerformanceWeightByChampionClass;
 import org.json.JSONObject;
-import org.json.simple.parser.ParseException;
-import utils.JSONUtils;
 import utils.NumberUtils;
 
-import java.io.File;
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -29,8 +27,8 @@ public class Performance {
     }
 
 
-    public Performance(Champion champion, JSONObject participant)
-            throws SQLException, ClassNotFoundException, IOException, ParseException {
+        public Performance(Champion champion, JSONObject participant)
+            throws SQLException, ClassNotFoundException, IOException {
         this.champion = champion;
         this.participant = participant;
         this.performanceScore = calculatePerformanceScore();
@@ -41,32 +39,32 @@ public class Performance {
     }
 
     public List<Object> calculatePerformanceScoreWithMultipleMatches(
-            SummonerMatchList summonerMatchList,
-            String accountId,
-            Enum server
+                SummonerMatchList summonerMatchList,
+                String accountId,
+                Enum server
     ) throws Exception {
-        double wardsPlaced = 0;
-        double kda = 0;
-        double gold = 0;
-        double damage = 0;
-        double score = 0;
-        ArrayList<Double> playedData = new ArrayList<>();
-        for (Object pureJsonMatch : summonerMatchList.getPureMatchHistory()) {
+            double wardsPlaced = 0;
+            double kda = 0;
+            double gold = 0;
+            double damage = 0;
+            double score = 0;
+            ArrayList<Double> playedData = new ArrayList<>();
+            for (Object pureJsonMatch : summonerMatchList.getPureMatchHistory()) {
 
-            JSONObject matchResponse = (JSONObject) pureJsonMatch;
-            Match match = new Match(String.valueOf(matchResponse.getLong("gameId")),server);
-            participant = match.getParticipantDtoBySummonerAccountId(accountId).getJSONObject("stats");
-            wardsPlaced += participant.getInt("wardsPlaced");
-            kda += (
-                    participant.getInt("kills") + participant.getInt("assists")
-            ) / match.setDeathToWhenItIsZero(participant.getInt("deaths"));
-            gold += participant.getInt("goldEarned");
-            damage += participant.getInt("totalDamageDealt");
-            double currentScore = calculatePerformanceScore();
-            ;
-            score += currentScore;
-            playedData.add(currentScore);
-        }
+                JSONObject matchResponse = (JSONObject) pureJsonMatch;
+                Match match = new Match(String.valueOf(matchResponse.getLong("gameId")),server);
+                participant = match.getParticipantDtoBySummonerAccountId(accountId).getJSONObject("stats");
+                wardsPlaced += participant.getInt("wardsPlaced");
+                kda += (
+                        participant.getInt("kills") + participant.getInt("assists")
+                ) / match.setDeathToWhenItIsZero(participant.getInt("deaths"));
+                gold += participant.getInt("goldEarned");
+                damage += participant.getInt("totalDamageDealt");
+                double currentScore = calculatePerformanceScore();
+                ;
+                score += currentScore;
+                playedData.add(currentScore);
+            }
         return Stream.of(
                 NumberUtils.round(wardsPlaced / 5, 1),
                 NumberUtils.round(kda / 5, 1),
@@ -77,7 +75,36 @@ public class Performance {
         ).collect(Collectors.toList());
     }
 
-    private double calculatePerformanceScore() throws SQLException, ClassNotFoundException, IOException, ParseException {
+    public List<Object> calculatePerformanceWithMatch(
+            Match match,
+            String accountId
+    ) throws Exception {
+        double wardsPlaced = 0;
+        double kda = 0;
+        double gold = 0;
+        double damage = 0;
+        double score = 0;
+        ArrayList<Double> playedData = new ArrayList<>();
+            participant = match.getParticipantDtoBySummonerAccountId(accountId).getJSONObject("stats");
+            wardsPlaced += participant.getInt("wardsPlaced");
+            kda += (
+                    participant.getInt("kills") + participant.getInt("assists")
+            ) / match.setDeathToWhenItIsZero(participant.getInt("deaths"));
+            gold += participant.getInt("goldEarned");
+            damage += participant.getInt("totalDamageDealt");
+            double currentScore = calculatePerformanceScore();
+            ;
+            score += currentScore;
+        return Stream.of(
+                NumberUtils.round(wardsPlaced / 5, 1),
+                NumberUtils.round(kda / 5, 1),
+                NumberUtils.round(gold / 5, 1),
+                NumberUtils.round(damage / 5, 1),
+                NumberUtils.round(score / 5, 1)
+        ).collect(Collectors.toList());
+    }
+
+    private double calculatePerformanceScore() throws SQLException, ClassNotFoundException {
         String championTagType = String.valueOf(
                 champion.getChampionData().getJSONArray("tags").get(0)
         ).toUpperCase();

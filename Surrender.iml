@@ -11,6 +11,5 @@
     <orderEntry type="library" name="json-20190722" level="project" />
     <orderEntry type="library" name="gradle-wrapper" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0.18" level="project" />
-    <orderEntry type="library" name="json-simple-1.1" level="project" />
   </component>
 </module>

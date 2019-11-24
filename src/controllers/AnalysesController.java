@@ -1,18 +1,17 @@
 package controllers;
 
-import business.Champion;
-import business.Match;
-import business.Player;
-import business.Ranked;
+import business.*;
 import data.api.ApiHelper;
 import data.enums.ImagesUrl;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -27,12 +26,17 @@ import org.json.JSONObject;
 import utils.GraphicUtils;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
-public class AnalysesController {
+public class AnalysesController implements Initializable {
     @FXML
     private BorderPane bp;
     @FXML
@@ -216,10 +220,20 @@ public class AnalysesController {
     @FXML
     HBox spells9;
 
+    @FXML
+    TextArea infoCard;
+    @FXML
+    TextArea infoCard1;
+    @FXML
+    ImageView imgTips;
+    @FXML
+    ImageView imgTips1;
+
     private List<Rectangle> rectangles;
     private List<Circle> circles;
     private JSONObject player;
     private JSONObject championJson;
+    private Executor exec;
 
     @FXML
     private void handleButtonAction() {
@@ -230,7 +244,12 @@ public class AnalysesController {
         Stage stage  = (Stage) bp.getScene().getWindow();
         stage.close();
     }
-    void initData(Match playerMatch, Stage analysesStage, JSONObject championJsonData) throws Exception {
+    void initData(
+            Match playerMatch,
+            Stage analysesStage,
+            JSONObject championJsonData,
+            String accountId
+    ) throws Exception {
         analysesStage.show();
         this.championJson = championJsonData;
         JSONArray playersArray = playerMatch.getParticipantIdentities();
@@ -294,21 +313,21 @@ public class AnalysesController {
             );
 
 
-            rectangles = new ArrayList<>();
-            for (int j = 1; j <= 2; j++) {
-                rectangles = GraphicUtils.createRectangleItemsRow(
-                        playerMatch.getItemsSlotsByParticipantId(
-                                String.valueOf(participantChampion.getInt("participantId")), j),
-                        3,
-                        1,
-                        35
-                );
-
-                setHBoxStyleByFieldCall(
-                        "playedMatchItems" + a + "" + j,
-                        rectangles
-                );
-            }
+//            rectangles = new ArrayList<>();
+//            for (int j = 1; j <= 2; j++) {
+//                rectangles = GraphicUtils.createRectangleItemsRow(
+//                        playerMatch.getItemsSlotsByParticipantId(
+//                                String.valueOf(participantChampion.getInt("participantId")), j),
+//                        3,
+//                        1,
+//                        35
+//                );
+//
+//                setHBoxStyleByFieldCall(
+//                        "playedMatchItems" + a + "" + j,
+//                        rectangles
+//                );
+//            }
 
             circles = new ArrayList<>();
             ArrayList<Integer> spellslist = new ArrayList<>();
@@ -327,6 +346,41 @@ public class AnalysesController {
 
         }
 
+        Task<JSONObject[]> performanceTask = new Task<JSONObject[]>() {
+            @Override
+            protected JSONObject[] call() throws Exception {
+                JSONObject participantChampion = playerMatch.
+                        getParticipantDtoBySummonerAccountId(accountId);
+
+                Champion champion = new Champion(
+                        String.valueOf(participantChampion.getInt("championId")),
+                        championJsonData
+                );
+
+                Performance performance = new Performance(champion);
+                List<Object> performanceData = performance.calculatePerformanceWithMatch(
+                        playerMatch,
+                        accountId
+                );
+
+                return performance.getWorstPerformanceAttributesTips(performanceData);
+            }
+        };
+
+        performanceTask.setOnFailed(e -> {
+            performanceTask.getException().printStackTrace();
+        });
+
+        performanceTask.setOnSucceeded(e -> {
+            infoCard.setText(performanceTask.getValue()[0].getString("text"));
+            String src = "/assets/tips-images/" + performanceTask.getValue()[0].getString("url");
+            imgTips.setImage(new Image(src));
+            infoCard1.setText(performanceTask.getValue()[1].getString("text"));
+            String src1 = "/assets/tips-images/" + performanceTask.getValue()[1].getString("url");
+            imgTips1.setImage(new Image(src1));
+        });
+
+        exec.execute(performanceTask);
     }
 
     private void setLabelStyleByFieldCall(String fieldName, String fieldValue, String color)
@@ -360,4 +414,13 @@ public class AnalysesController {
         hbox.setSpacing(5.00);
         hbox.getChildren().addAll(fieldValue);
     }
+
+    public void initialize(URL url, ResourceBundle rb) {
+        exec = Executors.newCachedThreadPool(runnable -> {
+            Thread t = new Thread(runnable);
+            t.setDaemon(true);
+            return t;
+        });
+    }
+
 }

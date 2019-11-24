@@ -52,7 +52,7 @@
             </HBox>
          </top>
          <center>
-            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="636.0" prefWidth="1080.0" stylesheets="@css/pane.css" BorderPane.alignment="CENTER">
+            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" minHeight="-Infinity" prefHeight="636.0" prefWidth="1080.0" stylesheets="@css/pane.css" BorderPane.alignment="CENTER">
                <content>
                   <BorderPane prefHeight="1000.0" prefWidth="1070.0" style="-fx-background-color: #2E3440;">
                      <top>
@@ -890,14 +890,70 @@
                         </HBox>
                      </top>
                      <bottom>
-                        <ImageView fitHeight="870.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                           <BorderPane.margin>
-                              <Insets top="30.0" />
-                           </BorderPane.margin>
-                           <image>
-                              <Image url="@../assets/Overview.png" />
-                           </image>
-                        </ImageView>
+                        <VBox prefHeight="204.0" prefWidth="1066.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Weakness" textFill="#bf616a">
+                                 <font>
+                                    <Font size="37.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets left="50.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox minHeight="-Infinity" prefHeight="291.0" prefWidth="1066.0">
+                                 <children>
+                                    <TextArea fx:id="infoCard" editable="false" prefHeight="250.0" prefWidth="504.0" text="Loading...&#10;">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                    </TextArea>
+                                    <ImageView fitHeight="56.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                                       <image>
+                                          <Image url="@../assets/BackIcon.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="50.0" right="50.0" top="120.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="imgTips" fitHeight="292.0" fitWidth="426.0" pickOnBounds="true" />
+                                 </children>
+                              </HBox>
+                              <VBox prefHeight="204.0" prefWidth="1066.0">
+                                 <children>
+                                    <HBox minHeight="-Infinity" prefHeight="291.0" prefWidth="1066.0">
+                                       <children>
+                                          <ImageView fx:id="imgTips1" fitHeight="292.0" fitWidth="426.0" pickOnBounds="true" />
+                                          <ImageView fitHeight="56.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../assets/BackIcon.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="50.0" right="50.0" top="120.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextArea fx:id="infoCard1" editable="false" prefHeight="250.0" prefWidth="504.0" text="Loading...">
+                                             <HBox.margin>
+                                                <Insets left="40.0" />
+                                             </HBox.margin>
+                                          </TextArea>
+                                       </children>
+                                       <padding>
+                                          <Insets left="20.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets left="90.0" />
+                                 </opaqueInsets>
+                              </VBox>
+                           </children>
+                           <opaqueInsets>
+                              <Insets left="90.0" />
+                           </opaqueInsets>
+                        </VBox>
                      </bottom>
                   </BorderPane>
                </content>

@@ -11,13 +11,9 @@ public class SummonerChampions {
 
     private  ArrayList<Champion> topPlayedChampions;
 
-    public ArrayList<Champion> getTopPlayedChampions() {
-        return topPlayedChampions;
-    }
-
     private JSONObject championJsonData;
 
-    public Champion getChampionByIndex (int index) {
+    public Champion getChampionByIndex(int index) {
         return topPlayedChampions.get(index);
     }
 
@@ -43,29 +39,5 @@ public class SummonerChampions {
             champions.add(new Champion(championId, championJsonData));
         }
         return champions;
-    }
-
-    private ArrayList<JSONObject> getSummonerChampionsById(String[] championsId) {
-        ArrayList<JSONObject> championsName = new ArrayList<>();
-
-        Iterator<String> keys = championJsonData.keys();
-        while(keys.hasNext()) {
-            String key = keys.next();
-            if (championJsonData.get(key) instanceof JSONObject) {
-                JSONObject obj = (JSONObject) championJsonData.get(key);
-                if(championExists(championsId, (obj.getString("key")))) {
-                    championsName.add(obj);
-                }
-            }
-        }
-
-        return championsName;
-    }
-
-    private boolean championExists(String[] championsId, String targetValue) {
-        for (String champion : championsId)
-            if(champion.equals(targetValue))
-                return true;
-        return false;
     }
 }

@@ -30,7 +30,7 @@ public enum Tiers {
 
     Tiers(String eloName, String imageEloPath, String imageEloBorderPath) {
         this.eloName = eloName;
-        this.imageEloPath = "src/assets/ranked-emblems/" + imageEloPath + ".png";
-        this.imageEloBorderPath = "src/assets/ranked-emblems/" + imageEloBorderPath + ".png";
+        this.imageEloPath = "/assets/ranked-emblems/" + imageEloPath + ".png";
+        this.imageEloBorderPath = "/assets/ranked-emblems/" + imageEloBorderPath + ".png";
     }
 }
