@@ -159,7 +159,7 @@ public class MenuController implements Initializable {
         };
 
         profileSummonerTask.setOnFailed(e -> {
-            GraphicUtils.callSnackbar("Player not found", bp);
+            GraphicUtils.callSnackbar("Player not found", bp, "red");
             loaderSpinner.setVisible(false);
         });
 

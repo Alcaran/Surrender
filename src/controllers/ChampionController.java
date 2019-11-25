@@ -113,7 +113,7 @@ public class ChampionController implements Initializable {
             };
 
             profileSummonerTask.setOnFailed(e -> {
-                GraphicUtils.callSnackbar("Player not found", bp);
+                GraphicUtils.callSnackbar("Player not found", bp, "red");
                 loading.setVisible(false);
             });
 
@@ -121,7 +121,7 @@ public class ChampionController implements Initializable {
                 Task<List<Object>> performanceTask =
                         getSummonerMatchListFilteredByChampion(profileSummonerTask.getValue());
                 performanceTask.setOnFailed(s -> {
-                    GraphicUtils.callSnackbar("Player does not have matches with this champion", bp);
+                    GraphicUtils.callSnackbar("Player does not have matches with this champion", bp, "red");
                     loading.setVisible(false);
                 });
 

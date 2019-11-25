@@ -1,10 +1,16 @@
 
 
-.jfx-snackbar-content{
+.jfx-snackbar-content:red{
     -fx-background-color: #bf616a;
     -fx-background-radius: 10;
 
 }
+
+.jfx-snackbar-content:green {
+    -fx-background-color: #a3be8c;
+    -fx-background-radius: 10;
+}
+
 .jfx-snackbar-toast {
     -fx-text-fill: #eceff4;
     -fx-font-family: "Josefin Sans Regular"

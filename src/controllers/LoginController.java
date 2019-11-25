@@ -56,7 +56,7 @@ public class LoginController {
     @FXML
     private void registerButtonAction() throws IOException {
         Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../screens/Register.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/screens/Register.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
         s.show();
@@ -91,7 +91,7 @@ public class LoginController {
                     }
                 }
                 else
-                    GraphicUtils.callSnackbar("Credentials not found", bp);
+                    GraphicUtils.callSnackbar("Credentials not found", bp, "red");
                 spinner.setVisible(false);
             });
 
@@ -124,7 +124,7 @@ public class LoginController {
     }
 
     public void callSuccessOnRegisteredMessage() {
-        GraphicUtils.callSnackbar("User successfully registered", bp);
+        GraphicUtils.callSnackbar("User successfully registered", bp, "green");
     }
 }
 

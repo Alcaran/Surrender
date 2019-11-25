@@ -1,8 +1,10 @@
 package utils;
 
+import com.jfoenix.controls.JFXDecorator;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXSnackbarLayout;
 import data.enums.ImagesUrl;
+import javafx.css.PseudoClass;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
@@ -85,12 +87,12 @@ public class GraphicUtils {
         return circles;
     }
 
-    public static void callSnackbar(String message, Pane pane) {
+    public static void callSnackbar(String message, Pane pane, String color) {
         JFXSnackbar snackbar = new JFXSnackbar(pane);
         snackbar.fireEvent(new JFXSnackbar.SnackbarEvent(
                 new JFXSnackbarLayout(message),
                 Duration.millis(3000),
-                null)
+                new SnackColor(color))
         );
     }
 }

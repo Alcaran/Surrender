@@ -75,7 +75,7 @@ public class RegisterController implements Initializable {
         };
 
         nicknameTask.setOnFailed(n -> {
-            GraphicUtils.callSnackbar("Username already used", bp);
+            GraphicUtils.callSnackbar("Username already used", bp, "red");
         });
 
 
@@ -93,7 +93,7 @@ public class RegisterController implements Initializable {
                 };
 
                 playerTask.setOnFailed(e -> {
-                    GraphicUtils.callSnackbar("Player not found", bp);
+                    GraphicUtils.callSnackbar("Player not found", bp, "red");
                     spinner.setVisible(false);
                 });
 
@@ -109,20 +109,20 @@ public class RegisterController implements Initializable {
                                 );
                                 callSuccessActionOnSubmit();
                             } catch (SQLException | ClassNotFoundException | IOException ex) {
-                                GraphicUtils.callSnackbar("Unexpected error", bp);
+                                GraphicUtils.callSnackbar("Unexpected error", bp, "red");
                                 ex.printStackTrace();
                             }
                         } else {
-                            GraphicUtils.callSnackbar("Passwords does not match", bp);
+                            GraphicUtils.callSnackbar("Passwords does not match", bp, "red");
                         }
                     } else {
-                        GraphicUtils.callSnackbar("Password cant't be empty", bp);
+                        GraphicUtils.callSnackbar("Password cant't be empty", bp, "red");
                     }
 
                 });
                 exec.execute(playerTask);
             } else {
-                GraphicUtils.callSnackbar("Username already used", bp);
+                GraphicUtils.callSnackbar("Username already used", bp, "red");
             }
         });
         exec.execute(nicknameTask);
@@ -141,7 +141,7 @@ public class RegisterController implements Initializable {
     private void backButtonAction() throws IOException {
 
         Stage s = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../screens/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/screens/Login.fxml"));
         s.setScene(new Scene(root));
         s.initStyle(StageStyle.TRANSPARENT);
         s.show();
