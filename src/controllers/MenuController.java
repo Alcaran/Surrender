@@ -91,7 +91,7 @@ public class MenuController implements Initializable {
                 int finalI = i;
                 node.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
                     if (name.equals("btn"))
-                        loadSearchedProfile(linkedAccount.get(finalI - 1), Servers.br1);
+                        loadSearchedProfile(linkedAccount.get(finalI), Servers.br1);
                     else if (node.getId().equals("btnBack"))
                         drawCloseButton();
                     else if (node.getId().equals("btnLogin")) {
