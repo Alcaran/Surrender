@@ -201,6 +201,11 @@ public class MenuController implements Initializable {
     }
 
     private int setToOneIfItIsZero(int number) {
-        return number <= 0 ? 1 : number;
+        if(number <= 0) {
+            return 1;
+        } else if (number >= 1) {
+            return number + 1;
+        }
+        return number;
     }
 }
