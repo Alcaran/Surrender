@@ -38,7 +38,7 @@ public class MenuController implements Initializable {
 
     private Executor exec;
     private Stage profileStage;
-    private ArrayList<String> linkedAccount;
+    private ArrayList<String[]> linkedAccount;
 
     @FXML
     private JFXComboBox<Servers> comboBox;
@@ -64,7 +64,7 @@ public class MenuController implements Initializable {
         });
     }
 
-    void initData(ArrayList<String> linkedAccount) {
+    void initData(ArrayList<String[]> linkedAccount) {
         this.linkedAccount = linkedAccount;
         try {
             ArrayList<JFXButton> buttons = new ArrayList<>();
@@ -75,7 +75,7 @@ public class MenuController implements Initializable {
 
 
             for (int i = 0; i < linkedAccount.size(); i++) {
-                buttons.add(generateDrawerButton(linkedAccount.get(i), "btn" + i));
+                buttons.add(generateDrawerButton(linkedAccount.get(i)[0], "btn" + i));
             }
 
             buttons.add(btn);
@@ -97,7 +97,10 @@ public class MenuController implements Initializable {
                 int finalI = i;
                 node.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
                     if (name.equals("btn"))
-                        loadSearchedProfile(linkedAccount.get(finalI - 1), Servers.br1);
+                        loadSearchedProfile(
+                                linkedAccount.get(finalI - 1)[0],
+                                Servers.valueOf(linkedAccount.get(finalI - 1)[1])
+                        );
                     else if (node.getId().equals("btnBack"))
                         drawCloseButton();
                     else if (node.getId().equals("btnLogin")) {

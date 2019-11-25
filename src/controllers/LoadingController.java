@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class LoadingController implements Initializable {
-    private ArrayList<String> linkedAccounts;
+    private ArrayList<String[]> linkedAccounts;
     Stage menuStage;
     @FXML
     private JFXProgressBar jfxProgress;
@@ -41,7 +41,7 @@ public class LoadingController implements Initializable {
         th.start();
     }
 
-    void initData(ArrayList<String> linkedAccounts) throws IOException {
+    void initData(ArrayList<String[]> linkedAccounts) throws IOException {
         this.linkedAccounts =linkedAccounts;
     }
 

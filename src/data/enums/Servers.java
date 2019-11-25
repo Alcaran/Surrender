@@ -1,23 +1,30 @@
 package data.enums;
 
 public enum Servers {
-    br1("BR"),
-    na1("NA"),
-    kr("KR"),
-    la1("LA"),
-    jp1("JP"),
-    tr1("TR"),
-    ru("RU"),
-    eun1("EU"),
-    oc1("OC");
+    br1("BR", "br1"),
+    na1("NA", "na1"),
+    kr("KR", "kr"),
+    la1("LA", "la1"),
+    jp1("JP", "jp1"),
+    tr1("TR", "tr1"),
+    ru("RU", "ru"),
+    eun1("EU", "eun1"),
+    oc1("OC", "oc1");
 
     private String serverName;
+    private String usefulName;
 
-    Servers(String serverName) {
+    Servers(String serverName, String usefulName) {
+
         this.serverName = serverName;
+        this.usefulName = usefulName;
     }
 
     public String toString() {
         return serverName;
+    }
+
+    public String getUsefulName() {
+        return usefulName;
     }
 }

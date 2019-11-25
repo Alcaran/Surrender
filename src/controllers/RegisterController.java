@@ -75,6 +75,7 @@ public class RegisterController implements Initializable {
         };
 
         nicknameTask.setOnFailed(n -> {
+            spinner.setVisible(false);
             GraphicUtils.callSnackbar("Username already used", bp, "red");
         });
 
@@ -105,7 +106,8 @@ public class RegisterController implements Initializable {
                                 userDao.registerUser(
                                         txtUsername.getText(),
                                         txtPassword.getText(),
-                                        txtAccount.getText()
+                                        txtAccount.getText(),
+                                        comboBox.getValue().getUsefulName()
                                 );
                                 callSuccessActionOnSubmit();
                             } catch (SQLException | ClassNotFoundException | IOException ex) {
@@ -114,15 +116,18 @@ public class RegisterController implements Initializable {
                             }
                         } else {
                             GraphicUtils.callSnackbar("Passwords does not match", bp, "red");
+                            spinner.setVisible(false);
                         }
                     } else {
                         GraphicUtils.callSnackbar("Password cant't be empty", bp, "red");
+                        spinner.setVisible(false);
                     }
 
                 });
                 exec.execute(playerTask);
             } else {
                 GraphicUtils.callSnackbar("Username already used", bp, "red");
+                spinner.setVisible(false);
             }
         });
         exec.execute(nicknameTask);

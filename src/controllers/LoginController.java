@@ -67,9 +67,9 @@ public class LoginController {
 
     @FXML
     private void loginButtonAction() {
-            Task<ArrayList<String>> linkedAccountsTask = new Task<ArrayList<String>>() {
+            Task<ArrayList<String[]>> linkedAccountsTask = new Task<ArrayList<String[]>>() {
                 @Override
-                protected ArrayList<String> call() throws Exception {
+                protected ArrayList<String[]> call() throws Exception {
                     spinner.setVisible(true);
                     return userAccessor.getUser(
                             username.getText(),
@@ -104,7 +104,7 @@ public class LoginController {
         stage.setIconified(true);
     }
 
-    private void goToLoadingScreen(ArrayList<String> linkedAccounts) throws IOException {
+    private void goToLoadingScreen(ArrayList<String[]> linkedAccounts) throws IOException {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/screens/Loading.fxml")
         );

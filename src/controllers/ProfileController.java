@@ -170,7 +170,7 @@ public class ProfileController implements Initializable {
     private JSONObject championJsonData;
     private ArrayList<Match> listMatches;
     private Enum server;
-    private ArrayList<String> linkedAccount;
+    private ArrayList<String[]> linkedAccount;
     private ArrayList<String> classChampion;
 
     private void callChampionScreen(Champion champion) throws IOException {
@@ -277,7 +277,7 @@ public class ProfileController implements Initializable {
         menuStage.show();
     }
 
-    void initData(Player searchedSummoner, Stage menuStage, Stage profileStage, Enum s, ArrayList<String> linkedAccount) {
+    void initData(Player searchedSummoner, Stage menuStage, Stage profileStage, Enum s, ArrayList<String[]> linkedAccount) {
         this.linkedAccount = linkedAccount;
         server = s;
         this.summoner = searchedSummoner;

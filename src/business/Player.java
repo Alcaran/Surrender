@@ -13,7 +13,7 @@ public class Player {
     private int summonerLevel;
     private int iconId;
     private String summonerName;
-    private ArrayList<String> linkedAccounts;
+    private ArrayList<String[]> linkedAccounts;
 
     public Player(String summonerName, Enum server) throws Exception {
         ApiHelper apiHelper = new ApiHelper();
@@ -52,9 +52,5 @@ public class Player {
 
     public int getIconId() {
         return iconId;
-    }
-
-    public ArrayList<String> getLinkedAccounts() {
-        return linkedAccounts;
     }
 }
