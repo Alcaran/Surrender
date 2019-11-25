@@ -130,6 +130,9 @@ public class RegisterController implements Initializable {
 
     public void initialize(URL url, ResourceBundle rb) {
         comboBox.getItems().setAll(Servers.values());
+        comboBox.setStyle(
+                "-fx-font: 12px \"Josefin Sans Regular\"; -fx-text-fill: WHITE; -fx-prompt-text-fill: WHITE;"
+        );
         exec = Executors.newCachedThreadPool(runnable -> {
             Thread t = new Thread(runnable);
             t.setDaemon(true);

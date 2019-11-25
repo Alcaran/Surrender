@@ -1,0 +1,8 @@
+.text-area {
+  -fx-font: 16px "Josefin Sans Regular";
+  -fx-text-fill: #D8DEE9;
+}
+
+.text-area .content {
+    -fx-background-color: #4C566A;
+}

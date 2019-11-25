@@ -69,6 +69,7 @@ public class MenuController implements Initializable {
         try {
             ArrayList<JFXButton> buttons = new ArrayList<>();
 
+
             VBox box = FXMLLoader.load(getClass().getResource("/screens/Drawer.fxml"));
             JFXButton btn = generateDrawerButton("Back", "btnBack");
 
@@ -84,6 +85,11 @@ public class MenuController implements Initializable {
             Collections.swap(workingCollection, 0, setToOneIfItIsZero(linkedAccount.size()));
             box.getChildren().setAll(workingCollection);
 
+            for (JFXButton b: buttons) {
+                b.setStyle("-fx-font: 20px \"Josefin Sans Regular\";");
+                b.setFocusTraversable(false);
+            }
+
             drwMenu.setSidePane(box);
             int i = 0;
             for (Node node : box.getChildren()) {
@@ -91,7 +97,7 @@ public class MenuController implements Initializable {
                 int finalI = i;
                 node.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
                     if (name.equals("btn"))
-                        loadSearchedProfile(linkedAccount.get(finalI), Servers.br1);
+                        loadSearchedProfile(linkedAccount.get(finalI - 1), Servers.br1);
                     else if (node.getId().equals("btnBack"))
                         drawCloseButton();
                     else if (node.getId().equals("btnLogin")) {

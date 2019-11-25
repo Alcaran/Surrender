@@ -160,7 +160,7 @@
                                                             </Label>
                                                          </children>
                                                       </VBox>
-                                                      <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="440.0" prefWidth="36.0">
+                                                      <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="440.0" prefWidth="93.0">
                                                          <children>
                                                             <Label fx:id="result" text="Defeat" textFill="#bf616a" visible="false">
                                                                <font>
@@ -255,7 +255,7 @@
                                  <children>
                                     <HBox minHeight="-Infinity" prefHeight="291.0" prefWidth="1066.0">
                                        <children>
-                                          <TextArea fx:id="infoCard" editable="false" prefHeight="251.0" prefWidth="424.0" text="Loading...&#10;">
+                                          <TextArea fx:id="infoCard" editable="false" prefHeight="251.0" prefWidth="424.0" stylesheets="@css/textarea.css" text="Loading...&#10;">
                                              <HBox.margin>
                                                 <Insets bottom="40.0" left="60.0" />
                                              </HBox.margin>
@@ -293,7 +293,7 @@
                                                 <Insets left="50.0" top="100.0" />
                                              </HBox.margin>
                                           </ImageView>
-                                          <TextArea fx:id="infoCard1" editable="false" prefHeight="251.0" prefWidth="413.0" text="Loading...">
+                                          <TextArea fx:id="infoCard1" editable="false" prefHeight="251.0" prefWidth="413.0" stylesheets="@css/textarea.css" text="Loading...">
                                              <HBox.margin>
                                                 <Insets bottom="40.0" left="40.0" right="40.0" />
                                              </HBox.margin>

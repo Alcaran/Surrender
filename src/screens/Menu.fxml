@@ -12,7 +12,7 @@
     <children>
         <BorderPane fx:id="bp" prefHeight="727.0" prefWidth="1091.0" style="-fx-background-color: #2E3440;" stylesheets="@snackbarStyles/errorSnackBar.css">
             <center>
-                <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="500.0" BorderPane.alignment="TOP_CENTER">
+                <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="585.0" BorderPane.alignment="TOP_CENTER">
                     <children>
                         <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="113.0" prefWidth="580.0" text="surrender.gg" textFill="WHITE">>
                             <font>
@@ -32,15 +32,15 @@
                               <Insets bottom="50.0" />
                            </padding>
                         </JFXSpinner>
-                                <JFXTextField fx:id="summonerSearch" focusColor="WHITE" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your name..." style="-fx-prompt-text-fill: #4C566A; -fx-text-fill: white;" unFocusColor="WHITE">
+                                <JFXTextField fx:id="summonerSearch" focusColor="WHITE" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="394.0" promptText="Enter your name..." style="-fx-prompt-text-fill: #4C566A; -fx-text-fill: white;" unFocusColor="WHITE">
                                     <font>
                                         <Font name="Josefin Sans Regular" size="18.0" />
                                     </font>
                                     <padding>
-                                        <Insets left="30.0" />
+                                        <Insets left="20.0" />
                                     </padding>
                                 </JFXTextField>
-                                <JFXComboBox fx:id="comboBox" focusColor="WHITE" focusTraversable="false" pickOnBounds="false" prefHeight="45.0" prefWidth="71.0" stylesheets="@css/combo.css" unFocusColor="#ffffff00">
+                                <JFXComboBox fx:id="comboBox" focusColor="WHITE" focusTraversable="false" pickOnBounds="false" prefHeight="45.0" prefWidth="66.0" stylesheets="@css/combo.css" unFocusColor="#ffffff00">
                                     <HBox.margin>
                                         <Insets left="5.0" />
                                     </HBox.margin>
