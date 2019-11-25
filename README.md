@@ -12,4 +12,4 @@ This is the N2 League of legends analytic software project
 Lucas Boulle 081170012
 David Conde 081170002
 Filipe Marques 0811070007
-Rodrigo Candido 081170021
+Rodrigo Candido 081170031
