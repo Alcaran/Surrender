@@ -3,7 +3,7 @@
 This is the N2 League of legends analytic software project
 
 ###Pre requisites
- - JREÇ https://www.oracle.com/technetwork/java/javase/documentation/install-windows-64--153423.html
+ - JRE https://www.oracle.com/technetwork/java/javase/documentation/install-windows-64--153423.html
 
 #### Features
 - Login for profile quick access
